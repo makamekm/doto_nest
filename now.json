@@ -2,11 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "package.json",
-            "use": "@now/static-build"
-        },
-        {
-            "src": "./src/main.ts",
+            "src": "./.next/production-server/main.js",
             "use": "@now/node-server"
         }
     ],
@@ -18,7 +14,7 @@
         "DB_URL": "@db-url"
     },
     "routes": [
-        { "src": "/.*", "dest": "/src/main.ts" }
+        { "src": "/(.*)", "dest": "/.next/production-server/main.js" }
     ],
     "github": {
         "autoJobCancelation": false

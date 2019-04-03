@@ -1,15 +1,26 @@
 {
   "compilerOptions": {
+    "lib": [
+      "es2017"
+    ],
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "esnext",
+    "pretty": true,
+    "outDir": ".next",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "skipLibCheck": true,
     "baseUrl": "./",
     "jsx": "react",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "paths": {
       "@server/*": [
         "src/*"

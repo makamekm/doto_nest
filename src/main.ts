@@ -1,8 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as Next from 'next';
+import Next from 'next';
 import { RenderModule } from 'nest-next';
-import * as path from 'path';
 
 async function bootstrap() {
   const dev = process.env.NODE_ENV !== 'production';

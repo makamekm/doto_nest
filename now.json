@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "./.next/production-server/main.js",
+            "src": "./index.js",
             "use": "@now/node-server"
         }
     ],
@@ -15,7 +15,7 @@
         "NODE_ENV": "production"
     },
     "routes": [
-        { "src": "/(.*)", "dest": "/.next/production-server/main.js" }
+        { "src": "/(.*)", "dest": "/index.js" }
     ],
     "github": {
         "autoJobCancelation": false

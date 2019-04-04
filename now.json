@@ -2,8 +2,8 @@
     "version": 2,
     "builds": [
         {
-            "src": "./.next/production-server/main.js",
-            "use": "@now/node-server"
+            "src": "./src/main.ts",
+            "use": "@now/node"
         }
     ],
     "env": {
@@ -12,10 +12,11 @@
         "GOOGLE_CLIENT_SECRET": "@google-client-secret",
         "HOST_URL": "https://doto.now.sh",
         "DB_URL": "@db-url",
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "PORT": 80
     },
     "routes": [
-        { "src": "/.*", "dest": "/.next/production-server/main.js" }
+        { "src": "/.*", "dest": "/src/main.ts" }
     ],
     "github": {
         "autoJobCancelation": false

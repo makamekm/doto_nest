@@ -27,6 +27,7 @@
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
     "@nestjs/platform-express": "^6.0.0",
+    "express": "4.16.4",
     "nest-next": "^0.6.3",
     "next": "^8.0.4",
     "react": "^16.8.6",

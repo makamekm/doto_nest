@@ -6,11 +6,8 @@ interface InitialProps {
 }
 
 export default class Index extends React.Component<InitialProps> {
-    public static getInitialProps({ query }: InitialProps) {
-        return { query };
-    }
-
     public render() {
+        console.log(this.props);
         return <div>
             <div>
                 Click
@@ -20,7 +17,6 @@ export default class Index extends React.Component<InitialProps> {
                 to read more
             </div>
             TEST
-            {this.props.query}
         </div>;
     }
 }

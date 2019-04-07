@@ -1,23 +1,25 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import express from 'express';
-import Next from 'next';
-import { RenderModule } from 'nest-next';
+import * as express from 'express';
 import { ErrorFilter } from './errors.filter';
 
+const expressApp = express();
+
+expressApp.use('/api/*', async (req, res, next) => {
+  await promise;
+  next();
+});
+
+const promise = bootstrap();
+
 async function bootstrap() {
-  const dev = process.env.NODE_ENV !== 'production';
-  const app = Next({ dev });
-  await app.prepare();
-  const expressApp = express();
   const adapter = new ExpressAdapter(expressApp);
   const server = await NestFactory.create(AppModule, adapter);
+  server.setGlobalPrefix('api');
   await server.enableCors();
   await server.init();
-  const renderer = server.get(RenderModule);
-  renderer.register(server, app);
   server.useGlobalFilters(new ErrorFilter());
-  expressApp.listen(process.env.PORT || 3000);
 }
-bootstrap();
+
+export default expressApp;

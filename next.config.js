@@ -1,3 +1,3 @@
-module.exports = require('@zeit/next-typescript')({
-    useFileSystemPublicRoutes: false,
+module.exports = require("@zeit/next-typescript")({
+    target: "serverless",
 });

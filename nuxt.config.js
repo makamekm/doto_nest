@@ -38,6 +38,6 @@ module.exports = {
   },
   serverMiddleware: [
     // API middleware
-    "~/api/main.ts",
+    { path: "/api", handler: "~/api/main.ts"},
   ],
 };

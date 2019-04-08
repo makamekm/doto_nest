@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt build && nuxt start",
+    "start": "run-s build start:nuxt",
+    "start:nuxt": "NODE_ENV=production nuxt start",
     "start:prod": "NODE_ENV=production ts-node index.ts",
     "now-build": "nuxt build --spa",
     "lint": "tslint -p tsconfig.json -c tslint.json",

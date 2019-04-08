@@ -7,11 +7,10 @@ interface InitialProps {
 
 export default class Index extends React.Component<InitialProps> {
     public render() {
-        console.log(this.props);
         return <div>
             <div>
                 Click
-                <Link href='/ping'>
+                <Link href='/api/ping'>
                     <a>here</a>
                 </Link>
                 to read more

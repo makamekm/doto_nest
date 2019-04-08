@@ -12,7 +12,7 @@
     "build:mt": "tsc --project tsconfig.build.json",
     "format": "prettier --write \"mt/**/*.ts\" \"pages/**/*.ts\"",
     "start": "ts-node mt/main.ts",
-    "start:dev": "ts-node-dev --respawn --transpileOnly --ignore-watch \"pages\" --ignore-watch \"components\" --ignore-watch \"lib\" --ignore-watch \".next\" dev.ts",
+    "start:dev": "ts-node-dev --respawn --transpileOnly --ignore-watch \"pages\" --ignore-watch \"ui\" --ignore-watch \".next\" dev.ts",
     "start:prod": "NODE_ENV=production node ./.mt/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",

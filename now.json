@@ -19,7 +19,7 @@
         "NODE_ENV": "production"
     },
     "routes": [
-        { "src": "/api/(.*)", "dest": "/api/main.ts" }
+        { "src": "/api(/.*)", "dest": "/api/main.ts" }
     ],
     "github": {
         "autoJobCancelation": false

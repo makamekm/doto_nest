@@ -5,18 +5,11 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "n:dev": "nuxt",
-    "n:build": "nuxt build",
-    "n:start": "nuxt build && nuxt start",
-    "nnow-build": "run-s build",
-    "build": "run-s build:clean build:ui build:mt",
-    "build:clean": "rm -rf .next .mt",
-    "build:ui": "next build",
-    "build:mt": "tsc --project tsconfig.build.json",
-    "format": "prettier --write \"mt/**/*.ts\" \"pages/**/*.ts\"",
-    "start": "ts-node mt/main.ts",
-    "start:dev": "ts-node-dev --respawn --transpileOnly --ignore-watch \"pages\" --ignore-watch \"ui\" --ignore-watch \".next\" dev.ts",
-    "start:prod": "NODE_ENV=production node ./.mt/main.js",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt build && nuxt start",
+    "start:prod": "NODE_ENV=production ts-node index.ts",
+    "now-build": "nuxt build --spa",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -33,7 +26,8 @@
     "rxjs": "^6.3.3",
     "nuxt": "2.6.1",
     "axios": "0.18.0",
-    "@nuxt/typescript": "2.6.1"
+    "@nuxt/typescript": "2.6.1",
+    "reflect-metadata": "0.1.13"
   },
   "devDependencies": {
     "@nestjs/testing": "^6.0.0",

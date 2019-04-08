@@ -6,6 +6,8 @@ import { ErrorFilter } from './errors.filter';
 
 const expressApp = express();
 
+expressApp.use(express.static('dist'));
+
 expressApp.all('/api/*', async (req, res, next) => {
   await promise;
   next();

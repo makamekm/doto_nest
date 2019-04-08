@@ -38,6 +38,6 @@ module.exports = {
   },
   serverMiddleware: [
     // API middleware
-    "~/mt/main.ts",
+    "~/api/main.ts",
   ],
 };

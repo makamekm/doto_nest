@@ -66,4 +66,5 @@ coverage/
 .fusebox
 .build
 .gcloud
-.next
+.api
+.nuxt

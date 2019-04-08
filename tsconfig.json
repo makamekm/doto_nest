@@ -17,8 +17,8 @@
     "skipLibCheck": true,
     "noLib": false,
     "declaration": false,
-    "baseUrl": "./mt",
-    "outDir": "./.mt",
+    "baseUrl": "./api",
+    "outDir": "./.api",
     "types": ["node", "jest"],
     "sourceMap": false,
     "inlineSourceMap": true,
@@ -33,6 +33,6 @@
   "exclude": [
     "node_modules",
     ".next",
-    ".mt"
+    ".api"
   ]
 }

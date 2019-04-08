@@ -2,11 +2,11 @@
     "version": 2,
     "builds": [
         {
-            "src": "next.config.js",
-            "use": "@now/next"
+            "src": "package.json",
+            "use": "@now/static-build"
         },
         {
-            "src": "./mt/main.ts",
+            "src": "./api/main.ts",
             "use": "@now/node"
         }
     ],
@@ -19,7 +19,7 @@
         "NODE_ENV": "production"
     },
     "routes": [
-        { "src": "/api/(.*)", "dest": "/mt/main.ts" }
+        { "src": "/api/(.*)", "dest": "/api/main.ts" }
     ],
     "github": {
         "autoJobCancelation": false

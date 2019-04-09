@@ -1,49 +1,16 @@
-{{{{raw}}}}
 <template>
-  <section class="container">
-    <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
-    <h1 class="title">
-      USERS
-    </h1>
-    <ul class="users">
-      <li v-for="(user, index) in users" :key="index" class="user">
-        <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          {{ user.name }}
-        </nuxt-link>
-      </li>
-    </ul>
-  </section>
+  <div>
+    Hello World!
+  </div>
 </template>
-{{{{/raw}}}}
 
-<script>
-// import axios from '~/plugins/axios'
-export default {
-  async asyncData () {
-    // let { data } = await axios.get('/api/users')
-    return { users: [] }
-  },
-  head () {
-    return {
-      title: 'Users'
-    }
-  }
+<script lang="ts">
+import axios from 'axios'
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import Todo from '~/models/Todo';
+
+@Component({})
+export default class extends Vue {
+  // @Prop({ type: [Object], required: true }) todos!: Todo[]
 }
 </script>
-
-<style scoped>
-.title
-{
-  margin: 30px 0;
-}
-.users
-{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.user
-{
-  margin: 10px 0;
-}
-</style>

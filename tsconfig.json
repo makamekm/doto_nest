@@ -7,26 +7,35 @@
       "esnext.asynciterable"
     ],
     "importHelpers": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
     "typeRoots": [
       "node_modules/@types"
     ],
     "stripInternal": true,
     "skipLibCheck": true,
     "noLib": false,
-    "declaration": false,
-    "baseUrl": "./api",
-    "outDir": "./.api",
-    "types": ["node", "jest"],
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "types": [
+      "@nuxt/vue-app",
+      "@types/node",
+      "@types/webpack-env",
+      "node",
+      "jest"
+    ],
     "sourceMap": false,
     "inlineSourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "paths": {
+      "~/*": ["./*"]
+    },
+    "strict": true
   },
   "compileOnSave": false,
   "suppressImplicitAnyIndexErrors": true,

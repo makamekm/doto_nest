@@ -1,5 +1,13 @@
 <template>
-  <footer>
-    Visit our website for more documentation : <a href="https://nuxtjs.org" target="_blank">nuxtjs.org</a>
-  </footer>
+  <div class="footer">
+    Dundeeops@2019
+  </div>
 </template>
+
+<style scoped>
+.footer
+{
+  text-align: center;
+  padding: 15px;
+}
+</style>

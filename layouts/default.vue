@@ -1,48 +1,32 @@
 <template>
-  <div>
-    <nuxt/>
-    <my-footer/>
+  <div class="container">
+    <div class="content">
+      <nuxt/>
+    </div>
+    <div>
+      <default-footer/>
+    </div>
   </div>
 </template>
 
 <script>
-import MyFooter from '~/components/footer.vue'
+import DefaultFooter from '~/components/footer.vue'
 export default {
   components: {
-    MyFooter
+    DefaultFooter
   }
 }
 </script>
 
-<style>
+<style scoped>
 .container
 {
-  margin: 0;
-  width: 100%;
-  padding: 100px 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.button, .button:visited
-{
-  display: inline-block;
-  color: black;
-  letter-spacing: 1px;
-  background-color: #fff;
-  border: 2px solid #000;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 15px 45px;
-}
-.button:hover, .button:focus
-{
-  color: #fff;
-  background-color: #000;
-}
-.title
-{
-  color: #000;
-  font-weight: 300;
-  font-size: 2.5em;
-  margin: 0;
+
+.content {
+  flex: 1;
 }
 </style>

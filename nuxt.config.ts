@@ -12,11 +12,14 @@ const config: NuxtConfiguration = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
+  plugins: [
+    '~/plugins/buefy',
+  ],
   css: ['~/assets/css/main.css'],
   modules: [
     '@nuxtjs/axios',
   ],
-  loading: { color: "#3B8070" },
+  loading: { color: '#3B8070' },
   axios: {},
   build: {
     // vendor: ['axios'],

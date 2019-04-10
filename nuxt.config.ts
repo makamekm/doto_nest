@@ -22,6 +22,9 @@ const config: NuxtConfiguration = {
   ],
   loading: { color: '#3B8070' },
   axios: {},
+  configureWebpack: {
+    devtool: 'source-map',
+  },
   build: {
     // vendor: ['axios'],
     /*

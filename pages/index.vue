@@ -104,13 +104,19 @@
         </div>
       </div>
     </form>
+    <ul>
+      <li v-for="todo in todos">
+        <input type="checkbox" :checked="todo.isDone" @change="toggle(todo)">
+        <span :class="{ done: todo.isDone }">{{ todo.text }}</span>
+      </li>
+      <li><input placeholder="What needs to be done?" @keyup.enter="addTodo"></li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
 import axios from "axios";
 import { Component, Vue, Prop } from "vue-property-decorator";
-import Todo from "~/models/Todo";
 
 @Component({
   data: () => ({
@@ -118,7 +124,20 @@ import Todo from "~/models/Todo";
     isOpen: false,
   }),
   components: {},
+  computed: {
+    todos () {
+      return this.$store.state.todos.list;
+    }
+  },
   methods: {
+    addTodo() {
+      const self: any = this;
+      // console.log(self.$store.state.todos);
+      self.$store.commit('todos/add', {
+        text: "test",
+        isDone: false,
+      });
+    },
     validateBeforeSubmit() {
       const self: any = this;
       self.$validator.validateAll().then(result => {

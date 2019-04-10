@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <nuxt/>
+  <div class="lc-container">
+    <div>
+      <div class="container">
+        <nuxt/>
+      </div>
     </div>
     <div>
       <default-footer/>
@@ -19,14 +21,14 @@ export default {
 </script>
 
 <style scoped>
-.container
+.lc-container
 {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.content {
+.lc-container *:first-child {
   flex: 1;
 }
 </style>

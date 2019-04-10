@@ -1,11 +1,11 @@
 <template>
-  <div class="footer">
+  <div class="lc-footer">
     Dundeeops@2019
   </div>
 </template>
 
 <style scoped>
-.footer
+.lc-footer
 {
   text-align: center;
   padding: 15px;

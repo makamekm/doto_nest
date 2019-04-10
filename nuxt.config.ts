@@ -13,6 +13,7 @@ const config: NuxtConfiguration = {
     ],
   },
   plugins: [
+    '~/plugins/vee-validate',
     '~/plugins/buefy',
   ],
   css: ['~/assets/css/main.css'],

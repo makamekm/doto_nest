@@ -105,7 +105,7 @@
       </div>
     </form>
     <ul>
-      <li v-for="todo in todos">
+      <li v-for="todo in todos" v-bind:key="todo.id">
         <input type="checkbox" :checked="todo.isDone" @change="toggle(todo)">
         <span :class="{ done: todo.isDone }">{{ todo.text }}</span>
       </li>
@@ -134,6 +134,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
       const self: any = this;
       // console.log(self.$store.state.todos);
       self.$store.commit('todos/add', {
+        id: Math.random(),
         text: "test",
         isDone: false,
       });

@@ -1,9 +1,14 @@
 <template>
   <div>
     <div class="notification">
-      <b-field label="Name" :type="{'is-danger': errors.has('email')}"
-:message="errors.first('email')">
-        <b-input v-model="value" v-validate="'required|email'" name="email"></b-input>
+      <b-field
+        label="Name"
+        :type="{'is-danger': errors.has('email')}"
+        :message="errors.first('email')">
+        <b-input
+          v-model="value"
+          v-validate="'required|email'"
+          name="email"/>
       </b-field>
     </div>
   </div>

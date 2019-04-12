@@ -13,12 +13,12 @@
                 :type="{'is-danger': errors.has('email')}"
                 :message="errors.first('email')"
               >
-                <b-input v-model="value" v-validate="'required|email'" name="email"/>
+                <b-input v-model="value" v-validate="'required|email'" name="email" data-vv-validate-on="none" @input="errors.remove('email')"/>
               </b-field>
             </div>
             <div class="column">
               <b-field label="Required">
-                <b-select placeholder="Select a character" required expanded>
+                <b-select placeholder="Select a character" expanded>
                   <option value="flint">Flint</option>
                   <option value="silver">Silver</option>
                 </b-select>
@@ -26,19 +26,10 @@
             </div>
             <div class="column">
               <b-field label="Required">
-                <b-select placeholder="Select a character" required expanded>
+                <b-select placeholder="Select a character" expanded>
                   <option value="flint">Flint</option>
                   <option value="silver">Silver</option>
                 </b-select>
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field
-                label="FAID"
-                :type="{'is-danger': errors.has('email')}"
-                :message="errors.first('email')"
-              >
-                <b-input v-model="value" v-validate="'required|email'" name="email"/>
               </b-field>
             </div>
           </div>
@@ -59,12 +50,12 @@
                 :type="{'is-danger': errors.has('email')}"
                 :message="errors.first('email')"
               >
-                <b-input v-model="value" v-validate="'required|email'" name="email"/>
+                <b-input v-model="value" v-validate="'required|email'"/>
               </b-field>
             </div>
             <div class="column">
               <b-field label="Required">
-                <b-select placeholder="Select a character" required expanded>
+                <b-select placeholder="Select a character" expanded>
                   <option value="flint">Flint</option>
                   <option value="silver">Silver</option>
                 </b-select>
@@ -72,7 +63,7 @@
             </div>
             <div class="column">
               <b-field label="Required">
-                <b-select placeholder="Select a character" required expanded>
+                <b-select placeholder="Select a character" expanded>
                   <option value="flint">Flint</option>
                   <option value="silver">Silver</option>
                 </b-select>
@@ -84,7 +75,7 @@
                 :type="{'is-danger': errors.has('email')}"
                 :message="errors.first('email')"
               >
-                <b-input v-model="value" v-validate="'required|email'" name="email"/>
+                <b-input v-model="value" v-validate="'required|email'"/>
               </b-field>
             </div>
           </div>
@@ -95,6 +86,7 @@
         <div class="level-left">
           <p class="level-item">
             <button type="reset" class="button">Clear</button>
+            <button type="reset" class="button" @click="test()">Test</button>
           </p>
         </div>
         <div class="level-right">
@@ -109,48 +101,53 @@
         <input type="checkbox" :checked="todo.isDone" @change="toggle(todo)">
         <span :class="{ done: todo.isDone }">{{ todo.text }}</span>
       </li>
-      <li><input placeholder="What needs to be done?" @keyup.enter="addTodo"></li>
+      <li><input placeholder="What needs to be done?" ref="addTodoInput" @keyup.enter="
+        addTodo($refs.addTodoInput.value);
+        $refs.addTodoInput.value = '';
+      "></li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
 import axios from "axios";
-import { Component, Vue, Prop } from "vue-property-decorator";
+import "buefy";
+import { Component, Vue, Prop, Inject } from "vue-property-decorator";
+import { namespace } from 'vuex-class';
+import { Validator } from "vee-validate";
+
+const Todos = namespace("todos");
 
 @Component({
   data: () => ({
     value: "",
     isOpen: false,
   }),
-  components: {},
-  computed: {
-    todos () {
-      return this.$store.state.todos.list;
-    }
-  },
+  // components: {},
+  // computed: {
+  //   todos () {
+  //     return this.list;
+  //   }
+  // },
   methods: {
-    addTodo() {
-      const self: any = this;
-      // console.log(self.$store.state.todos);
-      self.$store.commit('todos/add', {
+    addTodoManual() {
+      this.$store.commit('todos/add', {
         id: Math.random(),
         text: "test",
         isDone: false,
       });
     },
     validateBeforeSubmit() {
-      const self: any = this;
-      self.$validator.validateAll().then(result => {
+      this.$validator.validateAll().then(result => {
         if (result) {
-          self.$toast.open({
+          this.$toast.open({
             message: "Form is valid!",
             type: "is-success",
             position: "is-bottom"
           });
           return;
         }
-        self.$toast.open({
+        this.$toast.open({
           message: "Form is not valid! Please check the fields.",
           type: "is-danger",
           position: "is-bottom"
@@ -161,6 +158,19 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 })
 export default class extends Vue {
   // @Prop({ type: [Object], required: true }) todos!: Todo[]
+  @Todos.State("list") todos;
+  @Todos.Action("add") addTodo;
+  // @Inject('$toast') public $toast;
+  // @Inject('$validator') public $validator!: Validator;
+
+  test() {
+    console.log(this.$validator);
+    this.$toast.open({
+      message: "Form is not valid! Please check the fields.",
+      type: "is-danger",
+      position: "is-bottom"
+    });
+  }
 }
 </script>
 

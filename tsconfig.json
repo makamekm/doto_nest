@@ -24,8 +24,7 @@
       "node",
       "jest"
     ],
-    "sourceMap": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowJs": true,

@@ -8,8 +8,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "run-s build start:nuxt",
-    "start:nuxt": "NODE_ENV=production nuxt start",
-    "start:prod": "NODE_ENV=production ts-node index.ts",
+    "start:nuxt": "nuxt start --hostname 0.0.0.0",
+    "start:prod": "ts-node index.ts",
     "now-build": "nuxt build --spa",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
@@ -48,7 +48,9 @@
     "ts-node": "^8.0.3",
     "ts-node-dev": "1.0.0-pre.32",
     "tslint": "5.15.0",
-    "typescript": "^3.4.2"
+    "typescript": "^3.4.2",
+    "node-sass": "4.11.0",
+    "sass-loader": "7.1.0"
   },
   "jest": {
     "moduleFileExtensions": [

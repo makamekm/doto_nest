@@ -1,0 +1,49 @@
+@import "~bulma/sass/utilities/_all";
+
+$primary: #4099FF;
+$primary-invert: findColorInvert($primary);
+$twitter: #8c67ef;
+$twitter-invert: findColorInvert($twitter);
+$size-1: 2.25rem;
+$size-2: 2rem;
+$size-3: 1.75rem;
+$size-4: 1.5rem;
+$size-5: 1.25rem;
+$size-6: 0.75rem;
+$size-7: 0.5rem;
+$gap: 64px;
+$text: #444;
+$body-color: #444;
+$panel: #f0f0f0;
+$body-family: Arial, Helvetica, sans-serif;
+// $family-sans-serif: Arial, Helvetica, sans-serif;
+// $family-monospace: Arial, Helvetica, sans-serif;
+$body-background-color: #ebebeb;
+$radius-small: 0px;
+$radius: 0px;
+$radius-large: 0px;
+$control-radius-small: 0px;
+$control-radius: 0px;
+$control-radius-large: 0px;
+$radius-rounded: 290486px;
+$body-size: 13px;
+
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($warning, $warning-invert),
+    "danger": ($danger, $danger-invert),
+    "twitter": ($twitter, $twitter-invert)
+);
+
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+@import "~bulma";
+@import "~buefy/src/scss/buefy";

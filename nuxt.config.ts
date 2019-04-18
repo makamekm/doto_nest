@@ -16,7 +16,10 @@ const config: NuxtConfiguration = {
     '~/plugins/vee-validate',
     '~/plugins/buefy',
   ],
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/scss/default.theme.scss',
+    '~/assets/css/main.css',
+  ],
   modules: [
     '@nuxtjs/axios',
   ],

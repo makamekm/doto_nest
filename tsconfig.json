@@ -22,7 +22,8 @@
       "@types/node",
       "@types/webpack-env",
       "node",
-      "jest"
+      "jest",
+      "./"
     ],
     "sourceMap": true,
     "emitDecoratorMetadata": true,

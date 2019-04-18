@@ -14,4 +14,18 @@ export class AppController {
   public ping(): string {
     return this.appService.root();
   }
+
+  @Get('test')
+  public test(): any[] {
+    return [
+      {
+        id: 0,
+        name: 'maximss',
+      },
+      {
+        id: 1,
+        name: 'karpov',
+      },
+    ];
+  }
 }

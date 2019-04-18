@@ -48,6 +48,7 @@ const config: NuxtConfiguration = {
     //     });
     //   }
     // },
+    watch: ['api/**/*'],
   },
   serverMiddleware: [
     { path: '/api', handler: '~/api/main.ts'},

@@ -91,7 +91,7 @@
         <div class="level-right">
           <p class="level-item">
             <button type="reset" class="button gl-form-btn">Clear</button>
-            <button type="submit" class="button is-primary gl-ctrl-margin-left gl-form-btn">Submit</button>
+            <button type="submit" class="button is-primary gl-ctrl-margin-left gl-form-btn">Submit {{ testData.length }}</button>
           </p>
         </div>
       </div>
@@ -100,13 +100,11 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
-import "buefy";
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from 'vuex-class';
 import { Validator } from "vee-validate";
 
-const Todos = namespace("todos");
+const Test = namespace("test");
 
 @Component({
   data: () => ({
@@ -131,11 +129,11 @@ const Todos = namespace("todos");
         });
       });
     }
-  }
+  },
+  fetch: async (props) => props.store.dispatch('test/load'),
 })
 export default class extends Vue {
-  // @Inject('$toast') public $toast;
-  // @Inject('$validator') public $validator!: Validator;
+  @Test.State("list") testData;
 
   test() {
     console.log(this.$validator);

@@ -1,11 +1,11 @@
 <template>
-  <div class="lc-page">
+  <div class="gl-layout-margin">
     <form @submit.prevent="validateBeforeSubmit">
       <div class="card">
         <header class="card-header">
-          <p class="card-header-title">Component</p>
+          <div class="card-header-title">Component</div>
         </header>
-        <div class="card-content lc-subform">
+        <div class="card-content gl-form-container">
           <div class="columns">
             <div class="column">
               <b-field
@@ -36,13 +36,13 @@
         </div>
       </div>
       
-      <div class="card lc-margin-top">
+      <div class="card gl-form-margin-top">
         <header class="card-header">
           <p class="card-header-title">
             <b-checkbox v-model="isOpen">Collapsable</b-checkbox>
           </p>
         </header>
-        <div class="card-content lc-subform" v-show="isOpen">
+        <div class="card-content gl-form-container" v-show="isOpen">
           <div class="columns">
             <div class="column">
               <b-field
@@ -82,30 +82,20 @@
         </div>
       </div>
 
-      <div class="level is-mobile lc-margin-top">
+      <div class="level is-mobile gl-form-margin-top">
         <div class="level-left">
           <p class="level-item">
-            <button type="reset" class="button">Clear</button>
-            <button type="reset" class="button" @click="test()">Test</button>
+            <button type="reset" class="button gl-form-btn" @click="test()">Test</button>
           </p>
         </div>
         <div class="level-right">
           <p class="level-item">
-            <button type="submit" class="button is-primary">Submit</button>
+            <button type="reset" class="button gl-form-btn">Clear</button>
+            <button type="submit" class="button is-primary gl-ctrl-margin-left gl-form-btn">Submit</button>
           </p>
         </div>
       </div>
     </form>
-    <ul>
-      <li v-for="todo in todos" v-bind:key="todo.id">
-        <input type="checkbox" :checked="todo.isDone" @change="toggle(todo)">
-        <span :class="{ done: todo.isDone }">{{ todo.text }}</span>
-      </li>
-      <li><input placeholder="What needs to be done?" ref="addTodoInput" @keyup.enter="
-        addTodo($refs.addTodoInput.value);
-        $refs.addTodoInput.value = '';
-      "></li>
-    </ul>
   </div>
 </template>
 
@@ -123,20 +113,7 @@ const Todos = namespace("todos");
     value: "",
     isOpen: false,
   }),
-  // components: {},
-  // computed: {
-  //   todos () {
-  //     return this.list;
-  //   }
-  // },
   methods: {
-    addTodoManual() {
-      this.$store.commit('todos/add', {
-        id: Math.random(),
-        text: "test",
-        isDone: false,
-      });
-    },
     validateBeforeSubmit() {
       this.$validator.validateAll().then(result => {
         if (result) {
@@ -157,9 +134,6 @@ const Todos = namespace("todos");
   }
 })
 export default class extends Vue {
-  // @Prop({ type: [Object], required: true }) todos!: Todo[]
-  @Todos.State("list") todos;
-  @Todos.Action("add") addTodo;
   // @Inject('$toast') public $toast;
   // @Inject('$validator') public $validator!: Validator;
 
@@ -173,19 +147,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style scoped>
-.lc-margin-top {
-  margin-top: 15px;
-}
-
-.lc-subform {
-  padding: 15px;
-}
-
-.lc-page {
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-</style>

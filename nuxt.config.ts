@@ -17,11 +17,16 @@ const config: NuxtConfiguration = {
     '~/plugins/buefy',
   ],
   css: [
-    '~/assets/scss/default.theme.scss',
-    '~/assets/css/main.css',
+    '~/assets/scss/main.scss',
   ],
+  styleResources: {
+    scss: [
+      '~/assets/scss/variables.scss',
+    ],
+  },
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
   loading: { color: '#3B8070' },
   axios: {},

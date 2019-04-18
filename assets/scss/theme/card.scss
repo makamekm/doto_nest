@@ -1,0 +1,8 @@
+.card > .card-header {
+  box-shadow: 0 1px 0px rgba(10, 10, 10, 0.2);
+  background-color: $card-header;
+
+  > .card-header-title {
+    padding: $column-gap * 2;
+  }
+}

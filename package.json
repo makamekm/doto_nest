@@ -9,7 +9,7 @@
     "dev": "nuxt",
     "now-build": "run-s lint test build",
     "start": "run-s start:expr",
-    "start:expr": "ts-node-dev --respawn --transpileOnly index.ts",
+    "start:expr": "ts-node-dev --respawn --transpileOnly -p tsconfig.express.json index.ts",
     "start:build:nuxt": "run-s build start:nuxt",
     "build": "nuxt build --spa",
     "start:nuxt": "nuxt start --hostname 0.0.0.0",
@@ -81,8 +81,7 @@
     "collectCoverage": true,
     "coverageDirectory": "./coverage",
     "collectCoverageFrom": [
-      "<rootDir>/components/**/*.vue",
-      "<rootDir>/pages/*.vue",
+      "<rootDir>/**/*.vue",
       "<rootDir>/**/*.ts"
     ],
     "testEnvironment": "jsdom",

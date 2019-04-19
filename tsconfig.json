@@ -7,7 +7,7 @@
       "esnext.asynciterable"
     ],
     "importHelpers": true,
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "typeRoots": [
       "node_modules/@types"
@@ -22,8 +22,7 @@
       "@types/node",
       "@types/webpack-env",
       "node",
-      "jest",
-      "./"
+      "jest"
     ],
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -42,6 +41,6 @@
   "exclude": [
     "node_modules",
     ".next",
-    ".api"
+    "dist"
   ]
 }

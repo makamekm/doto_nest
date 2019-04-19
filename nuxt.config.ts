@@ -59,11 +59,11 @@ const config: NuxtConfiguration = {
     //     });
     //   }
     // },
-    // watch: ['api/**/*'],
+    watch: process.env.IS_EXPRESS ? [] : ['api/**/*'],
   },
-  // serverMiddleware: [
-  //   { path: '/api', handler: '~/api/main.ts'},
-  // ],
+  serverMiddleware: process.env.IS_EXPRESS ? [] : [
+    { path: '/api', handler: '~/api/main.ts'},
+  ],
 };
 
 export default config;

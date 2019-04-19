@@ -16,13 +16,21 @@
     "no-angle-bracket-type-assertion": false,
     "object-literal-sort-keys": false,
     "variable-name": [
-        true,
-        "ban-keywords",
-        "check-format",
-        "allow-leading-underscore",
-        "allow-pascal-case",
-        "allow-snake-case"
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case",
+      "allow-snake-case"
     ]
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "**/node_modules/**",
+      "**/coverage/**",
+      "**/.*/**",
+      "**/dist/**"
+    ]
+  }
 }

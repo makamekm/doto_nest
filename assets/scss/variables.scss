@@ -15,7 +15,7 @@ $gap: 64px;
 $text: #444;
 $body-color: #444;
 $card-header: #f0f0f0;
-$body-family: Arial, Helvetica, sans-serif;
+$body-family: FS Me Web, Arial, Helvetica, sans-serif;
 // $family-sans-serif: Arial, Helvetica, sans-serif;
 // $family-monospace: Arial, Helvetica, sans-serif;
 $body-background-color: #ebebeb;
@@ -23,14 +23,15 @@ $radius-small: 0px;
 $radius: 0px;
 $radius-large: 0px;
 $control-radius-small: 0px;
-$control-radius: 2px;
-$control-radius-large: 0px;
+$control-radius: 3px;
+$control-radius-large: 3px;
 // $radius-rounded: 290486px;
 $radius-rounded: 4px;
 $body-size: 13px;
 $label-weight: 400;
 $size-normal: inherit;
 $column-gap: 0.35rem;
+$input-border-color: #939698;
 
 $colors: (
   "white": ($white, $black),

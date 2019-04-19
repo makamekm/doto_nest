@@ -20,7 +20,7 @@ export class AppController {
     return [
       {
         id: 0,
-        name: 'maximss',
+        name: 'maxim',
       },
       {
         id: 1,

@@ -1,12 +1,14 @@
-import { Nuxt, Builder } from '@nuxt/server';
-import app from './api/main';
+process.env.IS_CLOUD = 'true';
+
+import { Nuxt, Builder } from 'nuxt';
 import config from './nuxt.config';
+import app from './api/main';
 
 config.dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const nuxt = new Nuxt(config);
 
-app.use(nuxt.render);
+app.use(/^\/(?!api).*/, nuxt.render);
 
 if (config.dev) {
   new Builder(nuxt)

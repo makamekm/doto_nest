@@ -13,8 +13,6 @@ const store: StoreOptions<TestsState> = {
   state: () => ({ list: [] }),
   actions: {
     async load({ commit }) {
-      console.log(this.$axios);
-      
       const { data } = await this.$axios.get(`/test`);
       commit('setData', data);
     },

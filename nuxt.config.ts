@@ -57,11 +57,11 @@ const config: NuxtConfiguration = {
     //     });
     //   }
     // },
-    watch: ['api/**/*'],
+    // watch: ['api/**/*'],
   },
-  serverMiddleware: [
-    { path: '/api', handler: '~/api/main.ts'},
-  ],
+  // serverMiddleware: [
+  //   { path: '/api', handler: '~/api/main.ts'},
+  // ],
 };
 
 export default config;

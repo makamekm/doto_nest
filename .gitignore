@@ -66,6 +66,9 @@ coverage/
 .gcloud
 .api
 .nuxt
+.project
+.classpath
+.settings
 
 target
 public

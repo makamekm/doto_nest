@@ -1,5 +1,3 @@
-process.env.IS_CLOUD = 'true';
-
 import { Nuxt, Builder } from 'nuxt';
 import config from './nuxt.config';
 import app from './api/main';

@@ -5,6 +5,8 @@ delete process.env.HTTP_PROXY;
 delete process.env.https_proxy;
 delete process.env.HTTPS_PROXY;
 
+process.env.IS_NUXT = 'true';
+
 const config: NuxtConfiguration = {
   head: {
     title: 'DoTo [Dundeeops]',

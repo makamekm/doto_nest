@@ -18,7 +18,7 @@ const promise = bootstrap();
 async function bootstrap() {
   const adapter = new ExpressAdapter(expressApp);
   const server = await NestFactory.create(AppModule, adapter);
-  if (process.env.IS_CLOUD) {
+  if (!process.env.IS_NUXT) {
     server.setGlobalPrefix('api');
   }
   await server.enableCors();

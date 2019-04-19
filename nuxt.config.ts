@@ -1,5 +1,10 @@
 import NuxtConfiguration from '@nuxt/config';
 
+delete process.env.http_proxy;
+delete process.env.HTTP_PROXY;
+delete process.env.https_proxy;
+delete process.env.HTTPS_PROXY;
+
 const config: NuxtConfiguration = {
   head: {
     title: 'DoTo [Dundeeops]',
@@ -25,7 +30,11 @@ const config: NuxtConfiguration = {
     ],
   },
   modules: [
-    '@nuxtjs/axios',
+    ['@nuxtjs/axios', {
+      credentials: false,
+      proxyHeaders: false,
+      baseURL: process.env.API_URL || 'http://localhost:3000/api',
+    }],
     '@nuxtjs/style-resources',
   ],
   loading: { color: '#3B8070' },

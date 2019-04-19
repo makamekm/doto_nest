@@ -13,7 +13,9 @@ const store: StoreOptions<TestsState> = {
   state: () => ({ list: [] }),
   actions: {
     async load({ commit }) {
-      const { data } = await this.$axios.get(`http://10.24.71.16:3000/api/test`);
+      console.log(this.$axios);
+      
+      const { data } = await this.$axios.get(`/test`);
       commit('setData', data);
     },
   },

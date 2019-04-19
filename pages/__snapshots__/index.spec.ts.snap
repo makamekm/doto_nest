@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page index should renders properly 1`] = `
+<div class="gl-layout-margin">
+  <form>
+    <div class="card">
+      <header class="card-header">
+        <div class="card-header-title">Component</div>
+      </header>
+      <div class="card-content gl-form-container">
+        <div class="columns">
+          <div class="column">
+            <b-field-stub type="[object Object]" label="FAID" addons="true">
+              <b-input-stub usehtml5validation="true" value="" type="text" hascounter="true" customclass="" name="email" data-vv-validate-on="none"></b-input-stub>
+            </b-field-stub>
+          </div>
+          <div class="column">
+            <b-field-stub label="Required" addons="true">
+              <b-select-stub expanded="true" usehtml5validation="true" placeholder="Select a character">
+                <option value="flint">Flint</option>
+                <option value="silver">Silver</option>
+              </b-select-stub>
+            </b-field-stub>
+          </div>
+          <div class="column">
+            <b-field-stub label="Required" addons="true">
+              <b-select-stub expanded="true" usehtml5validation="true" placeholder="Select a character">
+                <option value="flint">Flint</option>
+                <option value="silver">Silver</option>
+              </b-select-stub>
+            </b-field-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card gl-form-margin-top">
+      <header class="card-header">
+        <p class="card-header-title">
+          <b-checkbox-stub truevalue="true">Collapsable</b-checkbox-stub>
+        </p>
+      </header>
+      <div class="card-content gl-form-container" style="display: none;">
+        <div class="columns">
+          <div class="column">
+            <b-field-stub type="[object Object]" label="FAID" addons="true">
+              <b-input-stub usehtml5validation="true" value="" type="text" hascounter="true" customclass=""></b-input-stub>
+            </b-field-stub>
+          </div>
+          <div class="column">
+            <b-field-stub label="Required" addons="true">
+              <b-select-stub expanded="true" usehtml5validation="true" placeholder="Select a character">
+                <option value="flint">Flint</option>
+                <option value="silver">Silver</option>
+              </b-select-stub>
+            </b-field-stub>
+          </div>
+          <div class="column">
+            <b-field-stub label="Required" addons="true">
+              <b-select-stub expanded="true" usehtml5validation="true" placeholder="Select a character">
+                <option value="flint">Flint</option>
+                <option value="silver">Silver</option>
+              </b-select-stub>
+            </b-field-stub>
+          </div>
+          <div class="column">
+            <b-field-stub type="[object Object]" label="FAID" addons="true">
+              <b-input-stub usehtml5validation="true" value="" type="text" hascounter="true" customclass=""></b-input-stub>
+            </b-field-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="level is-mobile gl-form-margin-top">
+      <div class="level-left">
+        <p class="level-item"><button type="reset" class="button gl-form-btn">Test</button></p>
+      </div>
+      <div class="level-right">
+        <p class="level-item"><button type="reset" class="button gl-form-btn">Clear</button> <button type="submit" class="button is-primary gl-ctrl-margin-left gl-form-btn">Submit 0</button></p>
+      </div>
+    </div>
+  </form>
+</div>
+`;

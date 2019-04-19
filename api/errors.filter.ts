@@ -14,6 +14,7 @@ export class ErrorFilter implements ExceptionFilter {
         }
         if (status === HttpStatus.INTERNAL_SERVER_ERROR) {
             if (process.env.NODE_ENV === 'production') {
+                // tslint:disable-next-line
                 console.error(error.stack);
                 return response.status(status).render('views/500');
             } else {

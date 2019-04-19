@@ -5,9 +5,11 @@ delete process.env.HTTP_PROXY;
 delete process.env.https_proxy;
 delete process.env.HTTPS_PROXY;
 
-process.env.IS_NUXT = 'true';
-
 const config: NuxtConfiguration = {
+  srcDir: 'src/main/ts',
+  generate: {
+    dir: 'src/main/resources/public',
+  },
   head: {
     title: 'DoTo [Dundeeops]',
     meta: [
@@ -59,11 +61,7 @@ const config: NuxtConfiguration = {
     //     });
     //   }
     // },
-    // watch: ['api/**/*'],
   },
-  // serverMiddleware: [
-  //   { path: '/api', handler: '~/api/main.ts'},
-  // ],
 };
 
 export default config;

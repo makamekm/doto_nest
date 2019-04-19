@@ -130,7 +130,7 @@ const Test = namespace("test");
       });
     }
   },
-  fetch: async (props) => props.store.dispatch('test/load'),
+  // fetch: async (props) => props.store.dispatch('test/load'),
 })
 export default class extends Vue {
   @Test.State("list") testData;

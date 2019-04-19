@@ -59,8 +59,6 @@ dev/
 public/
 dist/
 uploads/
-.npmrc
-package-lock.json
 data/
 coverage/
 .fusebox
@@ -68,3 +66,7 @@ coverage/
 .gcloud
 .api
 .nuxt
+
+target
+public
+node

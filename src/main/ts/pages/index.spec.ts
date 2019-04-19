@@ -46,14 +46,14 @@ describe('page index', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  test('should call fetch', async () => {
-    const localVue = getLocalVue();
-    const { store, onLoad } = getStore();
-    const wrapper = shallowMount(index, {
-      localVue,
-      store,
-    });
-    await wrapper.vm.$options.fetch!(getContext(store));
-    expect(onLoad).toBeCalled();
-  });
+  // test('should call fetch', async () => {
+  //   const localVue = getLocalVue();
+  //   const { store, onLoad } = getStore();
+  //   const wrapper = shallowMount(index, {
+  //     localVue,
+  //     store,
+  //   });
+  //   await wrapper.vm.$options.fetch!(getContext(store));
+  //   expect(onLoad).toBeCalled();
+  // });
 });

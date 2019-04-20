@@ -35,7 +35,8 @@ const config: NuxtConfiguration = {
     ['@nuxtjs/axios', {
       credentials: false,
       proxyHeaders: false,
-      baseURL: process.env.API_URL || 'http://localhost:3000/api',
+      prefix: '/api',
+      browserBaseURL: '/api',
     }],
     '@nuxtjs/style-resources',
   ],

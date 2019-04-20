@@ -6,6 +6,7 @@
       </header>
       <div class="card-content" style="padding: 0">
         <b-table :data="data" :columns="columns" 
+          :row-class="() => ({'lc-pointer': true})"
           @click="openNode"
           hoverable striped/>
       </div>
@@ -61,3 +62,9 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style>
+.lc-pointer {
+  cursor: pointer;
+}
+</style>

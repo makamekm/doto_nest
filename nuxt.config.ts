@@ -9,11 +9,12 @@ process.env.IS_NUXT = 'true';
 
 const config: NuxtConfiguration = {
   head: {
-    title: 'DoTo [Dundeeops]',
+    title: 'Node Version Control',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'DoTo Dundeeops. A simple planning todo list per day. Made by Dundeeops team' },
+      { hid: 'description', name: 'description', content: `Node Version Control. \
+A simple planning todo list per day. Made by Dundeeops team` },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

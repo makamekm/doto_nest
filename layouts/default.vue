@@ -2,7 +2,20 @@
   <div class="lc-container">
     <nav class="navbar is-light">
       <div class="container">
-        <div class="navbar-menu">
+        <div class="navbar-brand">
+          <div class="navbar-item">
+            <div class="title is-4">
+              Version Control
+            </div>
+          </div>
+
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isMenuOpen = !isMenuOpen">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div :class="{'navbar-menu': true, 'is-active': isMenuOpen}">
           <div class="navbar-start">
             <nuxt-link class="navbar-item" to="/" active-class="is-active" exact>
               Nodes
@@ -32,7 +45,10 @@ import DefaultFooter from '~/components/footer.vue'
 export default {
   components: {
     DefaultFooter
-  }
+  },
+  data: () => ({
+    isMenuOpen: false,
+  })
 }
 </script>
 

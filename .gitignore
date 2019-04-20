@@ -54,22 +54,14 @@ typings/
 # dotenv environment variables file
 .env
 
-build/
-dev/
-public/
-dist/
-uploads/
-data/
-coverage/
-.fusebox
-.build
-.gcloud
-.api
-.nuxt
-.project
-.classpath
-.settings
+/dist/
+/coverage/
+/.api
+/.nuxt
+/.project
+/.classpath
+/.settings
 
-target
-public
-node
+/src/main/resources/public
+/target
+/node

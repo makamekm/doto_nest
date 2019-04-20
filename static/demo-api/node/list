@@ -1,0 +1,28 @@
+{
+  "list": [
+    {
+      "id": 0,
+      "version": {
+        "id": 0,
+        "version": "qwerty"
+      },
+      "name": "test",
+      "status": "good",
+      "author": "maxim",
+      "date": "01/01/2019 10:10:10",
+      "comments": "It was very necessary"
+    },
+    {
+      "id": 1,
+      "version": {
+        "id": 1,
+        "version": "ytrewq"
+      },
+      "name": "test",
+      "status": "good",
+      "author": "maxim",
+      "date": "01/01/2019 10:10:10",
+      "comments": "It was very necessary"
+    }
+  ]
+}

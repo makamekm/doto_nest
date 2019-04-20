@@ -1,6 +1,22 @@
 <template>
   <div class="lc-container">
-    <div>
+    <nav class="navbar is-light">
+      <div class="container">
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <nuxt-link class="navbar-item" to="/" active-class="is-active" exact>
+              Nodes
+            </nuxt-link>
+          </div>
+          <div class="navbar-end">
+            <nuxt-link class="navbar-item" to="/contacts" active-class="is-active" exact>
+              Contacts
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="lc-flex-child">
       <div class="container">
         <nuxt/>
       </div>
@@ -28,7 +44,7 @@ export default {
   min-height: 100vh;
 }
 
-.lc-container *:first-child {
+.lc-container .lc-flex-child {
   flex: 1;
 }
 </style>

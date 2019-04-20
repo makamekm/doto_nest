@@ -54,17 +54,10 @@ typings/
 # dotenv environment variables file
 .env
 
-build/
-dev/
-public/
-dist/
-uploads/
+/dist
 .npmrc
 package-lock.json
-data/
-coverage/
-.fusebox
-.build
-.gcloud
-.api
-.nuxt
+/coverage
+/.api
+/.nuxt
+/bin

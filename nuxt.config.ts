@@ -39,7 +39,7 @@ const config: NuxtConfiguration = {
     }],
     '@nuxtjs/style-resources',
   ],
-  loading: { color: '#3B8070' },
+  loading: '~/components/loading.vue',
   axios: {},
   configureWebpack: {
     devtool: 'source-map',

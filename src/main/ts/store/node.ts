@@ -8,26 +8,34 @@ export interface Node {
 export interface NodesState {
   nodes: Node[];
   node?: Node;
+  versions;
 }
 
 const store: StoreOptions<NodesState> = {
   state: () => ({
     nodes: [],
     node: undefined,
+    versions: [],
   }),
   actions: {
     async loadNodes({ commit }) {
       const { data } = await this.$axios.get(`/node/list`);
-      commit('setData', data.list);
+      commit('setNodes', data.list);
     },
-    async loadNode({ commit }, id) {
+    async loadVersions({ commit }) {
+      const { data } = await this.$axios.get(`/version/list`);
+      commit('setVersions', data.list);
+    },
+    async loadNode({ commit, dispatch }, id) {
       const { data } = await this.$axios.get(`/node/get`, { query: { id }});
       commit('setNode', data.data);
+      await dispatch('loadVersions');
     },
   },
   mutations: {
-    setData: (state, data) => state.nodes = data,
+    setNodes: (state, nodes) => state.nodes = nodes,
     setNode: (state, node) => state.node = node,
+    setVersions: (state, versions) => state.versions = versions,
   },
 };
 

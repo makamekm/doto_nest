@@ -27,9 +27,13 @@ const store: StoreOptions<NodesState> = {
       commit('setVersions', data.list);
     },
     async loadNode({ commit, dispatch }, id) {
-      const { data } = await this.$axios.get(`/node/get`, { query: { id }});
+      const { data } = await this.$axios.get(`/node/get`, { params: { id }});
       commit('setNode', data.data);
       await dispatch('loadVersions');
+    },
+    async setVersion({ dispatch }, form) {
+      await this.$axios.get(`/node/set`, { params: form });
+      await dispatch('loadNode');
     },
   },
   mutations: {

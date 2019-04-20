@@ -52,7 +52,7 @@ const config: NuxtConfiguration = {
   // proxy: {
   //   '/api/**': 'http://localhost:3000/demo-api',
   // },
-  loading: { color: '#3B8070' },
+  loading: '~/components/loading.vue',
   axios: {},
   configureWebpack: {
     devtool: 'source-map',

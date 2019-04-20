@@ -18,7 +18,14 @@
         "NODE_ENV": "production"
     },
     "routes": [
-        { "src": "/api(/.*)", "dest": "/api/main.ts" }
+        { "src": "/api(/.*)", "dest": "/api/main.ts" },
+        { "src": "/_nuxt/(.+)", "dest": "/_nuxt/$1" },
+        { "src": "/200.html", "dest": "/200.html" },
+        {
+            "src": "/(.*)",
+            "headers": { "cache-control": "s-maxage=0" },
+            "dest": "/index.html"
+        }
     ],
     "github": {
         "autoJobCancelation": false

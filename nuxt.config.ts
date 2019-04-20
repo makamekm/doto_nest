@@ -34,13 +34,24 @@ const config: NuxtConfiguration = {
     ],
   },
   modules: [
+    // ['@nuxtjs/proxy', {
+    //   pathRewrite: {
+    //     '^/api': '/demo-api',
+    //   },
+    // }],
     ['@nuxtjs/axios', {
       credentials: false,
       proxyHeaders: false,
-      baseURL: process.env.API_URL || 'http://localhost:3000/api',
+      baseURL: process.env.API_URL || 'http://localhost:3000/demo-api',
     }],
     '@nuxtjs/style-resources',
   ],
+  // proxy: {
+  //   '/api/': { target: 'http://localhost:3000', pathRewrite: {'^/api/': 'demo-api'} },
+  // },
+  // proxy: {
+  //   '/api/**': 'http://localhost:3000/demo-api',
+  // },
   loading: { color: '#3B8070' },
   axios: {},
   configureWebpack: {

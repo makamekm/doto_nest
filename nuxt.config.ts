@@ -33,6 +33,7 @@ A simple planning todo list per day. Made by Dundeeops team` },
     ],
   },
   modules: [
+    '@nuxtjs/pwa',
     ['@nuxtjs/axios', {
       credentials: false,
       proxyHeaders: false,

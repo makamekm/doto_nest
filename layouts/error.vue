@@ -28,3 +28,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.gl-layout-margin {
+  position: absolute;
+  top: 0;
+  right: $column-gap / 2;
+  left: $column-gap / 2;
+}
+</style>

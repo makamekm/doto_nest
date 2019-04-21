@@ -32,6 +32,15 @@ A simple planning todo list per day. Made by Dundeeops team` },
       '~/assets/scss/variables.scss',
     ],
   },
+  manifest: {
+    name: 'Node Version Control',
+    short_name: 'Node VC',
+    description: `Node Version Control. \
+A simple planning todo list per day. Made by Dundeeops team`,
+    lang: 'en',
+    theme_color: '#f5f5f5',
+    start_url: '/',
+  },
   modules: [
     '@nuxtjs/pwa',
     ['@nuxtjs/axios', {

@@ -21,6 +21,8 @@
         { "src": "/api(/.*)", "dest": "/api/main.ts" },
         { "src": "/_nuxt/(.+)", "dest": "/_nuxt/$1" },
         { "src": "/200.html", "dest": "/200.html" },
+        { "src": "/icon.png", "dest": "/icon.png" },
+        { "src": "/sw(.*).js", "dest": "/sw$1.js" },
         {
             "src": "/(.*)",
             "headers": { "cache-control": "s-maxage=0" },

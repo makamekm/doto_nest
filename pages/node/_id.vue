@@ -2,13 +2,13 @@
   <div class="gl-layout-margin">
     <div class="card" ref="form">
       <header class="card-header">
-        <div class="card-header-title">Change Version {{ form.version }} {{ form.comments }}</div>
+        <div class="card-header-title">Change Version</div>
       </header>
       <div class="card-content gl-form-container">
         <b-field horizontal label="Version"
           :message="errors.first('version')"
           :type="{'is-danger': errors.has('version')}">
-          <select-version v-model="form.version" name="version" v-validate="'required|min:1'"/>
+          <select-version v-model="form.version" name="version" v-validate="'required'"/>
         </b-field>
 
         <b-field horizontal label="Message"

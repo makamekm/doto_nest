@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page node/_id should renders properly 1`] = `
+<div class="gl-layout-margin">
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">Change Version</div>
+    </header>
+    <div class="card-content gl-form-container">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"><label class="label">
+            Version
+          </label></div>
+        <div class="field-body">
+          <div class="field">
+            <!---->
+            <div class="control" name="version"><span class="select is-empty"><select><option selected="selected" disabled="disabled" hidden="hidden" value="">
+                    Select version
+                </option> <option value="0">qwerty</option><option value="1">ytrewq</option></select></span>
+              <!---->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal"><label class="label">
+            Message
+          </label></div>
+        <div class="field-body">
+          <div class="field">
+            <!---->
+            <div class="control is-clearfix"><textarea name="comments" class="textarea"></textarea>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <!---->
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <!---->
+            <p class="control"><button type="submit" class="button is-primary gl-form-btn">Submit</button> <button type="reset" class="button gl-form-btn">Clear</button></p>
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div class="card gl-form-margin-top">
+    <header class="card-header">
+      <div class="card-header-title">Info</div>
+    </header>
+    <div class="card-content gl-form-container">
+      <div class="columns">
+        <div class="column">
+          <div class="field"><label class="label">
+              Name
+            </label> <b>
+              test
+            </b>
+            <!---->
+          </div>
+        </div>
+        <div class="column">
+          <div class="field"><label class="label">
+              Version
+            </label> <b>
+              qwerty
+            </b>
+            <!---->
+          </div>
+        </div>
+        <div class="column">
+          <div class="field"><label class="label">
+              Status
+            </label> <b>
+              good
+            </b>
+            <!---->
+          </div>
+        </div>
+        <div class="column">
+          <div class="field"><label class="label">
+              date
+            </label> <b>
+              01/01/2019 10:10:10
+            </b>
+            <!---->
+          </div>
+        </div>
+        <div class="column">
+          <div class="field"><label class="label">
+              Comments
+            </label> <b>
+              It was very necessary
+            </b>
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card gl-form-margin-top">
+    <header class="card-header">
+      <div class="card-header-title">History</div>
+    </header>
+    <div class="card-content" style="padding: 0px;">
+      <div class="b-table">
+        <!---->
+        <div class="table-wrapper">
+          <table class="table is-striped has-mobile-cards is-hoverable">
+            <thead>
+              <tr>
+                <!---->
+                <!---->
+                <th class="">
+                  <div class="th-wrap">Version <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Author <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Date <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Comments <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="">
+                <!---->
+                <!---->
+                <td data-label="Version" class=""><span>
+                                    qwerty
+                                </span></td>
+                <td data-label="Author" class=""><span>
+                                    maxim
+                                </span></td>
+                <td data-label="Date" class=""><span>
+                                    01/01/2019 10:10:10
+                                </span></td>
+                <td data-label="Comments" class=""><span>
+                                    It was very necessary
+                                </span></td>
+              </tr>
+              <!---->
+              <tr class="">
+                <!---->
+                <!---->
+                <td data-label="Version" class=""><span>
+                                    ytrewq
+                                </span></td>
+                <td data-label="Author" class=""><span>
+                                    maxim
+                                </span></td>
+                <td data-label="Date" class=""><span>
+                                    01/01/2019 09:09:09
+                                </span></td>
+                <td data-label="Comments" class=""><span>
+                                    It was not really necessary
+                                </span></td>
+              </tr>
+              <!---->
+            </tbody>
+            <!---->
+          </table>
+        </div>
+        <div class="level">
+          <div class="level-left"></div>
+          <div class="level-right">
+            <div class="level-item">
+              <div class="pagination"><a role="button" href="#" disabled="disabled" class="pagination-previous"><span class="icon"><i class="mdi mdi-chevron-left mdi-24px"></i></span></a> <a role="button" href="#" disabled="disabled" class="pagination-next"><span class="icon"><i class="mdi mdi-chevron-right mdi-24px"></i></span></a>
+                <ul class="pagination-list">
+                  <!---->
+                  <!---->
+                  <li><a role="button" href="#" class="pagination-link is-current">
+                      1
+                    </a></li>
+                  <!---->
+                  <!---->
+                </ul>
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

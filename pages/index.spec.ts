@@ -66,7 +66,7 @@ describe('page index', () => {
   test('should renders properly with no data', () => {
     const localVue = getLocalVue();
     const { store } = getStore();
-    const wrapper = shallowMount(page, {
+    const wrapper = mount(page, {
       localVue,
       store,
     });
@@ -76,7 +76,7 @@ describe('page index', () => {
   test('should renders properly with data', () => {
     const localVue = getLocalVue();
     const { store } = getStore(getData());
-    const wrapper = shallowMount(page, {
+    const wrapper = mount(page, {
       localVue,
       store,
     });

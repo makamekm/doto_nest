@@ -7,18 +7,64 @@ exports[`page index should renders properly with data 1`] = `
       <div class="card-header-title">Nodes</div>
     </header>
     <div class="card-content" style="padding: 0px;">
-      <b-table-stub data="[object Object]" columns="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" striped="true" hoverable="true" isrowcheckable="function _default() {
-                return true;
-            }" checkedrows="" mobilecards="true" defaultsortdirection="asc" currentpage="1" perpage="20" showdetailicon="true" rowclass="function () {
-        /* istanbul ignore next */
-        cov_nglb9i17w.f[5]++;
-        cov_nglb9i17w.s[18]++;
-        return {
-          &quot;lc-pointer&quot;: true
-        };
-      }" openeddetailed="" hasdetailedvisible="function _default() {
-                return true;
-            }" detailkey="" total="0"></b-table-stub>
+      <div class="b-table">
+        <!---->
+        <div class="table-wrapper">
+          <table class="table is-striped has-mobile-cards is-hoverable">
+            <thead>
+              <tr>
+                <!---->
+                <!---->
+                <th class="">
+                  <div class="th-wrap">Name <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Version <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Status <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Author <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Date <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Comments <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="lc-pointer">
+                <!---->
+                <!---->
+                <td data-label="Name" class=""><span>
+                                    test
+                                </span></td>
+                <td data-label="Version" class=""><span>
+                                    qwerty
+                                </span></td>
+                <td data-label="Status" class=""><span>
+                                    good
+                                </span></td>
+                <td data-label="Author" class=""><span>
+                                    maxim
+                                </span></td>
+                <td data-label="Date" class=""><span>
+                                    01/01/2019 10:10:10
+                                </span></td>
+                <td data-label="Comments" class=""><span>
+                                    It was very necessary
+                                </span></td>
+              </tr>
+              <!---->
+            </tbody>
+            <!---->
+          </table>
+        </div>
+        <!---->
+      </div>
     </div>
   </div>
 </div>
@@ -31,18 +77,44 @@ exports[`page index should renders properly with no data 1`] = `
       <div class="card-header-title">Nodes</div>
     </header>
     <div class="card-content" style="padding: 0px;">
-      <b-table-stub data="" columns="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" striped="true" hoverable="true" isrowcheckable="function _default() {
-                return true;
-            }" checkedrows="" mobilecards="true" defaultsortdirection="asc" currentpage="1" perpage="20" showdetailicon="true" rowclass="function () {
-        /* istanbul ignore next */
-        cov_nglb9i17w.f[5]++;
-        cov_nglb9i17w.s[18]++;
-        return {
-          &quot;lc-pointer&quot;: true
-        };
-      }" openeddetailed="" hasdetailedvisible="function _default() {
-                return true;
-            }" detailkey="" total="0"></b-table-stub>
+      <div class="b-table">
+        <!---->
+        <div class="table-wrapper">
+          <table class="table is-striped has-mobile-cards">
+            <thead>
+              <tr>
+                <!---->
+                <!---->
+                <th class="">
+                  <div class="th-wrap">Name <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Version <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Status <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Author <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Date <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+                <th class="">
+                  <div class="th-wrap">Comments <span class="icon is-small" style="display: none;"><i class="mdi mdi-arrow-up"></i></span></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="is-empty">
+                <td colspan="6"></td>
+              </tr>
+            </tbody>
+            <!---->
+          </table>
+        </div>
+        <!---->
+      </div>
     </div>
   </div>
 </div>

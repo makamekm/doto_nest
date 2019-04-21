@@ -1,0 +1,10 @@
+@media screen and (max-width: 768px) {
+  .b-table .table.has-mobile-cards tr {
+    box-shadow: none;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(10, 10, 10, 0.2);
+    }
+  }
+}

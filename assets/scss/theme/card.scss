@@ -2,6 +2,7 @@
   box-shadow: 0 1px 0px rgba(10, 10, 10, 0.2);
   background-color: $card-header;
   max-height: $column-gap * 7.5;
+  margin-bottom: 1px;
 
   > .card-header-title {
     padding: $column-gap * 2;

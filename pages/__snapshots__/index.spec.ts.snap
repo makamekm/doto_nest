@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`page index should renders properly with data 1`] = `
+<div class="gl-layout-margin">
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">Nodes</div>
+    </header>
+    <div class="card-content" style="padding: 0px;">
+      <b-table-stub data="[object Object]" columns="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" striped="true" hoverable="true" isrowcheckable="function _default() {
+                return true;
+            }" checkedrows="" mobilecards="true" defaultsortdirection="asc" currentpage="1" perpage="20" showdetailicon="true" rowclass="function () {
+        /* istanbul ignore next */
+        cov_nglb9i17w.f[5]++;
+        cov_nglb9i17w.s[18]++;
+        return {
+          &quot;lc-pointer&quot;: true
+        };
+      }" openeddetailed="" hasdetailedvisible="function _default() {
+                return true;
+            }" detailkey="" total="0"></b-table-stub>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`page index should renders properly with no data 1`] = `
+<div class="gl-layout-margin">
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">Nodes</div>
+    </header>
+    <div class="card-content" style="padding: 0px;">
+      <b-table-stub data="" columns="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" striped="true" hoverable="true" isrowcheckable="function _default() {
+                return true;
+            }" checkedrows="" mobilecards="true" defaultsortdirection="asc" currentpage="1" perpage="20" showdetailicon="true" rowclass="function () {
+        /* istanbul ignore next */
+        cov_nglb9i17w.f[5]++;
+        cov_nglb9i17w.s[18]++;
+        return {
+          &quot;lc-pointer&quot;: true
+        };
+      }" openeddetailed="" hasdetailedvisible="function _default() {
+                return true;
+            }" detailkey="" total="0"></b-table-stub>
+    </div>
+  </div>
+</div>
+`;

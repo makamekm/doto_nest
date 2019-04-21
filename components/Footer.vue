@@ -4,10 +4,10 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .lc-footer
 {
   text-align: center;
-  padding: 15px;
+  padding: $column-gap * 2;
 }
 </style>

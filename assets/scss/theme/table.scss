@@ -8,3 +8,16 @@
     }
   }
 }
+
+.b-table {
+  .table-wrapper {
+    margin-bottom: 0;
+
+    & + .level {
+      padding-left: $column-gap;
+      padding-right: $column-gap;
+      padding-top: $column-gap;
+      padding-bottom: $column-gap;
+    }
+  }
+}

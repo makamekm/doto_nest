@@ -92,22 +92,6 @@
   </div>
 </template>
 
-<style lang="scss">
-.b-table {
-  .table-wrapper {
-    margin-bottom: 0;
-
-    & + .level {
-      padding-left: $column-gap;
-      padding-right: $column-gap;
-      padding-top: $column-gap;
-      padding-bottom: $column-gap;
-    }
-  }
-}
-</style>
-
-
 <script lang="ts">
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";

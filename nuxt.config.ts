@@ -52,6 +52,7 @@ A simple planning todo list per day. Made by Dundeeops team`,
   loading: '~/components/loading.vue',
   axios: {},
   ignore: [
+    'api/**/*',
     '**/*.spec.*',
     '**/*.*-spec.*',
     'test-utils/**/*',

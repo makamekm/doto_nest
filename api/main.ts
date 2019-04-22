@@ -33,6 +33,4 @@ async function bootstrap() {
   server.useGlobalFilters(new ErrorFilter());
 }
 
-tryStartBootstrap();
-
 export default expressApp;

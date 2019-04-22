@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nuxt",
-    "now-build": "run-s build",
+    "now-build": "NODE_ENV=production run-s build",
     "start": "run-s start:expr",
     "start:expr": "ts-node-dev --respawn --transpileOnly --project tsconfig.express.json index.ts",
     "start:build:nuxt": "run-s build start:nuxt",
@@ -15,7 +15,6 @@
     "start:nuxt": "nuxt start --hostname 0.0.0.0",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
-    "test:visual": "VISUAL=true jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r ts-node/register node_modules/.bin/jest --runInBand",

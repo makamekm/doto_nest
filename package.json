@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nuxt",
-    "now-build": "run-s lint test build",
+    "now-build": "run-s build",
     "start": "run-s start:expr",
     "start:expr": "ts-node-dev --respawn --transpileOnly --project tsconfig.express.json index.ts",
     "start:build:nuxt": "run-s build start:nuxt",

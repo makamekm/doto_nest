@@ -51,29 +51,17 @@ A simple planning todo list per day. Made by Dundeeops team`,
   ],
   loading: '~/components/loading.vue',
   axios: {},
-  configureWebpack: {
-    devtool: 'source-map',
-  },
   ignore: [
     '**/*.spec.*',
     '**/*.*-spec.*',
     'test-utils/**/*',
   ],
   build: {
-    // vendor: ['axios'],
-    /*
-    ** Run ESLINT on save
-    */
-    // extend(config, ctx) {
-    //   if (ctx.isDev && ctx.isClient) {
-    //     config.module.rules.push({
-    //       enforce: "pre",
-    //       test: /\.(js|vue)$/,
-    //       loader: "eslint-loader",
-    //       exclude: /(node_modules)/,
-    //     });
-    //   }
-    // },
+    extend(config, { isClient }) {
+      if (isClient) {
+        config.devtool = '#source-map';
+      }
+    },
     watch: process.env.IS_EXPRESS ? [] : ['api/**/*'],
   },
   serverMiddleware: process.env.IS_EXPRESS ? [] : [

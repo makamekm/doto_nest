@@ -5,8 +5,6 @@ delete process.env.HTTP_PROXY;
 delete process.env.https_proxy;
 delete process.env.HTTPS_PROXY;
 
-process.env.IS_NUXT = 'true';
-
 const config: NuxtConfiguration = {
   head: {
     title: 'Node Version Control',
@@ -56,6 +54,11 @@ A simple planning todo list per day. Made by Dundeeops team`,
   configureWebpack: {
     devtool: 'source-map',
   },
+  ignore: [
+    '**/*.spec.*',
+    '**/*.*-spec.*',
+    'test-utils/**/*',
+  ],
   build: {
     // vendor: ['axios'],
     /*

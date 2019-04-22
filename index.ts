@@ -1,6 +1,8 @@
 import { Nuxt, Builder } from 'nuxt';
 import config from './nuxt.config';
-import app from './api/main';
+import app, {
+  tryStartBootstrap,
+} from './api/main';
 
 process.env.IS_EXPRESS = 'true';
 
@@ -18,6 +20,8 @@ if (config.dev) {
   listen();
 }
 
-function listen() {
+tryStartBootstrap();
+
+async function listen() {
   app.listen(port);
 }

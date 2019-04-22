@@ -21,6 +21,10 @@
       "@nuxt/vue-app",
       "@types/node",
       "@types/webpack-env",
+      "@types/expect-puppeteer",
+      "@types/jest-environment-puppeteer",
+      "@types/jest-image-snapshot",
+      "@types/puppeteer",
       "node",
       "jest"
     ],

@@ -62,3 +62,4 @@ package-lock.json
 /.nuxt
 /bin
 sw.*
+__diff_output__

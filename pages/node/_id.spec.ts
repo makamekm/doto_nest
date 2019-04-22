@@ -1,7 +1,7 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import page from './_id.vue';
-import getLocalVue from '~/utils/localVue';
-import getContext from '~/utils/context';
+import getLocalVue from '~/test-utils/localVue';
+import getContext from '~/test-utils/context';
 import { Store } from 'vuex';
 import VueRouter from 'vue-router';
 

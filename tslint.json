@@ -30,7 +30,8 @@
       "**/node_modules/**",
       "**/coverage/**",
       "**/.*/**",
-      "**/dist/**"
+      "**/dist/**",
+      "**/static/**"
     ]
   }
 }

@@ -10,7 +10,9 @@ export default {
       this.loadingComponent = this.$loading.open();
     },
     finish() {
-      this.loadingComponent.close();
+      if (this.loadingComponent) {
+        this.loadingComponent.close();
+      }
     }
   }
 }

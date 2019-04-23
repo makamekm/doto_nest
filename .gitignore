@@ -56,7 +56,6 @@ typings/
 
 /dist
 .npmrc
-package-lock.json
 /coverage
 /.api
 /.nuxt

@@ -5,6 +5,9 @@
   "description": "",
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": "~11.10.0"
+  },
   "scripts": {
     "dev": "nuxt",
     "start": "nuxt start",

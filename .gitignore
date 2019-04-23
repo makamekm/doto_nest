@@ -54,16 +54,11 @@ typings/
 # dotenv environment variables file
 .env
 
-build/
-dev/
-public/
-dist/
-uploads/
+/dist
 .npmrc
-package-lock.json
-data/
-coverage/
-.fusebox
-.build
-.gcloud
-.next
+/coverage
+/.api
+/.nuxt
+/bin
+sw.*
+__diff_output__

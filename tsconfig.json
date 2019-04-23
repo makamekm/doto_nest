@@ -7,32 +7,44 @@
       "esnext.asynciterable"
     ],
     "importHelpers": true,
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
-    "jsx": "react",
     "typeRoots": [
       "node_modules/@types"
     ],
     "stripInternal": true,
     "skipLibCheck": true,
     "noLib": false,
-    "declaration": false,
-    "baseUrl": "./mt",
-    "outDir": "./.mt",
-    "types": ["node", "jest"],
-    "sourceMap": false,
-    "inlineSourceMap": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "types": [
+      "@nuxt/vue-app",
+      "@types/node",
+      "@types/webpack-env",
+      "@types/expect-puppeteer",
+      "@types/jest-environment-puppeteer",
+      "@types/jest-image-snapshot",
+      "@types/puppeteer",
+      "node",
+      "jest"
+    ],
+    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "paths": {
+      "~/*": ["./*"]
+    },
+    "strict": true
   },
   "compileOnSave": false,
   "suppressImplicitAnyIndexErrors": true,
   "exclude": [
     "node_modules",
     ".next",
-    ".mt"
+    "dist"
   ]
 }

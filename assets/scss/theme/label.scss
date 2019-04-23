@@ -1,0 +1,7 @@
+.label {
+  font-weight: $label-weight;
+
+  &:not(:last-child) {
+    margin-bottom: 0.25em;
+  }
+}

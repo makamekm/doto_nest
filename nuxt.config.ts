@@ -58,9 +58,9 @@ A simple planning todo list per day. Made by Dundeeops team`,
     'test-utils/**/*',
   ],
   build: {
-    extend(config, { isClient }) {
+    extend(configExtended, { isClient }) {
       if (isClient) {
-        config.devtool = '#source-map';
+        configExtended.devtool = '#source-map';
       }
     },
     watch: process.env.IS_EXPRESS ? [] : ['api/**/*'],

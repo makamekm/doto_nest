@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import DefaultFooter from '~/components/footer'
+import DefaultFooter from '~/components/footer.vue'
 export default {
   components: {
     DefaultFooter

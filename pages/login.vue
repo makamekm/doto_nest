@@ -66,9 +66,7 @@ export default {
             username: this.username,
             password: this.password,
           }
-        })
-
-        this.$router.go();
+        });
       } catch (e) {
         this.error = e.response.data.message
       }

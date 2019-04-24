@@ -87,8 +87,6 @@ export default {
             password: this.password
           },
         })
-
-        this.$router.push('/')
       } catch (e) {
         this.error = e.response.data.message
       }

@@ -22,6 +22,7 @@ import { Validator } from "vee-validate";
 const NodeStore = namespace("node");
 
 @Component({
+  middleware: ['auth'],
   data: () => ({
     columns: [
       {

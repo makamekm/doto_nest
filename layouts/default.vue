@@ -25,6 +25,20 @@
             <nuxt-link class="navbar-item" to="/contacts" active-class="is-active" exact>
               Contacts
             </nuxt-link>
+            <div class="navbar-item has-dropdown is-hoverable" v-if="$auth.$state.loggedIn">
+              <a class="navbar-link">
+                {{ $auth.user.username }}
+              </a>
+              <div class="navbar-dropdown">
+                <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
+                <hr class="navbar-divider">
+                <a class="navbar-item" @click="$auth.logout();$router.go();">Logout</a>
+              </div>
+            </div>
+            <template v-else>
+              <nuxt-link class="navbar-item" to="/register">Register</nuxt-link>
+              <nuxt-link class="navbar-item" to="/login">Log In</nuxt-link>
+            </template>
           </div>
         </div>
       </div>
@@ -48,7 +62,7 @@ export default {
   },
   data: () => ({
     isMenuOpen: false,
-  })
+  }),
 }
 </script>
 

@@ -107,6 +107,7 @@ const defaultFormData = () => ({
 });
 
 @Component({
+  middleware: ['auth'],
   components: {
     SelectVersion,
   },

@@ -62,7 +62,8 @@
 
 <script>
 export default {
-
+  middleware: ['auth'],
+  auth: false,
   data() {
     return {
       username: '',
@@ -71,7 +72,6 @@ export default {
       error: null
     }
   },
-
   methods: {
     async register() {
       try {
@@ -79,14 +79,13 @@ export default {
           username: this.username,
           email: this.email,
           password: this.password
-        })
-
+        });
         await this.$auth.loginWith('local', {
           data: {
             email: this.email,
             password: this.password
           },
-        })
+        });
       } catch (e) {
         this.error = e.response.data.message
       }

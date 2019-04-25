@@ -76,12 +76,14 @@ A simple planning todo list per day. Made by Dundeeops team`,
   auth: {
     redirect: {
       login: '/login',
+      register: '/register',
       callback: '/callback',
     },
     strategies: {
       local: {
         endpoints: {
           login: { url: 'login', method: 'post', propertyName: 'token' },
+          register: { url: 'register', method: 'post', propertyName: '' },
           user: { url: 'user', method: 'get', propertyName: '' },
           logout: false,
         },

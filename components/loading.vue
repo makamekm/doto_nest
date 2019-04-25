@@ -6,6 +6,7 @@
 export default {
   methods: {
     start() {
+      this.finish();
       this.loadingComponent = this.$loading.open();
     },
     finish() {

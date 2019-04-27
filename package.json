@@ -13,6 +13,7 @@
     "start": "nuxt start",
     "build": "nuxt build",
     "heroku-postbuild": "npm run build",
+    "dev:alt": "ts-node-dev --project ./tsconfig.express.json ./index.ts",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -68,6 +69,7 @@
     "jest-image-snapshot": "2.8.1",
     "jest-puppeteer": "4.1.1",
     "puppeteer": "1.14.0",
-    "get-port": "5.0.0"
+    "get-port": "5.0.0",
+    "ts-node-dev": "1.0.0-pre.32"
   }
 }

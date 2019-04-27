@@ -88,7 +88,8 @@ export default {
     max-height: 0px;
 
     &.is-active {
-      max-height: $column-gap * 14;
+      overflow: auto;
+      max-height: 100vh;
     }
   }
 }

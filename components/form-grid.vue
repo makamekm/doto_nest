@@ -134,49 +134,67 @@ export default {
     event: 'change'
   },
   methods: {
-    onMouseDown({ target: resizer, pageX: initialPageX, pageY: initialPageY }) {
-      if (resizer.className && resizer.className.match('form-grid-resizer')) {
-        let { $el: container, layout } = this;
-
-        let pane = resizer.previousElementSibling;
-        let {
+    roundFlexSize(value) {
+      return (
+        Math.round(
+          value * 20,
+        ) / 20
+      ).toFixed(1);
+    },
+    getNextSize(initialSize, offset = 0) {
+      const { $el: container } = this;
+      const containerWidth = container.clientWidth;
+      const paneWidth = initialSize + offset;
+      const size = this.roundFlexSize(
+        paneWidth / containerWidth * this.$options.propsData.layout.length
+      );
+      return size;
+    },
+    countPanelIndex(resizer) {
+      let col = 0;
+      let child = resizer.previousElementSibling;
+      while((child = child.previousSibling) != null) {
+        if (child.className && child.className.match('form-grid-item')) {
+          col++;
+        }
+      }
+      return col;
+    },
+    getNewLayout(resizer, size) {
+      const layout = this.$options.propsData.layout;
+      const col = this.countPanelIndex(resizer);
+      const newLayout = layout.map((n, index) => col === index ? size : n);
+      return newLayout;
+    },
+    updateLayout(resizer, initialPaneWidth, initialPageX, pageX) {
+      const size = this.getNextSize(initialPaneWidth, pageX - initialPageX);
+      const newLayout = this.getNewLayout(resizer, size);
+      this.$emit('change', newLayout);
+    },
+    isResizerMouseDown(element) {
+      return element.className && element.className.match('form-grid-resizer');
+    },
+    onMouseDown({ target: resizer, pageX: initialPageX }) {
+      if (this.isResizerMouseDown(resizer)) {
+        const {
           offsetWidth: initialPaneWidth,
-          offsetHeight: initialPaneHeight,
-        } = pane;
-
-        const { addEventListener, removeEventListener } = window;
-
-        const resize = (initialSize, offset = 0) => {
-          let containerWidth = container.clientWidth;
-          let paneWidth = initialSize + offset;
-          const size = (Math.round(paneWidth / containerWidth * this.$options.propsData.layout.length * 20) / 20).toFixed(1);
-          return size;
-        };
+        } = resizer.previousElementSibling;
 
         this.isResizing = true;
 
-        const onMouseMove = ({ pageX, pageY }) => {
-          const size = resize(initialPaneWidth, pageX - initialPageX);
-          const layout = this.$options.propsData.layout;
-          let col = 0;
-          let child = pane;
-          while((child = child.previousSibling) != null) {
-            if (child.className && child.className.match('form-grid-item')) {
-              col++;
-            }
-          }
-          this.$emit('change', layout.map((n, index) => col === index ? size : n));
+        const onMouseMove = ({ pageX }) => {
+          this.updateLayout(resizer, initialPaneWidth, initialPageX, pageX);
         };
 
         const onMouseUp = () => {
           this.isResizing = false;
 
-          removeEventListener('mousemove', onMouseMove);
-          removeEventListener('mouseup', onMouseUp);
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('mouseup', onMouseUp);
         };
 
-        addEventListener('mousemove', onMouseMove);
-        addEventListener('mouseup', onMouseUp);
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
       }
     },
   },

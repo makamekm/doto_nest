@@ -15,6 +15,8 @@
   }
   &.layout-v {
     flex-direction: row;
+    align-items: stretch;
+    flex-flow: row wrap;
   }
 }
 .multipane > div {
@@ -25,6 +27,8 @@
   display: block;
   position: relative;
   z-index: 2;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.15);
 }
 .layout-h > .multipane-resizer {
   width: 100%;
@@ -34,11 +38,16 @@
   cursor: row-resize;
 }
 .layout-v > .multipane-resizer {
-  width: 10px;
-  height: 100%;
-  margin-left: -10px;
-  left: 5px;
+  width: 6px;
+  margin-left: -6px;
+  left: 3px;
   cursor: col-resize;
+  transition: width 300ms, margin-left 300ms, left 300ms;
+  &:hover {
+    width: 20px;
+    margin-left: -20px;
+    left: 10px;
+  }
 }
 </style>
 

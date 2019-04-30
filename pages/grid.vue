@@ -1,6 +1,8 @@
 <template>
   <div class="gl-layout-margin">
-    <form-grid :layout="layout" @change="layout = $event">
+    <form-grid
+      :layout="layout"
+      @change="layout = $event">
       <template v-slot:0>
         <div>
           <b-field label="Name">
@@ -34,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import FormGrid from "~/components/form-grid.vue";
+import FormGrid from "~/components/form-creator/form-grid.vue";
 
 export default {
   middleware: ['auth'],

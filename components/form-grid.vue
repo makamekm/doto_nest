@@ -1,102 +1,142 @@
 <template>
-  <div :class="classnames" :style="{ cursor, userSelect }" @mousedown="onMouseDown">
-    <template v-for="col in cols">
-      <slot :name="col" :col="col"></slot>
-      <div class="multipane-resizer" v-bind:key="col" v-if="col != cols"/>
+  <div :class="{
+    'form-grid': true,
+    'is-resizing': isResizing,
+  }" :style="{
+    userSelect: isResizing ? 'none' : '',
+  }" @mousedown="onMouseDown">
+    <template v-for="(col, index) in layout.length">
+      <div class="form-grid-item"
+        v-bind:key="index"
+        :data-content="layout[index]"
+        :style="{ flex: layout[index] }">
+        <slot :name="index"></slot>
+      </div>
+      <div class="form-grid-resizer" v-bind:key="index + '_resizer'"/>
     </template>
   </div>
 </template>
 
 <style lang="scss">
-.multipane {
+.form-grid {
   display: flex;
-  &.layout-h {
-    flex-direction: column;
-  }
-  &.layout-v {
-    flex-direction: row;
-    align-items: stretch;
-    flex-flow: row wrap;
-  }
+  flex-direction: row;
+  align-items: stretch;
+  flex-flow: row wrap;
+  margin-left: -($column-gap * 2);
+  margin-right: -($column-gap * 2);
 }
-.multipane > div {
+.form-grid > .form-grid-item {
   position: relative;
-  z-index: 1;
+  flex: 1;
+  transition: flex 300ms;
+  padding-left: $column-gap * 2;
+  padding-right: $column-gap * 2;
+  position: relative;
+  &::before {
+    content: "";
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 300ms;
+    z-index: 1;
+  }
+  &::after {
+    content: attr(data-content);
+    pointer-events: none;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: opacity 300ms;
+    z-index: 1;
+  }
 }
-.multipane-resizer {
+.form-grid.is-resizing > .form-grid-item {
+  &::before {
+    opacity: 1;
+  }
+  &::after {
+    opacity: 1;
+  }
+}
+.form-grid > .form-grid-resizer {
   display: block;
   position: relative;
-  z-index: 2;
   content: "";
   background-color: rgba(0, 0, 0, 0.15);
-}
-.layout-h > .multipane-resizer {
-  width: 100%;
-  height: 10px;
-  margin-top: -10px;
-  top: 5px;
-  cursor: row-resize;
-}
-.layout-v > .multipane-resizer {
-  width: 6px;
-  margin-left: -6px;
-  left: 3px;
+  width: 10px;
+  margin-left: -10px;
+  left: 5px;
+  z-index: 1;
   cursor: col-resize;
-  transition: width 300ms, margin-left 300ms, left 300ms;
+  transition: width 300ms, margin-left 300ms, left 300ms, background-color 300ms;
+  position: relative;
+  &::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 1px;
+    left: calc(50% - 1px);
+    top: calc(50% - 5px);
+    height: 10px;
+    transition: left 300ms, background-color 300ms;
+  }
+  &::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 1px;
+    left: calc(50% + 1px);
+    top: calc(50% - 5px);
+    height: 10px;
+    transition: left 300ms, background-color 300ms;
+  }
   &:hover {
-    width: 20px;
-    margin-left: -20px;
-    left: 10px;
+    width: 16px;
+    margin-left: -16px;
+    left: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    &::after {
+      left: calc(50% - 2px);
+    }
+    &::before {
+      left: calc(50% + 2px);
+      background-color: rgba(0, 0, 0, 0.3);
+    }
   }
 }
 </style>
 
 <script>
-const LAYOUT_HORIZONTAL = 'horizontal';
-const LAYOUT_VERTICAL = 'vertical';
-
 export default {
-  name: 'multipane',
-
   props: {
-    cols: {
-      type: Number,
-    },
     layout: {
-      type: String,
-      default: LAYOUT_VERTICAL,
+      type: Array,
     },
   },
-
   data() {
     return {
       isResizing: false,
     };
   },
-
-  computed: {
-    classnames() {
-      return [
-        'multipane',
-        'layout-' + this.layout.slice(0, 1),
-        this.isResizing ? 'is-resizing' : '',
-      ];
-    },
-    cursor() {
-      return this.isResizing
-        ? this.layout == LAYOUT_VERTICAL ? 'col-resize' : 'row-resize'
-        : '';
-    },
-    userSelect() {
-      return this.isResizing ? 'none' : '';
-    },
+  model: {
+    prop: 'layout',
+    event: 'change'
   },
-
   methods: {
     onMouseDown({ target: resizer, pageX: initialPageX, pageY: initialPageY }) {
-      if (resizer.className && resizer.className.match('multipane-resizer')) {
-        let self = this;
-        let { $el: container, layout } = self;
+      if (resizer.className && resizer.className.match('form-grid-resizer')) {
+        let { $el: container, layout } = this;
 
         let pane = resizer.previousElementSibling;
         let {
@@ -104,62 +144,35 @@ export default {
           offsetHeight: initialPaneHeight,
         } = pane;
 
-        let usePercentage = !!(pane.style.width + '').match('%');
-
         const { addEventListener, removeEventListener } = window;
 
         const resize = (initialSize, offset = 0) => {
-          if (layout == LAYOUT_VERTICAL) {
-            let containerWidth = container.clientWidth;
-            let paneWidth = initialSize + offset;
-
-            return (pane.style.width = usePercentage
-              ? paneWidth / containerWidth * 100 + '%'
-              : paneWidth + 'px');
-          }
-
-          if (layout == LAYOUT_HORIZONTAL) {
-            let containerHeight = container.clientHeight;
-            let paneHeight = initialSize + offset;
-
-            return (pane.style.height = usePercentage
-              ? paneHeight / containerHeight * 100 + '%'
-              : paneHeight + 'px');
-          }
+          let containerWidth = container.clientWidth;
+          let paneWidth = initialSize + offset;
+          const size = (Math.round(paneWidth / containerWidth * this.$options.propsData.layout.length * 20) / 20).toFixed(1);
+          return size;
         };
 
-        // This adds is-resizing class to container
-        self.isResizing = true;
+        this.isResizing = true;
 
-        // Resize once to get current computed size
-        let size = resize();
-
-        // Trigger paneResizeStart event
-        self.$emit('paneResizeStart', pane, resizer, size);
-
-        const onMouseMove = function({ pageX, pageY }) {
-          size =
-            layout == LAYOUT_VERTICAL
-              ? resize(initialPaneWidth, pageX - initialPageX)
-              : resize(initialPaneHeight, pageY - initialPageY);
-
-          self.$emit('paneResize', pane, resizer, size);
+        const onMouseMove = ({ pageX, pageY }) => {
+          const size = resize(initialPaneWidth, pageX - initialPageX);
+          const layout = this.$options.propsData.layout;
+          let col = 0;
+          let child = pane;
+          while((child = child.previousSibling) != null) {
+            if (child.className && child.className.match('form-grid-item')) {
+              col++;
+            }
+          }
+          this.$emit('change', layout.map((n, index) => col === index ? size : n));
         };
 
-        const onMouseUp = function() {
-          // Run resize one more time to set computed width/height.
-          size =
-            layout == LAYOUT_VERTICAL
-              ? resize(pane.clientWidth)
-              : resize(pane.clientHeight);
-
-          // This removes is-resizing class to container
-          self.isResizing = false;
+        const onMouseUp = () => {
+          this.isResizing = false;
 
           removeEventListener('mousemove', onMouseMove);
           removeEventListener('mouseup', onMouseUp);
-
-          self.$emit('paneResizeStop', pane, resizer, size);
         };
 
         addEventListener('mousemove', onMouseMove);

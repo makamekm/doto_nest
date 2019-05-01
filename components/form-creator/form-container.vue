@@ -1,3 +1,4 @@
+<script>
 import { smoothDnD, dropHandlers } from 'smooth-dnd';
 import { getTagProps, validateTagProp } from './utils';
 
@@ -74,8 +75,13 @@ export default {
     behaviour: String,
     groupName: String,
     orientation: String,
-    dragHandleSelector: String,
-    nonDragAreaSelector: String,
+    dragHandleSelector: {
+      type: String,
+    },
+    nonDragAreaSelector: {
+      type: String,
+      default: ".is-not-draggable",
+    },
     dragBeginDelay: Number,
     animationDuration: Number,
     autoScrollEnabled: { type: Boolean, default: true },
@@ -108,3 +114,10 @@ export default {
     );
   }
 };
+</script>
+
+<style lang="scss">
+.smooth-dnd-draggable-wrapper {
+  overflow: visible !important;
+}
+</style>

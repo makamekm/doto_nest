@@ -6,8 +6,7 @@
     }"
     :style="{
       userSelect: isResizing ? 'none' : '',
-    }"
-    @mousedown="onMouseDown">
+    }">
     <template
       v-for="(col, index) in layout.length">
       <div
@@ -19,7 +18,8 @@
           :name="index"/>
       </div>
       <div
-        class="form-grid-resizer"
+        @mousedown="onMouseDown"
+        class="form-grid-resizer is-not-draggable"
         v-bind:key="index + '_resizer'"/>
     </template>
   </div>
@@ -86,7 +86,7 @@ export default {
     isResizerMouseDown(element) {
       return element.className && element.className.match('form-grid-resizer');
     },
-    onMouseDown({ target: resizer, pageX: initialPageX }) {
+    onMouseDown({ currentTarget: resizer, pageX: initialPageX }) {
       if (this.isResizerMouseDown(resizer)) {
         const {
           offsetWidth: initialPaneWidth,
@@ -119,15 +119,15 @@ export default {
   flex-direction: row;
   align-items: stretch;
   flex-flow: row wrap;
-  margin-left: -($column-gap * 2);
-  margin-right: -($column-gap * 2);
+  margin-left: -($column-gap);
+  margin-right: -($column-gap);
 }
 .form-grid > .form-grid-item {
   position: relative;
   flex: 1;
   transition: flex 300ms;
-  padding-left: $column-gap * 2;
-  padding-right: $column-gap * 2;
+  padding-left: $column-gap;
+  padding-right: $column-gap;
   position: relative;
   &::before {
     content: "";
@@ -136,9 +136,10 @@ export default {
     opacity: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: $column-gap;
+    right: $column-gap;
     bottom: 0;
+    border-radius: 2px;
     transition: opacity 300ms;
     z-index: 1;
   }
@@ -169,10 +170,10 @@ export default {
   display: block;
   position: relative;
   content: "";
-  background-color: rgba(0, 0, 0, 0.15);
-  width: 10px;
-  margin-left: -10px;
-  left: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  width: ($column-gap * 2);
+  margin-left: -($column-gap * 2);
+  left: $column-gap;
   z-index: 1;
   cursor: col-resize;
   transition: width 300ms, margin-left 300ms, left 300ms, background-color 300ms;
@@ -182,7 +183,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     width: 1px;
-    left: calc(50% - 1px);
+    right: calc(50% + 1px);
     top: calc(50% - 5px);
     height: 10px;
     transition: left 300ms, background-color 300ms;
@@ -198,12 +199,12 @@ export default {
     transition: left 300ms, background-color 300ms;
   }
   &:hover {
-    width: 16px;
-    margin-left: -16px;
-    left: 8px;
-    background-color: rgba(0, 0, 0, 0.3);
+    width: ($column-gap * 4);
+    margin-left: -($column-gap * 4);
+    left: ($column-gap * 2);
+    background-color: rgba(0, 0, 0, 0.15);
     &::after {
-      left: calc(50% - 2px);
+      right: calc(50% + 2px);
     }
     &::before {
       left: calc(50% + 2px);

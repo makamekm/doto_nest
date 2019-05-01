@@ -1,10 +1,6 @@
 <template>
-  <form-draggable>
-    <div class="form-draggable">
-      <div class="form-draggable-content">
-        <slot/>
-      </div>
-    </div>
+  <form-draggable class="form-draggable">
+    <slot/>
   </form-draggable>
 </template>
 

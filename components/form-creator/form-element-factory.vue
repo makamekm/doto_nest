@@ -21,15 +21,14 @@
 
 <script lang="ts">
 import FormGrid from "./form-grid.vue";
-import FormLayout from "./form-layout.vue";
 
 export default {
   name: 'form-element-factory',
   props: {
     element: Object,
   },
-  // components: {
-  //   FormGrid, FormLayout,
-  // },
+  components: {
+    FormGrid,
+  },
 }
 </script>

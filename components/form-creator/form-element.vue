@@ -5,7 +5,9 @@
     <div
       class="form-element-controls"
       @mousedown="$event.stopPropagation()">
-        <div class="form-element-remove-control"/>
+        <div
+          class="form-element-remove-control"
+          @click="$emit('action-remove', element)"/>
     </div>
   </form-draggable>
 </template>
@@ -19,11 +21,17 @@ export default {
   props: {
     element: Object,
   },
-  // components: {
-  //   FormDraggable, FormElementFactory,
-  // },
+  components: {
+    FormDraggable, FormElementFactory,
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.form-element:not(:first-child) {
+  margin-top: $column-gap * 2;
+}
+</style>
 
 <style lang="scss" scoped>
 .form-element-remove-control {
@@ -72,6 +80,7 @@ export default {
   opacity: 0;
   transform-origin: top right;
   transition: transform 300ms, opacity 300ms;
+  background: linear-gradient(215deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
   &:hover {
     transform: scale(2);
   }
@@ -91,8 +100,7 @@ export default {
 }
 .smooth-dnd-no-user-select {
   .form-element {
-    padding: $column-gap * 2;
-    box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0.2);
+    padding: 0;
     & > .form-element-controls {
       pointer-events: none;
       opacity: 0;

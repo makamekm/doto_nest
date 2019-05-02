@@ -26,11 +26,13 @@ export default {
         children: [
           [
             {
+              label: 'Username',
               type: 'input'
             }
           ],
           [
             {
+              label: 'Password',
               type: 'input',
               inputType: 'password'
             }

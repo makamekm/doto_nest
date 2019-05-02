@@ -47,6 +47,7 @@ const mapOptions = context => {
 };
 
 export default {
+  name: 'form-container',
   mounted () {
     this.containerElement = this.$refs.container || this.$el;
     this.container = smoothDnD(this.containerElement, mapOptions(this));

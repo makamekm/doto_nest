@@ -21,6 +21,7 @@ A simple planning todo list per day. Made by Dundeeops team` },
   plugins: [
     '~/plugins/vee-validate',
     '~/plugins/buefy',
+    '~/plugins/form-creator',
   ],
   css: [
     '~/assets/scss/main.scss',

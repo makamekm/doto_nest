@@ -12,6 +12,7 @@ const wrapChild = (createElement, ctx) => {
 };
 
 export default {
+  name: 'form-draggable',
   props: {
     tag: {
       validator: validateTagProp,

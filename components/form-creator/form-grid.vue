@@ -28,6 +28,7 @@
 <script>
 const STEPS = 20;
 export default {
+  name: 'form-grid',
   props: {
     layout: {
       type: Array,

@@ -1,11 +1,29 @@
 <template>
   <form-draggable class="form-element">
-    <slot/>
-    <div class="form-element-controls" @mousedown="$event.stopPropagation()">
-      <div class="form-element-remove-control"/>
+    <form-element-factory
+      :element="element"/>
+    <div
+      class="form-element-controls"
+      @mousedown="$event.stopPropagation()">
+        <div class="form-element-remove-control"/>
     </div>
   </form-draggable>
 </template>
+
+<script lang="ts">
+import FormDraggable from "./form-draggable.vue";
+import FormElementFactory from "./form-element-factory.vue";
+
+export default {
+  name: 'form-element',
+  props: {
+    element: Object,
+  },
+  // components: {
+  //   FormDraggable, FormElementFactory,
+  // },
+}
+</script>
 
 <style lang="scss" scoped>
 .form-element-remove-control {
@@ -82,14 +100,4 @@
   }
 }
 </style>
-
-<script lang="ts">
-import FormDraggable from "./form-draggable.vue";
-
-export default {
-  components: {
-    FormDraggable,
-  },
-}
-</script>
 

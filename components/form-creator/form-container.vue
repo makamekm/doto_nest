@@ -103,7 +103,10 @@ export default {
     },
     getGhostParent: Function,
     'drop-ready': Function,
-    dropPlaceholder: [Object, Boolean]
+    dropPlaceholder: {
+      type: [Object, Boolean],
+      default: true,
+    }
   },
   render: function (createElement) {
     const tagProps = getTagProps(this);
@@ -117,7 +120,7 @@ export default {
 </script>
 
 <style lang="scss">
-.smooth-dnd-draggable-wrapper {
+.smooth-dnd-draggable-wrapper--old {
   overflow: visible !important;
 }
 </style>

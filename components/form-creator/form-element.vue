@@ -1,13 +1,14 @@
 <template>
   <form-draggable class="form-element">
     <form-element-factory
+      v-on="$listeners"
       :element="element"/>
     <div
       class="form-element-controls"
       @mousedown="$event.stopPropagation()">
         <div
           class="form-element-remove-control"
-          @click="$emit('action-remove', element)"/>
+          @click="$emit('remove', element, form)"/>
     </div>
   </form-draggable>
 </template>
@@ -20,6 +21,7 @@ export default {
   name: 'form-element',
   props: {
     element: Object,
+    form: Array,
   },
   components: {
     FormDraggable, FormElementFactory,

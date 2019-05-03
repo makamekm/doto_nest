@@ -1,6 +1,6 @@
 <template>
   <div class="gl-layout-margin">
-    <form-layout :form="form"/>
+    <form-layout :form="form" @drop="onDrop" @remove="onRemove"/>
   </div>
 </template>
 
@@ -69,7 +69,11 @@ export default {
   methods: {
     onDrop(dropResult) {
       console.log(dropResult);
-    }
+    },
+    onRemove(element, form) {
+      console.log(element, form);
+      form.splice(form.indexOf(element), 1);
+    },
   }
 }
 </script>

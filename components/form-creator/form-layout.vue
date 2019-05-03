@@ -1,9 +1,10 @@
 <template>
-  <form-container group-name="form" @drop="onDrop">
+  <form-container group-name="form" @drop="$emit('drop', $event)">
     <template
       v-for="(element, index) in form">
         <form-element
-          @action-remove="onRemove"
+          v-on="$listeners"
+          :form="form"
           :element="element"
           :key="index"/>
     </template>
@@ -30,14 +31,5 @@ export default {
   props: {
     form: Array,
   },
-  methods: {
-    onRemove(element) {
-      this["form"].splice(this["form"].indexOf(element), 1); 
-      console.log(element, this["form"]);
-    },
-    onDrop(dropResult) {
-      console.log(dropResult);
-    }
-  }
 }
 </script>

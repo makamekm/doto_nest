@@ -2,10 +2,12 @@
   <div class="form-element-factory-control">
     <form-grid-control
       v-if="element.type === 'grid'"
+      v-on="$listeners"
       :element="element"/>
 
     <form-input-control
       v-if="element.type === 'input'"
+      v-on="$listeners"
       :element="element"/>
   </div>
 </template>

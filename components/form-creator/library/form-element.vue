@@ -7,6 +7,7 @@
       class="form-element-controls"
       @mousedown="$event.stopPropagation()">
         <form-element-control-factory
+          v-on="$listeners"
           :element="element"/>
         <div
           class="form-element-remove-control"

@@ -3,11 +3,13 @@
     <form-grid
       v-if="element.type === 'grid'"
       :layout="element.layout"
-      @change="element.layout = $event">
+      @change="$emit('control-action', 'grid', 'change-layout', element, $event)">
       <template
         v-for="(form, index) in element.children"
         v-slot:[index]>
-        <form-layout :form="form" v-on="$listeners"/>
+        <form-layout
+          :form="form"
+          v-on="$listeners"/>
       </template>
     </form-grid>
 

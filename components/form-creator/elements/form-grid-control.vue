@@ -3,16 +3,14 @@
     <div
       class="form-element-remove-control"
       @click="
-        element.layout.splice(element.layout.length - 1, 1);
-        element.children.splice(element.children.length - 1, 1);
+        $emit('control-action', 'grid', 'remove-layout', element, element.layout.length - 1);
       "
       >
     </div>
     <div
       class="form-element-add-control"
       @click="
-        element.layout.push(1);
-        element.children.push([]);
+        $emit('control-action', 'grid', 'add-layout', element, []);
       ">
     </div>
   </div>

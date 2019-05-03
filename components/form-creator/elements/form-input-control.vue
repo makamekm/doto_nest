@@ -1,7 +1,8 @@
 <template>
   <div class="form-element-factory-control">
     <div
-      class="form-element-settings-control">
+      class="form-element-settings-control"
+      @click="$emit('control-action', 'input', 'open-menu', element)">
     </div>
   </div>
 </template>

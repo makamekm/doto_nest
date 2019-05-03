@@ -6,6 +6,8 @@
     <div
       class="form-element-controls"
       @mousedown="$event.stopPropagation()">
+        <form-element-control-factory
+          :element="element"/>
         <div
           class="form-element-remove-control"
           @click="$emit('remove', element, form)"/>
@@ -15,7 +17,8 @@
 
 <script lang="ts">
 import FormDraggable from "./form-draggable.vue";
-import FormElementFactory from "./form-element-factory.vue";
+import FormElementFactory from "../form-element-factory.vue";
+import FormElementControlFactory from "../form-element-control-factory.vue";
 
 export default {
   name: 'form-element',
@@ -24,7 +27,7 @@ export default {
     form: Array,
   },
   components: {
-    FormDraggable, FormElementFactory,
+    FormDraggable, FormElementFactory, FormElementControlFactory,
   },
 }
 </script>
@@ -40,7 +43,7 @@ export default {
   position: relative;
   width: $column-gap * 2;
   height: $column-gap * 2;
-  transition: background-color 300ms;
+  transition: background-color 300ms, transform 300ms;
   background-color: rgba(0, 0, 0, 0);
   &::after {
     content: "";
@@ -65,6 +68,7 @@ export default {
     transition: left 300ms, background-color 300ms;
   }
   &:active {
+    transform: scale(0.8);
     &::before, &::after {
       background-color: rgba(255, 0, 0, 0.4);
     }

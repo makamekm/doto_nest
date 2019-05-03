@@ -1,5 +1,5 @@
 <template>
-  <form-container group-name="form" @drop="$emit('drop', $event)"
+  <form-container class="is-full-height" group-name="form" @drop="$emit('drop', $event)"
     :get-child-payload="(index) => ({
       form,
       element: form[index],
@@ -22,11 +22,14 @@
   width: 100%;
   height: 100%;
 }
+.is-full-height {
+  height: 100%;
+}
 </style>
 
 <script lang="ts">
-import FormContainer from "~/components/form-creator/form-container.vue";
-import FormElement from "~/components/form-creator/form-element.vue";
+import FormContainer from "./library/form-container.vue";
+import FormElement from "./library/form-element.vue";
 
 export default {
   name: 'form-layout',

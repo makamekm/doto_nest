@@ -11,16 +11,15 @@
       </template>
     </form-grid>
 
-    <b-field
+    <form-input
       v-if="element.type === 'input'"
-      :label="element.label">
-      <b-input :type="element.inputType" :name="element.name"/>
-    </b-field>
+      :element="element"/>
   </div>
 </template>
 
 <script lang="ts">
-import FormGrid from "./form-grid.vue";
+import FormGrid from "./elements/form-grid.vue";
+import FormInput from "./elements/form-input.vue";
 
 export default {
   name: 'form-element-factory',
@@ -29,6 +28,7 @@ export default {
   },
   components: {
     FormGrid,
+    FormInput,
   },
 }
 </script>

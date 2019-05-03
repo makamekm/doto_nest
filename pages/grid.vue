@@ -1,8 +1,14 @@
 <template>
-  <div class="gl-layout-margin">
+  <div class="gl-layout-margin is-full-page">
     <form-layout :form="form" @drop="onDrop" @remove="onRemove"/>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.is-full-page {
+  min-height: 50vh;
+}
+</style>
 
 <script lang="ts">
 import FormLayout from "~/components/form-creator/form-layout.vue";

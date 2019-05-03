@@ -83,7 +83,7 @@ export default {
       type: String,
       default: ".is-not-draggable",
     },
-    dragBeginDelay: { type: Number, default: 200 },
+    dragBeginDelay: { type: Number, default: 0 },
     animationDuration: Number,
     autoScrollEnabled: { type: Boolean, default: true },
     lockAxis: String,

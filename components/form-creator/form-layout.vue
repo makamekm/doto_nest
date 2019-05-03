@@ -1,5 +1,10 @@
 <template>
-  <form-container group-name="form" @drop="$emit('drop', $event)">
+  <form-container group-name="form" @drop="$emit('drop', $event)"
+    :get-child-payload="(index) => ({
+      form,
+      element: form[index],
+    })"
+    :should-animate-drop="getShouldAcceptDrop">
     <template
       v-for="(element, index) in form">
         <form-element
@@ -30,6 +35,12 @@ export default {
   },
   props: {
     form: Array,
+  },
+  methods: {
+    getShouldAcceptDrop(src, payload) {
+      payload.newForm = this['form'];
+      return true;
+    },
   },
 }
 </script>

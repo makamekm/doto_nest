@@ -67,11 +67,15 @@ export default {
     ]
   }),
   methods: {
-    onDrop(dropResult) {
-      console.log(dropResult);
+    onDrop({removedIndex, addedIndex, payload: { form, element, newForm }}) {
+      if (removedIndex != null) {
+        form.splice(removedIndex, 1);
+      }
+      if (addedIndex != null) {
+        newForm.splice(addedIndex, 0, element);
+      }
     },
     onRemove(element, form) {
-      console.log(element, form);
       form.splice(form.indexOf(element), 1);
     },
   }

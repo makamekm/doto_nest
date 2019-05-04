@@ -9,3 +9,7 @@
 .smooth-dnd-draggable-wrapper {
   overflow: visible !important;
 }
+
+.smooth-dnd-drop-preview-constant-class:not(:first-child) {
+  margin-top: $column-gap * 2;
+}

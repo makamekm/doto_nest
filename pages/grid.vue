@@ -139,6 +139,37 @@ export default {
           },
         ],
       },
+      {
+        type: 'table',
+        label: 'Favorites',
+        path: 'table',
+        isNarrowed: true,
+        children: [
+          {
+            header: {
+              label: 'Username',
+              children: [
+                {
+                  label: '',
+                  type: 'input',
+                  inputType: '',
+                  placeholder: '',
+                  path: 'quickPath.username',
+                }
+              ],
+            },
+            children: [
+              {
+                label: '',
+                type: 'input',
+                inputType: '',
+                placeholder: '',
+                path: '$.username',
+              }
+            ],
+          }
+        ],
+      },
     ]
   }),
   methods: {

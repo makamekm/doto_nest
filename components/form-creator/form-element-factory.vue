@@ -14,6 +14,11 @@
       v-on="$listeners"
       v-if="element.type === 'rows'"
       :element="element"/>
+
+    <form-table
+      v-on="$listeners"
+      v-if="element.type === 'table'"
+      :element="element"/>
   </div>
 </template>
 
@@ -21,6 +26,7 @@
 import FormGrid from "./elements/form-grid.vue";
 import FormInput from "./elements/form-input.vue";
 import FormRows from "./elements/form-rows.vue";
+import FormTable from "./elements/form-table.vue";
 
 export default {
   name: 'form-element-factory',
@@ -31,6 +37,7 @@ export default {
     FormGrid,
     FormInput,
     FormRows,
+    FormTable,
   },
 }
 </script>

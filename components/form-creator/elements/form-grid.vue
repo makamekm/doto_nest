@@ -7,6 +7,7 @@
       v-for="(form, index) in element.children"
       v-slot:[index]>
       <form-layout
+        :key="index"
         :form="form"
         v-on="$listeners"/>
     </template>

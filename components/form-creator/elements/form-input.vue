@@ -23,7 +23,7 @@ export default {
     openPropertyWindow() {
       this['$modal'].open({
         parent: this,
-        component: FormInputProperty,
+        component: FormInputProperty as any,
         props: {
           element: this['element'],
         }

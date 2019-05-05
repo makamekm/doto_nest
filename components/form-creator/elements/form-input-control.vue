@@ -2,7 +2,7 @@
   <div class="form-element-factory-control">
     <div
       class="form-element-settings-control"
-      @click="$emit('control-action', 'input', 'open-menu', element)">
+      @click="openPropertyWindow()">
     </div>
   </div>
 </template>
@@ -53,10 +53,23 @@
 </style>
 
 <script lang="ts">
+import FormInputProperty from "./form-input-property.vue";
+
 export default {
   name: 'form-input-control',
   props: {
     element: Object,
+  },
+  methods: {
+    openPropertyWindow() {
+      this['$modal'].open({
+        parent: this,
+        component: FormInputProperty,
+        props: {
+          element: this['element'],
+        }
+      });
+    },
   },
 }
 </script>

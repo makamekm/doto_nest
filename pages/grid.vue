@@ -30,7 +30,8 @@
           :form="form"
           @drop="onDrop"
           @remove="onRemove"
-          @control-action="onControlAction"/>
+          @control-action="onControlAction"
+          @change-action="onChangeAction"/>
       </div>
     </div>
   </div>
@@ -130,7 +131,12 @@ export default {
           element.children.push(data);
         }
       }
-    }
+    },
+    onChangeAction(element, data) {
+      console.log(element, data);
+      
+      Object.assign(element, data);
+    },
   }
 }
 </script>

@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     inputMounted(index) {
-      if (this['index'] === index) {
+      if (this['index'] != null && this['index'] === index) {
         const element = this['$refs']['toBeFocused'][index].$el.children[0];
         element.focus();
         element.select();

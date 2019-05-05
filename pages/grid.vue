@@ -60,6 +60,7 @@ export default {
         type: 'input',
         inputType: 'password',
         placeholder: '',
+        path: 'password',
       },
       {
         type: 'grid',
@@ -71,14 +72,15 @@ export default {
               type: 'input',
               inputType: '',
               placeholder: '',
+              path: 'auth.username',
             }
           ],
           [
             {
-              label: 'Password',
+              label: 'Comments',
               type: 'input',
-              inputType: 'password',
               placeholder: '',
+              path: 'auth.comments',
             }
           ]
         ]
@@ -93,6 +95,7 @@ export default {
               type: 'input',
               inputType: '',
               placeholder: '',
+              path: 'user.name',
             }
           ],
           [
@@ -101,17 +104,40 @@ export default {
               type: 'input',
               inputType: 'email',
               placeholder: '',
+              path: 'user.email',
             }
           ],
           [
             {
-              label: 'Comments',
+              label: 'Information',
               type: 'input',
               inputType: '',
               placeholder: '',
+              path: 'user.information',
             }
           ]
         ]
+      },
+      {
+        type: 'rows',
+        label: 'Friends',
+        path: 'rows',
+        children: [
+          {
+            label: 'Username',
+            type: 'input',
+            inputType: '',
+            placeholder: '',
+            path: '$.username',
+          },
+          {
+            label: 'Nickname',
+            type: 'input',
+            inputType: '',
+            placeholder: '',
+            path: '$.nickname',
+          },
+        ],
       },
     ]
   }),

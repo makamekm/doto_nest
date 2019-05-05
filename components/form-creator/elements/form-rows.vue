@@ -3,19 +3,18 @@
     @contextmenu.stop.prevent="openPropertyWindow">
       <b-field
         :label="element.label">
-        <b-input
-          :type="element.inputType"
-          :name="element.name"
-          :placeholder="element.placeholder"/>
+          <form-layout
+            :form="element.children"
+            v-on="$listeners"/>
       </b-field>
   </div>
 </template>
 
 <script lang="ts">
-import FormInputProperty from "./form-input-property.vue";
+import FormRowsProperty from "./form-rows-property.vue";
 
 export default {
-  name: 'form-input',
+  name: 'form-rows',
   props: {
     element: Object,
   },
@@ -23,7 +22,7 @@ export default {
     openPropertyWindow() {
       this['$modal'].open({
         parent: this,
-        component: FormInputProperty,
+        component: FormRowsProperty,
         props: {
           element: this['element'],
         }

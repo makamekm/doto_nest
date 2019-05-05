@@ -9,6 +9,11 @@
       v-if="element.type === 'input'"
       v-on="$listeners"
       :element="element"/>
+
+    <form-rows-control
+      v-if="element.type === 'rows'"
+      v-on="$listeners"
+      :element="element"/>
   </div>
 </template>
 
@@ -22,6 +27,7 @@
 <script lang="ts">
 import FormGridControl from "./elements/form-grid-control.vue";
 import FormInputControl from "./elements/form-input-control.vue";
+import FormRowsControl from "./elements/form-rows-control.vue";
 
 export default {
   name: 'form-element-control-factory',
@@ -31,6 +37,7 @@ export default {
   components: {
     FormGridControl,
     FormInputControl,
+    FormRowsControl,
   }
 }
 </script>

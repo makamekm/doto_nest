@@ -133,8 +133,6 @@ export default {
       }
     },
     onChangeAction(element, data) {
-      console.log(element, data);
-      
       Object.assign(element, data);
     },
   }

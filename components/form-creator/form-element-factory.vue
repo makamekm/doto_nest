@@ -14,6 +14,7 @@
     </form-grid>
 
     <form-input
+      v-on="$listeners"
       v-if="element.type === 'input'"
       :element="element"/>
   </div>

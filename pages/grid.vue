@@ -30,7 +30,6 @@
           :form="form"
           @drop="onDrop"
           @remove="onRemove"
-          @control-action="onControlAction"
           @change-action="onChangeAction"/>
       </div>
     </div>
@@ -127,19 +126,6 @@ export default {
     },
     onRemove(element, form) {
       form.splice(form.indexOf(element), 1);
-    },
-    onControlAction(itemType, type, element, data) {
-      if (itemType === 'grid') {
-        if (type === 'change-layout') {
-          element.layout = data;
-        } else if (type === 'remove-layout') {
-          element.layout.splice(data, 1);
-          element.children.splice(data, 1);
-        } else if (type === 'add-layout') {
-          element.layout.push(1);
-          element.children.push(data);
-        }
-      }
     },
     onChangeAction(element, data) {
       Object.assign(element, data);

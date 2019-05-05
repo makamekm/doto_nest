@@ -2,16 +2,12 @@
   <div class="form-element-factory-control">
     <div
       class="form-element-remove-control"
-      @click="
-        $emit('control-action', 'grid', 'remove-layout', element, element.layout.length - 1);
-      "
+      @click="onRemove"
       >
     </div>
     <div
       class="form-element-add-control"
-      @click="
-        $emit('control-action', 'grid', 'add-layout', element, []);
-      ">
+      @click="onAdd">
     </div>
   </div>
 </template>
@@ -91,5 +87,34 @@ export default {
   props: {
     element: Object,
   },
+  methods: {
+    onRemove() {
+      const element = this['element'];
+      const position = element.layout.length - 1;
+      const layout = element.layout.slice(0);
+      const children = element.children.slice(0);
+      layout.splice(position, 1);
+      children.splice(position, 1);
+      this['$emit'](
+        'change-action',
+        element,
+        {
+          layout,
+          children,
+        },
+      );
+    },
+    onAdd() {
+      const element = this['element'];
+      this['$emit'](
+        'change-action',
+        element,
+        {
+          layout: [...element.layout, 1],
+          children: [...element.children, []],
+        },
+      );
+    }
+  }
 }
 </script>

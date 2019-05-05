@@ -43,6 +43,8 @@ export default {
         label: 'Input',
         getElement: () => ({
           type: 'input',
+          label: '',
+          placeholder: '',
         }),
       },
     ]

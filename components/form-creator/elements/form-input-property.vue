@@ -1,13 +1,13 @@
 <template>
-  <div class="columns lc-is-no-margin">
+  <form class="columns lc-is-no-margin" v-on:submit.prevent="save">
     <div class="column is-offset-half is-half">
       <div class="card" ref="form">
         <header class="card-header">
-          <div class="card-header-title">Input Property</div>
+          <div class="card-header-title">Input Properties</div>
         </header>
         <section class="card-content gl-form-container">
           <b-field horizontal label="Label">
-            <b-input type="input" v-model="label"></b-input>
+            <b-input ref="toBeFocused" type="input" v-model="label"></b-input>
           </b-field>
 
           <b-field horizontal label="Placeholder">
@@ -22,8 +22,8 @@
                   Cancel
               </button>
               <button
-                class="button is-primary gl-form-btn"
-                @click="save">
+                submit
+                class="button is-primary gl-form-btn">
                   Save & Close
               </button>
             </p>
@@ -31,7 +31,7 @@
         </section>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <style lang="scss" scoped>
@@ -52,6 +52,7 @@ export default {
   }),
   mounted() {
     this['readElementValues']();
+    this['$refs'].toBeFocused.$el.children[0].focus();
   },
   methods: {
     save() {

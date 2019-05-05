@@ -144,6 +144,9 @@ export default {
         label: 'Favorites',
         path: 'table',
         isNarrowed: true,
+        isDetailed: true,
+        isNoPadding: true,
+        details: [],
         children: [
           {
             header: {

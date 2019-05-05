@@ -2,7 +2,8 @@
   <div
     @contextmenu.stop.prevent="openPropertyWindow">
       <b-table
-        :data="[{}]"
+        :class="{'no-padding': element.isNoPadding}"
+        :data="[{id: 1}]"
         :hoverable="element.isHoverable"
         :striped="element.isStriped"
         :narrowed="element.isNarrowed"
@@ -12,22 +13,32 @@
         :paginated="element.isPaginated"
         :per-page="element.perPage"
         :pagination-simple="element.isPaginationSimple"
-        :draggable="element.isDraggable">
+        :draggable="element.isDraggable"
+        :detailed="element.isDetailed"
+        :opened-detailed="[1]"
+        :detail-key="element.detailPath || 'id'"
+        :show-detail-icon="element.isDetailIcon || false">
           <template slot-scope="props" slot="header">
-            {{ props.column.meta.label }}
+            {{ props.column.meta.header.label }}
             <form-layout
-              :form="props.column.meta.children"
+              :form="props.column.meta.header.children"
               v-on="$listeners"/>
           </template>
           <template slot-scope="props" v-for="(column, index) in element.children">
             <b-table-column
-              :meta="column.header"
+              :meta="column"
               :key="index">
                 <form-layout
-                  :data="props"
+                  :data="props.row"
                   :form="column.children"
                   v-on="$listeners"/>
             </b-table-column>
+          </template>
+          <template slot="detail" slot-scope="props">
+            <form-layout
+              :data="props.row"
+              :form="element.details"
+              v-on="$listeners"/>
           </template>
       </b-table>
   </div>

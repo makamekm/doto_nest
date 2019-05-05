@@ -59,7 +59,8 @@ export default {
       {
         label: 'Password',
         type: 'input',
-        inputType: 'password'
+        inputType: 'password',
+        placeholder: '',
       },
       {
         type: 'grid',
@@ -68,14 +69,17 @@ export default {
           [
             {
               label: 'Username',
-              type: 'input'
+              type: 'input',
+              inputType: '',
+              placeholder: '',
             }
           ],
           [
             {
               label: 'Password',
               type: 'input',
-              inputType: 'password'
+              inputType: 'password',
+              placeholder: '',
             }
           ]
         ]
@@ -87,20 +91,25 @@ export default {
           [
             {
               label: 'Name',
-              type: 'input'
+              type: 'input',
+              inputType: '',
+              placeholder: '',
             }
           ],
           [
             {
               label: 'Email',
               type: 'input',
-              inputType: 'email'
+              inputType: 'email',
+              placeholder: '',
             }
           ],
           [
             {
               label: 'Comments',
-              type: 'input'
+              type: 'input',
+              inputType: '',
+              placeholder: '',
             }
           ]
         ]

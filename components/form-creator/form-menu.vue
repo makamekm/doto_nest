@@ -45,6 +45,7 @@ export default {
           type: 'input',
           label: '',
           placeholder: '',
+          inputType: '',
         }),
       },
     ]

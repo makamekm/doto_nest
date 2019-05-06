@@ -55,6 +55,36 @@ export default {
     FormMenu,
   },
   data: () => ({
+    data: {
+      password: '',
+      auth: {
+        username: 'hkj',
+        comments: 'hkj',
+      },
+      user: {
+        name: 'hkj',
+        email: 'hkj',
+        iniformation: 'hkj',
+      },
+      friends: [
+        {
+          username: 'hkj',
+          nickname: 'hkj',
+        },
+        {
+          username: 'hkj',
+          nickname: 'hkj',
+        },
+      ],
+      quickPath: {
+        username: 'jhjhjh',
+      },
+      table: [
+        {
+          username: 'jhkjh',
+        },
+      ]
+    },
     form: [
       {
         label: 'Password',
@@ -122,7 +152,7 @@ export default {
       {
         type: 'rows',
         label: 'Friends',
-        path: 'rows',
+        path: 'friends',
         children: [
           {
             label: 'Username',

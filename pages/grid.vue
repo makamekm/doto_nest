@@ -49,6 +49,7 @@ import FormMenu from "~/components/form-creator/form-menu.vue";
 export default {
   middleware: ['auth'],
   auth: false,
+  layout: 'full',
   components: {
     FormLayout,
     FormMenu,

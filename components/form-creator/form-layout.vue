@@ -21,11 +21,6 @@
 </template>
 
 <style lang="scss">
-.smooth-dnd-container.vertical {
-  content: "";
-  width: 100%;
-  height: 100%;
-}
 .is-full-height {
   content: "";
   height: 100%;

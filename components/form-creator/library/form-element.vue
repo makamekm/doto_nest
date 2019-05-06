@@ -104,17 +104,5 @@ export default {
     }
   }
 }
-.smooth-dnd-no-user-select {
-  .form-element {
-    padding: 0;
-    box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0);
-    // padding: $column-gap * 1;
-    // box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0.2);
-    & > .form-element-controls {
-      pointer-events: none;
-      opacity: 0;
-    }
-  }
-}
 </style>
 

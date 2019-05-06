@@ -123,6 +123,7 @@ export default {
   flex-flow: row wrap;
   margin-left: -($column-gap);
   margin-right: -($column-gap);
+  min-height: $column-gap * 4;
 }
 .form-grid > .form-grid-item {
   position: relative;

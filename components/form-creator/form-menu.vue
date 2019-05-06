@@ -1,33 +1,34 @@
 <template>
-  <form-container class="menu-list" tag="ul" behaviour="copy" group-name="form"
-  :get-child-payload="(index) => ({
-    form: [],
-    element: getElement(index),
-  })">
-    <form-draggable
-      tag="li"
+  <form-container
+    tag="ul"
+    class="menu-list"
+    :value="list"
+    :preventOnFilter="false"
+    :sort="false"
+    :swapThreshold="0.5"
+    :animation="200"
+    :group="{ name: 'form', pull: 'clone', put: false }">
+    <li
       v-for="(element, index) in elements"
       :key="index">
-        <a class="is-graggable-cursor">{{ element.label }}</a>
-      </form-draggable>
+        <a class="is-graggable">{{ element.label }}</a>
+      </li>
   </form-container>
 </template>
 
 <style lang="scss" scoped>
-.is-graggable-cursor {
+.is-graggable {
   cursor: move;
 }
 </style>
 
 <script lang="ts">
-import FormContainer from "~/components/form-creator/library/form-container.vue";
-import FormDraggable from "~/components/form-creator/library/form-draggable.vue";
+import FormContainer from "vuedraggable";
 
 export default {
   name: 'form-menu',
   components: {
     FormContainer,
-    FormDraggable,
   },
   data: () => ({
     elements: [
@@ -51,9 +52,9 @@ export default {
       },
     ]
   }),
-  methods: {
-    getElement(index: number) {
-      return this['elements'][index].getElement();
+  computed: {
+    list() {
+      return (this['elements'] as any[]).map((item) => item.getElement());
     }
   }
 }

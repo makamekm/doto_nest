@@ -4,6 +4,7 @@
       <b-table
         :class="{'no-padding': element.isNoPadding}"
         :data="[{id: 1}]"
+        :bordered="element.isBordered"
         :hoverable="element.isHoverable"
         :striped="element.isStriped"
         :narrowed="element.isNarrowed"

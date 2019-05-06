@@ -1,5 +1,5 @@
 <template>
-  <form-draggable class="form-element">
+  <div class="form-element">
     <form-element-factory
       v-on="$listeners"
       :element="element"/>
@@ -13,11 +13,10 @@
           class="form-element-remove-control"
           @click="$emit('remove', element, form)"/>
     </div>
-  </form-draggable>
+  </div>
 </template>
 
 <script lang="ts">
-import FormDraggable from "./form-draggable.vue";
 import FormElementFactory from "../form-element-factory.vue";
 import FormElementControlFactory from "../form-element-control-factory.vue";
 
@@ -28,7 +27,7 @@ export default {
     form: Array,
   },
   components: {
-    FormDraggable, FormElementFactory, FormElementControlFactory,
+    FormElementFactory, FormElementControlFactory,
   },
 }
 </script>
@@ -109,6 +108,8 @@ export default {
   .form-element {
     padding: 0;
     box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0);
+    // padding: $column-gap * 1;
+    // box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0.2);
     & > .form-element-controls {
       pointer-events: none;
       opacity: 0;

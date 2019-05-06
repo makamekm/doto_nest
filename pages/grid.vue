@@ -28,7 +28,7 @@
       <div class="column">
         <form-layout
           :form="form"
-          @drop="onDrop"
+          @form-change="onDrop"
           @remove="onRemove"
           @change-action="onChangeAction"/>
       </div>
@@ -144,8 +144,9 @@ export default {
         label: 'Favorites',
         path: 'table',
         isNarrowed: true,
-        isDetailed: true,
+        isDetailed: false,
         isNoPadding: true,
+        isBordered: true,
         details: [],
         children: [
           {
@@ -176,7 +177,10 @@ export default {
     ]
   }),
   methods: {
-    onDrop({removedIndex, addedIndex, payload: { form, element, newForm }}) {
+    onDrop(prevForm, newForm) {
+      prevForm.splice(0, prevForm.length, ...newForm);
+    },
+    onDropOld({removedIndex, addedIndex, payload: { form, element, newForm }}) {
       if (removedIndex != null) {
         form.splice(removedIndex, 1);
       }

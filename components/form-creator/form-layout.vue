@@ -1,10 +1,14 @@
 <template>
-  <form-container class="is-full-height" group-name="form" @drop="$emit('drop', $event)"
-    :get-child-payload="(index) => ({
-      form,
-      element: form[index],
-    })"
-    :should-animate-drop="getShouldAcceptDrop">
+  <form-container
+    v-model="value"
+    :preventOnFilter="false"
+    :sort="false"
+    :swapThreshold="0.5"
+    :animation="200"
+    filter=".is-not-draggable"
+    class="is-full-height"
+    :group="{ name: 'form' }"
+    draggable=".form-element">
     <template
       v-for="(element, index) in form">
         <form-element
@@ -23,12 +27,14 @@
   height: 100%;
 }
 .is-full-height {
+  content: "";
   height: 100%;
+  width: 100%;
 }
 </style>
 
 <script lang="ts">
-import FormContainer from "./library/form-container.vue";
+import FormContainer from "vuedraggable";
 import FormElement from "./library/form-element.vue";
 
 export default {
@@ -38,6 +44,16 @@ export default {
   },
   props: {
     form: Array,
+  },
+  computed: {
+    value: {
+      get() {
+        return this['form'];
+      },
+      set(value) {
+        this['$emit']('form-change', this['form'], value);
+      }
+    }
   },
   methods: {
     getShouldAcceptDrop(src, payload) {

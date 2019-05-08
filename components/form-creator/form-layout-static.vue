@@ -6,6 +6,7 @@
         <form-element-static
           v-on="$listeners"
           :data-get="dataGet"
+          :array-position="arrayPosition || []"
           :form="form"
           :element="element"
           :key="index"/>
@@ -33,6 +34,7 @@ export default {
   props: {
     form: Array,
     dataGet: Function,
+    arrayPosition: Array,
   },
   computed: {
     value: {

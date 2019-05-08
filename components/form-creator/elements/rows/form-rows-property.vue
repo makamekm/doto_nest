@@ -6,12 +6,8 @@
           <div class="card-header-title">Rows Properties</div>
         </header>
         <section class="card-content gl-form-container">
-          <b-field horizontal label="Label">
-            <b-input ref="toBeFocused" type="input" v-model="label"></b-input>
-          </b-field>
-
           <b-field horizontal label="Path">
-            <b-input type="input" v-model="path"></b-input>
+            <b-input ref="toBeFocused" type="input" v-model="path"></b-input>
           </b-field>
 
           <b-field horizontal>

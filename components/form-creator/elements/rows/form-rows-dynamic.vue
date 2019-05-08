@@ -1,12 +1,9 @@
 <template>
   <div
     @contextmenu.stop.prevent="openPropertyWindow">
-      <b-field
-        :label="element.label">
-          <form-layout-dynamic
-            :form="element.children"
-            v-on="$listeners"/>
-      </b-field>
+      <form-layout-dynamic
+        :form="element.children"
+        v-on="$listeners"/>
   </div>
 </template>
 
@@ -14,7 +11,7 @@
 import FormRowsProperty from "./form-rows-property.vue";
 
 export default {
-  name: 'form-rows',
+  name: 'form-rows-dynamic',
   props: {
     element: Object,
   },

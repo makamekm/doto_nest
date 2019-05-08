@@ -9,6 +9,7 @@
         :key="index"
         :form="form"
         :data-get="dataGet"
+        :array-position="arrayPosition"
         v-on="$listeners"/>
     </template>
   </form-grid-layout>
@@ -22,6 +23,7 @@ export default {
   props: {
     element: Object,
     dataGet: Function,
+    arrayPosition: Array,
   },
   components: {
     FormGridLayout,

@@ -3,6 +3,7 @@
     <form-element-static-factory
       v-on="$listeners"
       :data-get="dataGet"
+      :array-position="arrayPosition"
       :element="element"/>
   </div>
 </template>
@@ -16,6 +17,7 @@ export default {
     element: Object,
     form: Array,
     dataGet: Function,
+    arrayPosition: Array,
   },
   components: {
     FormElementStaticFactory,

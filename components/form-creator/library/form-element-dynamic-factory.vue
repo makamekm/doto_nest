@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import {registry} from "../form-registry";
+import { registry } from "../form-registry";
 
 export default {
   name: 'form-element-dynamic-factory',
@@ -17,9 +17,7 @@ export default {
     element: Object,
   },
   computed: {
-    registry() {
-      return registry;
-    }
+    registry: () => registry,
   },
 }
 </script>

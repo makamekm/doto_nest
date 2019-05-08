@@ -50,6 +50,7 @@
 
 <script lang="ts">
 import FormMenu from "~/components/form-creator/form-menu.vue";
+import { getParseValue } from "~/utils/pathData";
 
 export default {
   middleware: ['auth'],
@@ -58,11 +59,32 @@ export default {
   components: {
     FormMenu,
   },
+  methods: {
+    dataGet(path, arrayPosition) {
+      return getParseValue(this['data'], path, arrayPosition).value;
+    },
+    onDataChange(fullPath, newData, arrayPosition) {
+      const {
+        parent,
+        path,
+      } = getParseValue(this['data'], fullPath, arrayPosition);
+      parent[path] = newData;
+    },
+    onDrop(prevForm, newForm) {
+      prevForm.splice(0, prevForm.length, ...newForm);
+    },
+    onRemove(element, form) {
+      form.splice(form.indexOf(element), 1);
+    },
+    onChangeAction(element, data) {
+      Object.assign(element, data);
+    },
+  },
   data: () => ({
     isEdit: false,
     data: {
       password: '',
-      auth: {
+      auths: {
         username: 'hkj',
         comments: 'hkj',
       },
@@ -173,14 +195,14 @@ export default {
             type: 'input',
             inputType: '',
             placeholder: '',
-            path: '$.username',
+            path: 'friends.$.username',
           },
           {
             label: 'Nickname',
             type: 'input',
             inputType: '',
             placeholder: '',
-            path: '$.nickname',
+            path: 'friends.$.nickname',
           },
         ],
       },
@@ -213,7 +235,7 @@ export default {
                 type: 'input',
                 inputType: '',
                 placeholder: '',
-                path: '$.username',
+                path: 'table.$.username',
               }
             ],
           }
@@ -221,70 +243,5 @@ export default {
       },
     ]
   }),
-  methods: {
-    dataGet(path) {
-      return getParseValue(this['data'], path).value;
-    },
-    onDataChange(fullPath, newData) {
-      const {
-        value,
-        parent,
-        path,
-      } = getParseValue(this['data'], fullPath);
-      parent[path] = newData;
-    },
-    onDrop(prevForm, newForm) {
-      prevForm.splice(0, prevForm.length, ...newForm);
-    },
-    onDropOld({removedIndex, addedIndex, payload: { form, element, newForm }}) {
-      if (removedIndex != null) {
-        form.splice(removedIndex, 1);
-      }
-      if (addedIndex != null) {
-        newForm.splice(addedIndex, 0, element);
-      }
-    },
-    onRemove(element, form) {
-      form.splice(form.indexOf(element), 1);
-    },
-    onChangeAction(element, data) {
-      Object.assign(element, data);
-    },
-  }
-}
-
-function getParseValue(data, path: string, arrPosition: number[] = []) {
-  return getValue(data, path.split('.'), arrPosition);
-}
-
-function getValue(data, path: string[], arrPosition: number[]) {
-  const firstPath = path[0];
-  const nextPath = path[1];
-  if (path.length === 1) {
-    return {
-      parent: data,
-      value: data[firstPath],
-      path: firstPath,
-    };
-  } else if (firstPath === '$') {
-    const position = arrPosition[0];
-    if (!data[position]) {
-      if (nextPath === '$') {
-        data[position] = [];
-      } else {
-        data[position] = {};
-      }
-    }
-    return getValue(data[position], path.slice(1), arrPosition.slice(1));
-  } else {
-    if (!data[firstPath]) {
-      if (nextPath === '$') {
-        data[firstPath] = [];
-      } else {
-        data[firstPath] = {};
-      }
-    }
-    return getValue(data[firstPath], path.slice(1), arrPosition);
-  }
 }
 </script>

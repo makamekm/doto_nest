@@ -1,6 +1,5 @@
 <template>
-  <div
-    @contextmenu.stop.prevent="openPropertyWindow">
+  <div>
       <b-field
         :label="element.label">
         <b-input
@@ -13,33 +12,29 @@
 </template>
 
 <script lang="ts">
-import FormInputProperty from "./form-input-property.vue";
-
 export default {
   name: 'form-input-static',
   props: {
     element: Object,
     dataGet: Function,
+    arrayPosition: Array,
   },
   computed: {
     value: {
       get() {
-        return this['dataGet'](this['element'].path);
+        return this['dataGet'](
+          this['element'].path,
+          this['arrayPosition'],
+        );
       },
       set(value) {
-        this['$emit']('data-change', this['element'].path, value);
+        this['$emit'](
+          'data-change',
+          this['element'].path,
+          value,
+          this['arrayPosition'],
+        );
       }
-    },
-  },
-  methods: {
-    openPropertyWindow() {
-      this['$modal'].open({
-        parent: this,
-        component: FormInputProperty as any,
-        props: {
-          element: this['element'],
-        }
-      });
     },
   },
 }

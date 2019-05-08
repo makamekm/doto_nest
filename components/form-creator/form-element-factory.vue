@@ -1,43 +1,25 @@
 <template>
   <div>
-    <form-grid
+    <component
+      v-if="!!registry[element.type].editComponent"
       v-on="$listeners"
-      v-if="element.type === 'grid'"
-      :element="element"/>
-
-    <form-input
-      v-on="$listeners"
-      v-if="element.type === 'input'"
-      :element="element"/>
-
-    <form-rows
-      v-on="$listeners"
-      v-if="element.type === 'rows'"
-      :element="element"/>
-
-    <form-table
-      v-on="$listeners"
-      v-if="element.type === 'table'"
-      :element="element"/>
+      :element="element"
+      v-bind:is="registry[element.type].editComponent"/>
   </div>
 </template>
 
 <script lang="ts">
-import FormGrid from "./elements/form-grid.vue";
-import FormInput from "./elements/form-input.vue";
-import FormRows from "./elements/form-rows.vue";
-import FormTable from "./elements/form-table.vue";
+import {registry} from "./form-registry";
 
 export default {
   name: 'form-element-factory',
   props: {
     element: Object,
   },
-  components: {
-    FormGrid,
-    FormInput,
-    FormRows,
-    FormTable,
+  computed: {
+    registry() {
+      return registry;
+    }
   },
 }
 </script>

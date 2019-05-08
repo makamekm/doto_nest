@@ -31,6 +31,7 @@
 <script lang="ts">
 import FormContainer from "vuedraggable";
 import FormElement from "./library/form-element.vue";
+import "./form-standart";
 
 export default {
   name: 'form-layout',

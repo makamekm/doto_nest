@@ -1,19 +1,10 @@
 <template>
   <div class="form-element-factory-control">
-    <form-grid-control
-      v-if="element.type === 'grid'"
+    <component
+      v-if="!!registry[element.type].editControlComponent"
       v-on="$listeners"
-      :element="element"/>
-
-    <form-input-control
-      v-if="element.type === 'input'"
-      v-on="$listeners"
-      :element="element"/>
-
-    <form-rows-control
-      v-if="element.type === 'rows'"
-      v-on="$listeners"
-      :element="element"/>
+      :element="element"
+      v-bind:is="registry[element.type].editControlComponent"/>
   </div>
 </template>
 
@@ -25,19 +16,17 @@
 </style>
 
 <script lang="ts">
-import FormGridControl from "./elements/form-grid-control.vue";
-import FormInputControl from "./elements/form-input-control.vue";
-import FormRowsControl from "./elements/form-rows-control.vue";
+import {registry} from "./form-registry";
 
 export default {
   name: 'form-element-control-factory',
   props: {
     element: Object,
   },
-  components: {
-    FormGridControl,
-    FormInputControl,
-    FormRowsControl,
-  }
+  computed: {
+    registry() {
+      return registry;
+    }
+  },
 }
 </script>

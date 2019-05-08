@@ -7,7 +7,7 @@
             General
           </p>
           <ul class="menu-list">
-            <li><a><b-switch size="is-small">Edit Mode</b-switch></a></li>
+            <li><a><b-switch size="is-small" v-model="isEdit">Edit Mode</b-switch></a></li>
             <li><a>Save & Exit</a></li>
           </ul>
           <p class="menu-label">
@@ -26,7 +26,16 @@
         </aside>
       </div>
       <div class="column">
-        <form-layout
+        <form-layout-dynamic
+          v-if="isEdit"
+          :form="form"
+          @form-change="onDrop"
+          @remove="onRemove"
+          @change-action="onChangeAction"/>
+        <form-layout-static
+          v-if="!isEdit"
+          :data-get="dataGet"
+          @data-change="onDataChange"
           :form="form"
           @form-change="onDrop"
           @remove="onRemove"
@@ -43,7 +52,6 @@
 </style>
 
 <script lang="ts">
-import FormLayout from "~/components/form-creator/form-layout.vue";
 import FormMenu from "~/components/form-creator/form-menu.vue";
 
 export default {
@@ -51,10 +59,10 @@ export default {
   auth: false,
   layout: 'full',
   components: {
-    FormLayout,
     FormMenu,
   },
   data: () => ({
+    isEdit: false,
     data: {
       password: '',
       auth: {
@@ -208,6 +216,12 @@ export default {
     ]
   }),
   methods: {
+    dataGet(path) {
+
+    },
+    onDataChange(path, newData) {
+      console.log(path, newData);
+    },
     onDrop(prevForm, newForm) {
       prevForm.splice(0, prevForm.length, ...newForm);
     },

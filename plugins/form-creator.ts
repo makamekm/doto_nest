@@ -1,4 +1,6 @@
 import Vue from 'vue';
-import FormLayout from '~/components/form-creator/form-layout.vue';
+import FormLayoutDynamic from '~/components/form-creator/form-layout-dynamic.vue';
+import FormLayoutStatic from '~/components/form-creator/form-layout-static.vue';
 
-Vue.component('form-layout', FormLayout);
+Vue.component('form-layout-dynamic', FormLayoutDynamic);
+Vue.component('form-layout-static', FormLayoutStatic);

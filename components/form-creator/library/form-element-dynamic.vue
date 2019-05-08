@@ -1,6 +1,6 @@
 <template>
   <div class="form-element">
-    <form-element-factory
+    <form-element-dynamic-factory
       v-on="$listeners"
       :element="element"/>
     <div
@@ -17,17 +17,17 @@
 </template>
 
 <script lang="ts">
-import FormElementFactory from "../form-element-factory.vue";
-import FormElementControlFactory from "../form-element-control-factory.vue";
+import FormElementDynamicFactory from "./form-element-dynamic-factory.vue";
+import FormElementControlFactory from "./form-element-control-factory.vue";
 
 export default {
-  name: 'form-element',
+  name: 'form-element-dynamic',
   props: {
     element: Object,
     form: Array,
   },
   components: {
-    FormElementFactory, FormElementControlFactory,
+    FormElementDynamicFactory, FormElementControlFactory,
   },
 }
 </script>

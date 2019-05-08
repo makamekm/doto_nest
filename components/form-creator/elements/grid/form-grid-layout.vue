@@ -18,6 +18,7 @@
           :name="index"/>
       </div>
       <div
+        v-if="!isStatic"
         @contextmenu.prevent="$emit('resizecontextmenu', index)"
         @mousedown="onMouseDown"
         class="form-grid-resizer is-not-draggable"
@@ -34,6 +35,7 @@ export default {
     layout: {
       type: Array,
     },
+    isStatic: Boolean,
   },
   data() {
     return {

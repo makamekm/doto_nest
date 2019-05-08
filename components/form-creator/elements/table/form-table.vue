@@ -21,7 +21,7 @@
         :show-detail-icon="element.isDetailIcon || false">
           <template slot-scope="props" slot="header">
             {{ props.column.meta.header.label }}
-            <form-layout
+            <form-layout-dynamic
               :form="props.column.meta.header.children"
               v-on="$listeners"/>
           </template>
@@ -29,14 +29,14 @@
             <b-table-column
               :meta="column"
               :key="index">
-                <form-layout
+                <form-layout-dynamic
                   :data="props.row"
                   :form="column.children"
                   v-on="$listeners"/>
             </b-table-column>
           </template>
           <template slot="detail" slot-scope="props">
-            <form-layout
+            <form-layout-dynamic
               :data="props.row"
               :form="element.details"
               v-on="$listeners"/>

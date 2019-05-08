@@ -3,7 +3,7 @@
     @contextmenu.stop.prevent="openPropertyWindow">
       <b-field
         :label="element.label">
-          <form-layout
+          <form-layout-dynamic
             :form="element.children"
             v-on="$listeners"/>
       </b-field>

@@ -1,10 +1,10 @@
 <template>
   <div class="form-element-factory-control">
     <component
-      v-if="!!registry[element.type].editControlComponent"
+      v-if="!!registry[element.type].dynamicControlComponent"
       v-on="$listeners"
       :element="element"
-      v-bind:is="registry[element.type].editControlComponent"/>
+      v-bind:is="registry[element.type].dynamicControlComponent"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 </style>
 
 <script lang="ts">
-import {registry} from "./form-registry";
+import {registry} from "../form-registry";
 
 export default {
   name: 'form-element-control-factory',

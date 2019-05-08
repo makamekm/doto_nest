@@ -1,32 +1,33 @@
-import { registerComponent } from "./form-registry";
+import { registerComponent } from './form-registry';
 
-import FormGrid from "./elements/form-grid.vue";
-import FormGridControl from "./elements/form-grid-control.vue";
-import FormInput from "./elements/form-input.vue";
-import FormInputControl from "./elements/form-input-control.vue";
-import FormRows from "./elements/form-rows.vue";
-import FormRowsControl from "./elements/form-rows-control.vue";
-import FormTable from "./elements/form-table.vue";
+import FormGridDynamic from './elements/grid/form-grid-dynamic.vue';
+import FormGridStatic from './elements/grid/form-grid-static.vue';
+import FormGridControl from './elements/grid/form-grid-control.vue';
+import FormInput from './elements/input/form-input.vue';
+import FormInputControl from './elements/input/form-input-control.vue';
+import FormRows from './elements/rows/form-rows.vue';
+import FormRowsControl from './elements/rows/form-rows-control.vue';
+import FormTable from './elements/table/form-table.vue';
 
 registerComponent('grid', {
-    editComponent: FormGrid,
-    readonlyComponent: FormGrid,
-    editControlComponent: FormGridControl,
+    dynamicComponent: FormGridDynamic,
+    dynamicControlComponent: FormGridControl,
+    staticComponent: FormGridStatic,
 });
 
 registerComponent('input', {
-    editComponent: FormInput,
-    readonlyComponent: FormInput,
-    editControlComponent: FormInputControl,
+    dynamicComponent: FormInput,
+    dynamicControlComponent: FormInputControl,
+    staticComponent: FormInput,
 });
 
 registerComponent('rows', {
-    editComponent: FormRows,
-    readonlyComponent: FormRows,
-    editControlComponent: FormRowsControl,
+    dynamicComponent: FormRows,
+    dynamicControlComponent: FormRowsControl,
+    staticComponent: FormRows,
 });
 
 registerComponent('table', {
-    editComponent: FormTable,
-    readonlyComponent: FormTable,
+    dynamicComponent: FormTable,
+    staticComponent: FormTable,
 });

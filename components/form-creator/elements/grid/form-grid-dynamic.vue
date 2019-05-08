@@ -6,7 +6,7 @@
     <template
       v-for="(form, index) in element.children"
       v-slot:[index]>
-      <form-layout
+      <form-layout-dynamic
         :key="index"
         :form="form"
         v-on="$listeners"/>
@@ -19,7 +19,7 @@ import FormGridLayout from "./form-grid-layout.vue";
 import FormGridProperty from "./form-grid-property.vue";
 
 export default {
-  name: 'form-grid',
+  name: 'form-grid-dynamic',
   props: {
     element: Object,
   },

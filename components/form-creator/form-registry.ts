@@ -3,9 +3,9 @@ export const registry: {
 } = {};
 
 export interface FormComponent {
-    editComponent: any;
-    readonlyComponent: any;
-    editControlComponent?: any;
+    dynamicComponent: any;
+    staticComponent: any;
+    dynamicControlComponent?: any;
 }
 
 export function registerComponent(type: string, component: FormComponent) {

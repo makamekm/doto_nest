@@ -3,7 +3,8 @@ import { registerComponent } from './form-registry';
 import FormGridDynamic from './elements/grid/form-grid-dynamic.vue';
 import FormGridStatic from './elements/grid/form-grid-static.vue';
 import FormGridControl from './elements/grid/form-grid-control.vue';
-import FormInput from './elements/input/form-input.vue';
+import FormInputDynamic from './elements/input/form-input-dynamic.vue';
+import FormInputStatic from './elements/input/form-input-static.vue';
 import FormInputControl from './elements/input/form-input-control.vue';
 import FormRows from './elements/rows/form-rows.vue';
 import FormRowsControl from './elements/rows/form-rows-control.vue';
@@ -16,9 +17,9 @@ registerComponent('grid', {
 });
 
 registerComponent('input', {
-    dynamicComponent: FormInput,
+    dynamicComponent: FormInputDynamic,
     dynamicControlComponent: FormInputControl,
-    staticComponent: FormInput,
+    staticComponent: FormInputStatic,
 });
 
 registerComponent('rows', {

@@ -34,12 +34,9 @@
           @change-action="onChangeAction"/>
         <form-layout-static
           v-if="!isEdit"
-          :data-get="dataGet"
-          @data-change="onDataChange"
           :form="form"
-          @form-change="onDrop"
-          @remove="onRemove"
-          @change-action="onChangeAction"/>
+          :data-get="dataGet"
+          @data-change="onDataChange"/>
       </div>
     </div>
   </div>
@@ -103,8 +100,17 @@ export default {
       },
       {
         type: 'grid',
-        layout: [1, 1],
+        layout: [1, 1, 1],
         children: [
+          [
+            {
+              label: 'Username',
+              type: 'input',
+              inputType: '',
+              placeholder: '',
+              path: 'auth.username',
+            }
+          ],
           [
             {
               label: 'Username',
@@ -217,10 +223,15 @@ export default {
   }),
   methods: {
     dataGet(path) {
-
+      return getParseValue(this['data'], path).value;
     },
-    onDataChange(path, newData) {
-      console.log(path, newData);
+    onDataChange(fullPath, newData) {
+      const {
+        value,
+        parent,
+        path,
+      } = getParseValue(this['data'], fullPath);
+      parent[path] = newData;
     },
     onDrop(prevForm, newForm) {
       prevForm.splice(0, prevForm.length, ...newForm);
@@ -239,6 +250,24 @@ export default {
     onChangeAction(element, data) {
       Object.assign(element, data);
     },
+  }
+}
+
+function getParseValue(data, path: string, arrPosition: number[] = []) {
+  return getValue(data, path.split('.'), arrPosition);
+}
+
+function getValue(data, path: string[], arrPosition: number[]) {
+  const firstPath = path[0];
+  if (path.length === 1) {
+    return {
+      parent: data,
+      value: data[firstPath],
+      path: firstPath,
+    };
+  } else {
+    const nextData = data[firstPath] || {};
+    return getValue(nextData, path.slice(1), arrPosition);
   }
 }
 </script>

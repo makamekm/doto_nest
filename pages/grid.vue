@@ -259,15 +259,32 @@ function getParseValue(data, path: string, arrPosition: number[] = []) {
 
 function getValue(data, path: string[], arrPosition: number[]) {
   const firstPath = path[0];
+  const nextPath = path[1];
   if (path.length === 1) {
     return {
       parent: data,
       value: data[firstPath],
       path: firstPath,
     };
+  } else if (firstPath === '$') {
+    const position = arrPosition[0];
+    if (!data[position]) {
+      if (nextPath === '$') {
+        data[position] = [];
+      } else {
+        data[position] = {};
+      }
+    }
+    return getValue(data[position], path.slice(1), arrPosition.slice(1));
   } else {
-    const nextData = data[firstPath] || {};
-    return getValue(nextData, path.slice(1), arrPosition);
+    if (!data[firstPath]) {
+      if (nextPath === '$') {
+        data[firstPath] = [];
+      } else {
+        data[firstPath] = {};
+      }
+    }
+    return getValue(data[firstPath], path.slice(1), arrPosition);
   }
 }
 </script>

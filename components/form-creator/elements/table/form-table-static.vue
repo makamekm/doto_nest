@@ -27,18 +27,17 @@
             v-on="$listeners"/>
         </template>
         <template slot-scope="props">
-          <template
-            v-for="(column, index) in element.children">
-              <b-table-column
-                :key="index"
-                :meta="column">
-                  <form-layout-static
-                    :data-get="dataGet"
-                    :array-position="[...arrayPosition, props.row._index]"
-                    :form="column.children"
-                    v-on="$listeners"/>
-              </b-table-column>
-          </template>
+            <b-table-column
+              v-for="(column, index) in element.children"
+              :label="column.header.label"
+              :key="index"
+              :meta="column">
+                <form-layout-static
+                  :data-get="dataGet"
+                  :array-position="[...arrayPosition, props.row._index]"
+                  :form="column.children"
+                  v-on="$listeners"/>
+            </b-table-column>
         </template>
         <template slot="detail" slot-scope="props">
           <form-layout-static

@@ -25,8 +25,10 @@
               :form="props.column.meta.header.children"
               v-on="$listeners"/>
           </template>
-          <template slot-scope="props" v-for="(column, index) in element.children">
+          <template slot-scope="props">
             <b-table-column
+              v-for="(column, index) in element.children"
+              :label="column.header.label"
               :meta="column"
               :key="index">
                 <form-layout-dynamic

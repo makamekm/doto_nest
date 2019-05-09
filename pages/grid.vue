@@ -211,7 +211,7 @@ export default {
         isNarrowed: true,
         isDetailed: false,
         isNoPadding: true,
-        isBordered: true,
+        isBordered: false,
         details: [],
         children: [
           {

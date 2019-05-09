@@ -53,28 +53,6 @@ export default {
   props: {
     element: Object,
   },
-  data: () => ({
-    data: [
-      {
-        name: 'sdfsdf',
-        comments: 'asdadsdf',
-      },
-      {
-        name: 'sdfsdf',
-        comments: 'asdadsdf',
-      },
-    ],
-    columns: [
-      {
-        field: "name",
-        label: "Name"
-      },
-      {
-        field: "comments",
-        label: "Comments"
-      }
-    ]
-  }),
   methods: {
     openPropertyWindow() {
       // this['$modal'].open({

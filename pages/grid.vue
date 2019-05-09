@@ -14,15 +14,6 @@
             Components
           </p>
           <form-menu/>
-          <p class="menu-label">
-            Settings
-          </p>
-          <ul class="menu-list">
-            <li><a>Team Settings</a></li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
-          </ul>
         </aside>
       </div>
       <div class="column">
@@ -50,7 +41,7 @@
 
 <script lang="ts">
 import FormMenu from "~/components/form-creator/form-menu.vue";
-import { getParseValue } from "~/utils/pathData";
+import { getParseValue } from "~/utils/form-data-path";
 
 export default {
   middleware: ['auth'],
@@ -109,6 +100,13 @@ export default {
       table: [
         {
           username: 'jhkjh',
+        },
+        {
+          username: 'jhkfdfdfdfjh',
+        },
+        {
+          username: 'aasd',
+          address: 'hkjhk',
         },
       ]
     },
@@ -238,7 +236,22 @@ export default {
                 path: 'table.$.username',
               }
             ],
-          }
+          },
+          {
+            header: {
+              label: 'Address',
+              children: [],
+            },
+            children: [
+              {
+                label: '',
+                type: 'input',
+                inputType: '',
+                placeholder: '',
+                path: 'table.$.address',
+              }
+            ],
+          },
         ],
       },
     ]

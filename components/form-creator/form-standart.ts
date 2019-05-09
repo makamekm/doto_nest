@@ -9,7 +9,8 @@ import FormInputControl from './elements/input/form-input-control.vue';
 import FormRowsDynamic from './elements/rows/form-rows-dynamic.vue';
 import FormRowsStatic from './elements/rows/form-rows-static.vue';
 import FormRowsControl from './elements/rows/form-rows-control.vue';
-import FormTable from './elements/table/form-table.vue';
+import FormTableDynamic from './elements/table/form-table-dynamic.vue';
+import FormTableStatic from './elements/table/form-table-static.vue';
 
 registerComponent('grid', {
     dynamicComponent: FormGridDynamic,
@@ -30,6 +31,6 @@ registerComponent('rows', {
 });
 
 registerComponent('table', {
-    dynamicComponent: FormTable,
-    staticComponent: FormTable,
+    dynamicComponent: FormTableDynamic,
+    staticComponent: FormTableStatic,
 });

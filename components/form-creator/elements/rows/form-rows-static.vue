@@ -31,6 +31,7 @@ export default {
       get() {
         return this['dataGet'](
           this['element'].path,
+          this['arrayPosition'],
         ) || [];
       },
       set(value) {
@@ -38,6 +39,7 @@ export default {
           'data-change',
           this['element'].path,
           value,
+          this['arrayPosition'],
         );
       }
     },

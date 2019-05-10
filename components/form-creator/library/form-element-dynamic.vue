@@ -1,6 +1,6 @@
 <template>
   <div class="form-element">
-    <form-element-factory
+    <form-element-dynamic-factory
       v-on="$listeners"
       :element="element"/>
     <div
@@ -17,17 +17,17 @@
 </template>
 
 <script lang="ts">
-import FormElementFactory from "../form-element-factory.vue";
-import FormElementControlFactory from "../form-element-control-factory.vue";
+import FormElementDynamicFactory from "./form-element-dynamic-factory.vue";
+import FormElementControlFactory from "./form-element-control-factory.vue";
 
 export default {
-  name: 'form-element',
+  name: 'form-element-dynamic',
   props: {
     element: Object,
     form: Array,
   },
   components: {
-    FormElementFactory, FormElementControlFactory,
+    FormElementDynamicFactory, FormElementControlFactory,
   },
 }
 </script>
@@ -101,18 +101,6 @@ export default {
     & > .form-element-controls {
       pointer-events: all;
       opacity: 1;
-    }
-  }
-}
-.smooth-dnd-no-user-select {
-  .form-element {
-    padding: 0;
-    box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0);
-    // padding: $column-gap * 1;
-    // box-shadow: inset 0 0 0px 1px rgba(0, 0, 0, 0.2);
-    & > .form-element-controls {
-      pointer-events: none;
-      opacity: 0;
     }
   }
 }

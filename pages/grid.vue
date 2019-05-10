@@ -7,30 +7,27 @@
             General
           </p>
           <ul class="menu-list">
-            <li><a><b-switch size="is-small">Edit Mode</b-switch></a></li>
+            <li><a><b-switch size="is-small" v-model="isEdit">Edit Mode</b-switch></a></li>
             <li><a>Save & Exit</a></li>
           </ul>
           <p class="menu-label">
             Components
           </p>
           <form-menu/>
-          <p class="menu-label">
-            Settings
-          </p>
-          <ul class="menu-list">
-            <li><a>Team Settings</a></li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
-          </ul>
         </aside>
       </div>
       <div class="column">
-        <form-layout
+        <form-layout-dynamic
+          v-if="isEdit"
           :form="form"
           @form-change="onDrop"
           @remove="onRemove"
           @change-action="onChangeAction"/>
+        <form-layout-static
+          v-if="!isEdit"
+          :form="form"
+          :data-get="dataGet"
+          @data-change="onDataChange"/>
       </div>
     </div>
   </div>
@@ -43,17 +40,76 @@
 </style>
 
 <script lang="ts">
-import FormLayout from "~/components/form-creator/form-layout.vue";
 import FormMenu from "~/components/form-creator/form-menu.vue";
+import { getParseValue } from "~/utils/form-data-path";
 
 export default {
   middleware: ['auth'],
   auth: false,
+  layout: 'full',
   components: {
-    FormLayout,
     FormMenu,
   },
+  methods: {
+    dataGet(path, arrayPosition) {
+      return getParseValue(this['data'], path, arrayPosition).value;
+    },
+    onDataChange(fullPath, newData, arrayPosition) {
+      const {
+        parent,
+        path,
+      } = getParseValue(this['data'], fullPath, arrayPosition);
+      parent[path] = newData;
+    },
+    onDrop(prevForm, newForm) {
+      prevForm.splice(0, prevForm.length, ...newForm);
+    },
+    onRemove(element, form) {
+      form.splice(form.indexOf(element), 1);
+    },
+    onChangeAction(element, data) {
+      Object.assign(element, data);
+    },
+  },
   data: () => ({
+    isEdit: false,
+    data: {
+      password: '',
+      auths: {
+        username: 'hkj',
+        comments: 'hkj',
+      },
+      user: {
+        name: 'hkj',
+        email: 'hkj',
+        iniformation: 'hkj',
+      },
+      friends: [
+        {
+          username: 'hkj',
+          nickname: 'hkj',
+        },
+        {
+          username: 'hkj',
+          nickname: 'hkj',
+        },
+      ],
+      quickPath: {
+        username: 'jhjhjh',
+      },
+      table: [
+        {
+          username: 'jhkjh',
+        },
+        {
+          username: 'jhkfdfdfdfjh',
+        },
+        {
+          username: 'aasd',
+          address: 'hkjhk',
+        },
+      ]
+    },
     form: [
       {
         label: 'Password',
@@ -64,8 +120,17 @@ export default {
       },
       {
         type: 'grid',
-        layout: [1, 1],
+        layout: [1, 1, 1],
         children: [
+          [
+            {
+              label: 'Username',
+              type: 'input',
+              inputType: '',
+              placeholder: '',
+              path: 'auth.username',
+            }
+          ],
           [
             {
               label: 'Username',
@@ -121,21 +186,21 @@ export default {
       {
         type: 'rows',
         label: 'Friends',
-        path: 'rows',
+        path: 'friends',
         children: [
           {
             label: 'Username',
             type: 'input',
             inputType: '',
             placeholder: '',
-            path: '$.username',
+            path: 'friends.$.username',
           },
           {
             label: 'Nickname',
             type: 'input',
             inputType: '',
             placeholder: '',
-            path: '$.nickname',
+            path: 'friends.$.nickname',
           },
         ],
       },
@@ -146,7 +211,7 @@ export default {
         isNarrowed: true,
         isDetailed: false,
         isNoPadding: true,
-        isBordered: true,
+        isBordered: false,
         details: [],
         children: [
           {
@@ -168,32 +233,28 @@ export default {
                 type: 'input',
                 inputType: '',
                 placeholder: '',
-                path: '$.username',
+                path: 'table.$.username',
               }
             ],
-          }
+          },
+          {
+            header: {
+              label: 'Address',
+              children: [],
+            },
+            children: [
+              {
+                label: '',
+                type: 'input',
+                inputType: '',
+                placeholder: '',
+                path: 'table.$.address',
+              }
+            ],
+          },
         ],
       },
     ]
   }),
-  methods: {
-    onDrop(prevForm, newForm) {
-      prevForm.splice(0, prevForm.length, ...newForm);
-    },
-    onDropOld({removedIndex, addedIndex, payload: { form, element, newForm }}) {
-      if (removedIndex != null) {
-        form.splice(removedIndex, 1);
-      }
-      if (addedIndex != null) {
-        newForm.splice(addedIndex, 0, element);
-      }
-    },
-    onRemove(element, form) {
-      form.splice(form.indexOf(element), 1);
-    },
-    onChangeAction(element, data) {
-      Object.assign(element, data);
-    },
-  }
 }
 </script>

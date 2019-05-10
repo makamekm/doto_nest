@@ -1,31 +1,20 @@
 <template>
-  <form-container
-    v-model="value"
-    :preventOnFilter="false"
-    :sort="false"
-    :swapThreshold="0.5"
-    :animation="200"
-    filter=".is-not-draggable"
-    class="is-full-height"
-    :group="{ name: 'form' }"
-    draggable=".form-element">
+  <div
+    class="is-full-height">
     <template
       v-for="(element, index) in form">
-        <form-element
+        <form-element-static
           v-on="$listeners"
+          :data-get="dataGet"
+          :array-position="arrayPosition || []"
           :form="form"
           :element="element"
           :key="index"/>
     </template>
-  </form-container>
+  </div>
 </template>
 
 <style lang="scss">
-.smooth-dnd-container.vertical {
-  content: "";
-  width: 100%;
-  height: 100%;
-}
 .is-full-height {
   content: "";
   height: 100%;
@@ -34,16 +23,18 @@
 </style>
 
 <script lang="ts">
-import FormContainer from "vuedraggable";
-import FormElement from "./library/form-element.vue";
+import FormElementStatic from "./library/form-element-static.vue";
+import "./form-standart";
 
 export default {
-  name: 'form-layout',
+  name: 'form-layout-static',
   components: {
-    FormContainer, FormElement,
+    FormElementStatic,
   },
   props: {
     form: Array,
+    dataGet: Function,
+    arrayPosition: Array,
   },
   computed: {
     value: {

@@ -21,22 +21,24 @@
         :show-detail-icon="element.isDetailIcon || false">
           <template slot-scope="props" slot="header">
             {{ props.column.meta.header.label }}
-            <form-layout
+            <form-layout-dynamic
               :form="props.column.meta.header.children"
               v-on="$listeners"/>
           </template>
-          <template slot-scope="props" v-for="(column, index) in element.children">
+          <template slot-scope="props">
             <b-table-column
+              v-for="(column, index) in element.children"
+              :label="column.header.label"
               :meta="column"
               :key="index">
-                <form-layout
+                <form-layout-dynamic
                   :data="props.row"
                   :form="column.children"
                   v-on="$listeners"/>
             </b-table-column>
           </template>
           <template slot="detail" slot-scope="props">
-            <form-layout
+            <form-layout-dynamic
               :data="props.row"
               :form="element.details"
               v-on="$listeners"/>
@@ -53,28 +55,6 @@ export default {
   props: {
     element: Object,
   },
-  data: () => ({
-    data: [
-      {
-        name: 'sdfsdf',
-        comments: 'asdadsdf',
-      },
-      {
-        name: 'sdfsdf',
-        comments: 'asdadsdf',
-      },
-    ],
-    columns: [
-      {
-        field: "name",
-        label: "Name"
-      },
-      {
-        field: "comments",
-        label: "Comments"
-      }
-    ]
-  }),
   methods: {
     openPropertyWindow() {
       // this['$modal'].open({

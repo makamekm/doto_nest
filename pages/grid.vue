@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import FormMenu from "~/components/form-creator/form-menu.vue";
-import { getParseValue } from "~/utils/form-data-path";
+import { getParseValue, applyDirectives } from "~/utils/form-data-path";
 
 export default {
   middleware: ['auth'],
@@ -50,26 +50,16 @@ export default {
   components: {
     FormMenu,
   },
-  mounted() {
-    for (const fullPath in this['directives']) {
-      const arrayPosition = [];
-      const {
-        setValue,
-        value,
-      } = getParseValue(this['data'], fullPath, arrayPosition);
-      setValue(value, this['directives'][fullPath], this['data']);
-    }
+  created() {
+    applyDirectives(this['modificators'], this['data']);
   },
   methods: {
     dataGet(path, arrayPosition) {
       return getParseValue(this['data'], path, arrayPosition).value;
     },
     onDataChange(fullPath, newData, arrayPosition) {
-      const {
-        setValue,
-        value,
-      } = getParseValue(this['data'], fullPath, arrayPosition);
-      setValue(newData, this['directives'][fullPath], this['data']);
+      const { value, setValue } = getParseValue(this['data'], fullPath, arrayPosition);
+      setValue(newData, this['modificators'][fullPath], this['data']);
     },
     onDrop(prevForm, newForm) {
       prevForm.splice(0, prevForm.length, ...newForm);
@@ -83,15 +73,15 @@ export default {
   },
   data: () => ({
     isEdit: false,
-    directives: {
-      // 'auth.username': [
-      //   (value: string, prevValue, data) => {
-      //     return (value || '').toUpperCase();
-      //   },
-      // ],
+    modificators: {
+      'auth.username': [
+        (value: string, prevValue, data) => {
+          return value.toUpperCase();
+        },
+      ],
       'friends.$.username': [
         (value: string, prevValue, data) => {
-          return (value || '').toUpperCase();
+          return value.toUpperCase();
         },
       ]
     },

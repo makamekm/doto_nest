@@ -50,16 +50,26 @@ export default {
   components: {
     FormMenu,
   },
+  mounted() {
+    for (const fullPath in this['directives']) {
+      const arrayPosition = [];
+      const {
+        setValue,
+        value,
+      } = getParseValue(this['data'], fullPath, arrayPosition);
+      setValue(value, this['directives'][fullPath], this['data']);
+    }
+  },
   methods: {
     dataGet(path, arrayPosition) {
       return getParseValue(this['data'], path, arrayPosition).value;
     },
     onDataChange(fullPath, newData, arrayPosition) {
       const {
-        parent,
-        path,
+        setValue,
+        value,
       } = getParseValue(this['data'], fullPath, arrayPosition);
-      parent[path] = newData;
+      setValue(newData, this['directives'][fullPath], this['data']);
     },
     onDrop(prevForm, newForm) {
       prevForm.splice(0, prevForm.length, ...newForm);
@@ -73,9 +83,21 @@ export default {
   },
   data: () => ({
     isEdit: false,
+    directives: {
+      // 'auth.username': [
+      //   (value: string, prevValue, data) => {
+      //     return (value || '').toUpperCase();
+      //   },
+      // ],
+      'friends.$.username': [
+        (value: string, prevValue, data) => {
+          return (value || '').toUpperCase();
+        },
+      ]
+    },
     data: {
       password: '',
-      auths: {
+      auth: {
         username: 'hkj',
         comments: 'hkj',
       },
@@ -86,12 +108,12 @@ export default {
       },
       friends: [
         {
-          username: 'hkj',
+          username: 'hkjdd',
           nickname: 'hkj',
         },
         {
-          username: 'hkj',
-          nickname: 'hkj',
+          username: 'hkja',
+          nickname: 'hkjg',
         },
       ],
       quickPath: {

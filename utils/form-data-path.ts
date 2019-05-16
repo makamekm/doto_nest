@@ -17,7 +17,8 @@ export interface GetSetValue<T = any> {
   value: T | undefined;
 }
 
-export const ARRAY_DELIMITER = '$';
+export const IS_ARRAY_DELIMITER_REGEXP = /^(\$|[0-9]{1,})$/gi;
+export const IS_ARRAY_DIGIT_REGEXP = /^(\[0-9]{1,})$/gi;
 
 export function applyDirectives(directives: Directives, data) {
   for (const fullPath of Object.keys(directives)) {
@@ -38,7 +39,7 @@ export function checkUndefinedValue(data, path: string) {
 
 export function checkEmptyValue(data, path: string | number, nextPath: string) {
   if (!data[path]) {
-    Vue.set(data, path, nextPath === ARRAY_DELIMITER ? [] : {});
+    Vue.set(data, path, IS_ARRAY_DELIMITER_REGEXP.test(nextPath) ? [] : {});
   }
 }
 
@@ -133,6 +134,12 @@ export function getFirstSecondPath(path: string[]) {
   };
 }
 
+export function parsePosition(firstPath: string, value: number) {
+  return IS_ARRAY_DIGIT_REGEXP.test(firstPath)
+    ? Number.parseInt(firstPath, 10)
+    : value;
+}
+
 export function getValue<T = any>(
   data,
   path: string[],
@@ -145,8 +152,8 @@ export function getValue<T = any>(
   if (path.length === 1) {
     checkUndefinedValue(data, firstPath);
     return getGetSetValue<T>(data, firstPath, fullPath, fullPosition);
-  } else if (firstPath === ARRAY_DELIMITER) {
-    const index = position[0];
+  } else if (IS_ARRAY_DELIMITER_REGEXP.test(firstPath)) {
+    const index = parsePosition(firstPath, position[0]);
     if (index == null) {
       checkEmptyValue(data, index, secondPath);
       return getArrayGetSetValue<T>(data, path.slice(1), fullPath, position);

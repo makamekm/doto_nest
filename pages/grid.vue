@@ -73,15 +73,15 @@ export default {
   },
   data: () => ({
     isEdit: false,
-    errors: {},
+    // errors: {},
     validators: {
       'auth.username': [
-        (value: string, prevValue, data) => {
+        ({value, prevValue, data}) => {
           return ['test'];
         },
       ],
       'friends.$.username': [
-        (value: string, prevValue, data) => {
+        ({value, prevValue, data}) => {
           return [];
         },
       ]

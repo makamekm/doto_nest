@@ -1,6 +1,12 @@
 import Vue from 'vue';
 
-export type Directive<T = any> = (value: T, prevValue: T, data) => T;
+export type Directive<T = any> = (context: {
+  value: T;
+  prevValue: T;
+  scope;
+  fullPath: string;
+  fullPosition: number[];
+}) => T;
 
 export interface Directives {
   [path: string]: Directive[];
@@ -20,8 +26,8 @@ export function applyDirectives(directives: Directives, data) {
   }
 }
 
-export function getParseValue<T = any>(data, path: string, arrPosition: number[] = []): GetSetValue<T> {
-  return getValue(data, path.split('.'), arrPosition);
+export function getParseValue<T = any>(data, path: string, position: number[] = []): GetSetValue<T> {
+  return getValue(data, path.split('.'), position, path);
 }
 
 export function checkUndefinedValue(data, path: string) {
@@ -49,26 +55,58 @@ export function runDirectivesForValue<T = any>(
   path: string,
   data,
   scope,
+  fullPath: string,
+  fullPosition: number[],
 ) {
   directives.forEach((directive) => {
-    newValue = directive(newValue, data[path], scope);
+    newValue = directive({
+      value: newValue,
+      prevValue: data[path],
+      scope,
+      fullPath,
+      fullPosition,
+    });
   });
   return newValue;
 }
 
-export function getSetValue<T = any>(data, path: string) {
+export function getSetValue<T = any>(
+  data,
+  path: string,
+  fullPath: string,
+  fullPosition: number[],
+) {
   return (newValue: T, directives: Directive[] = [], scope) => {
     newValue = getNonUndefinedValue<T>(newValue, data[path]);
-    newValue = runDirectivesForValue<T>(directives, newValue, path, data, scope);
+    newValue = runDirectivesForValue<T>(
+      directives,
+      newValue,
+      path,
+      data,
+      scope,
+      fullPath,
+      fullPosition,
+    );
     data[path] = newValue;
   };
 }
 
-export function getArrayGetSetValue<T = any>(data, path: string[], arrPosition: number[]) {
+export function getArrayGetSetValue<T = any>(
+  data,
+  path: string[],
+  fullPath: string,
+  position: number[],
+) {
   return {
     setValue(value: T, directives: Directive[], scope) {
-      data.forEach((row) => {
-        const { setValue } = getValue<T>(row, path, arrPosition);
+      data.forEach((row, index) => {
+        const { setValue } = getValue<T>(
+          row,
+          path,
+          position,
+          fullPath,
+          [index, ...position],
+        );
         setValue(value, directives, scope);
       });
     },
@@ -76,9 +114,14 @@ export function getArrayGetSetValue<T = any>(data, path: string[], arrPosition: 
   };
 }
 
-export function getGetSetValue<T = any>(data, path: string) {
+export function getGetSetValue<T = any>(
+  data,
+  path: string,
+  fullPath: string,
+  fullPosition: number[],
+) {
   return {
-    setValue: getSetValue<T>(data, path),
+    setValue: getSetValue<T>(data, path, fullPath, fullPosition),
     value: data[path],
   };
 }
@@ -90,22 +133,29 @@ export function getFirstSecondPath(path: string[]) {
   };
 }
 
-export function getValue<T = any>(data, path: string[], arrPosition: number[]): GetSetValue<T> {
+export function getValue<T = any>(
+  data,
+  path: string[],
+  position: number[],
+  fullPath: string,
+  fullPosition?: number[],
+): GetSetValue<T> {
+  fullPosition = fullPosition || position;
   const { firstPath, secondPath } = getFirstSecondPath(path);
   if (path.length === 1) {
     checkUndefinedValue(data, firstPath);
-    return getGetSetValue<T>(data, firstPath);
+    return getGetSetValue<T>(data, firstPath, fullPath, fullPosition);
   } else if (firstPath === ARRAY_DELIMITER) {
-    const position = arrPosition[0];
-    if (position == null) {
-      checkEmptyValue(data, position, secondPath);
-      return getArrayGetSetValue<T>(data, path.slice(1), arrPosition);
+    const index = position[0];
+    if (index == null) {
+      checkEmptyValue(data, index, secondPath);
+      return getArrayGetSetValue<T>(data, path.slice(1), fullPath, position);
     } else {
-      checkEmptyValue(data, position, secondPath);
-      return getValue<T>(data[position], path.slice(1), arrPosition.slice(1));
+      checkEmptyValue(data, index, secondPath);
+      return getValue<T>(data[index], path.slice(1), position.slice(1), fullPath, fullPosition);
     }
   } else {
     checkEmptyValue(data, firstPath, secondPath);
-    return getValue<T>(data[firstPath], path.slice(1), arrPosition);
+    return getValue<T>(data[firstPath], path.slice(1), position, fullPath);
   }
 }

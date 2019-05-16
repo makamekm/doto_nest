@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import FormMenu from "~/components/form-creator/form-menu.vue";
-import { getParseValue, applyDirectives } from "~/utils/form-data-path";
+import { getParseValue, applyDirectives, Directive } from "~/utils/form-data-path";
 
 export default {
   middleware: ['auth'],
@@ -73,14 +73,27 @@ export default {
   },
   data: () => ({
     isEdit: false,
-    modificators: {
+    errors: {},
+    validators: {
       'auth.username': [
         (value: string, prevValue, data) => {
-          return value.toUpperCase();
+          return ['test'];
         },
       ],
       'friends.$.username': [
         (value: string, prevValue, data) => {
+          return [];
+        },
+      ]
+    },
+    modificators: {
+      'auth.username': [
+        ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
+          return value.toUpperCase();
+        },
+      ],
+      'friends.$.username': [
+        ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
           return value.toUpperCase();
         },
       ]

@@ -43,6 +43,32 @@
 import FormMenu from "~/components/form-creator/form-menu.vue";
 import { getParseValue, applyDirectives, Directive } from "~/utils/form-data-path";
 
+const validators = {
+  'auth.username': [
+    ({value, prevValue, data}) => {
+      return ['test'];
+    },
+  ],
+  'friends.$.username': [
+    ({value, prevValue, data}) => {
+      return [];
+    },
+  ]
+};
+
+const directives = {
+  'auth.username': [
+    ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
+      return value.toUpperCase();
+    },
+  ],
+  'friends.$.username': [
+    ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
+      return value.toUpperCase();
+    },
+  ]
+};
+
 export default {
   middleware: ['auth'],
   auth: false,
@@ -51,7 +77,7 @@ export default {
     FormMenu,
   },
   created() {
-    applyDirectives(this['modificators'], this['data']);
+    applyDirectives(directives, this['data']);
   },
   methods: {
     dataGet(path, arrayPosition) {
@@ -59,7 +85,7 @@ export default {
     },
     onDataChange(fullPath, newData, arrayPosition) {
       const { value, setValue } = getParseValue(this['data'], fullPath, arrayPosition);
-      setValue(newData, this['modificators'][fullPath], this['data']);
+      setValue(newData, directives[fullPath], this['data']);
     },
     onDrop(prevForm, newForm) {
       prevForm.splice(0, prevForm.length, ...newForm);
@@ -74,30 +100,6 @@ export default {
   data: () => ({
     isEdit: false,
     // errors: {},
-    validators: {
-      'auth.username': [
-        ({value, prevValue, data}) => {
-          return ['test'];
-        },
-      ],
-      'friends.$.username': [
-        ({value, prevValue, data}) => {
-          return [];
-        },
-      ]
-    },
-    modificators: {
-      'auth.username': [
-        ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
-          return value.toUpperCase();
-        },
-      ],
-      'friends.$.username': [
-        ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
-          return value.toUpperCase();
-        },
-      ]
-    },
     data: {
       password: '',
       auth: {

@@ -83,9 +83,9 @@ export default {
     dataGet(path, arrayPosition) {
       return getParseValue(this['data'], path, arrayPosition).value;
     },
-    onDataChange(fullPath, newData, arrayPosition) {
-      const { value, setValue } = getParseValue(this['data'], fullPath, arrayPosition);
-      setValue(newData, directives[fullPath], this['data']);
+    onDataChange({ path, value: newValue, arrayPosition }) {
+      const { value, setValue } = getParseValue(this['data'], path, arrayPosition);
+      setValue(newValue, directives[path], this['data']);
     },
     onDrop(prevForm, newForm) {
       prevForm.splice(0, prevForm.length, ...newForm);

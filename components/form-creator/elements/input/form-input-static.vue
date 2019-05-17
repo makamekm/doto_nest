@@ -3,7 +3,7 @@
       <b-field
         :label="element.label">
         <b-input
-          v-restore-cursor-position="position"
+          ref="input"
           :value="value"
           @input.native="handleInput"
           :type="element.inputType"
@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: 'form-input-static',
   props: {
@@ -22,43 +22,49 @@ export default {
     arrayPosition: Array,
   },
   data: () => ({
-    position: 0,
+    selectionStart: 0,
+    selectionEnd: 0,
   }),
   methods: {
     handleInput(e) {
       const value = e.target.value;
-      const position = e.target.selectionStart;
-      this['position'] = position;
-      this['$emit'](
+      const selectionStart = e.target.selectionStart;
+      const selectionEnd = e.target.selectionEnd;
+
+      this.selectionStart = selectionStart;
+      this.selectionEnd = selectionEnd;
+
+      this.$emit(
         'data-change',
-        this['element'].path,
-        value,
-        this['arrayPosition'],
         {
-          position,
-          setPosition: (value) => this['position'] = value,
+          path: this.element.path,
+          value,
+          arrayPosition: this.arrayPosition,
+          selectionStart,
+          selectionEnd,
+          setSelectionStart: (value) => this.selectionStart = value,
+          setSelectionEnd: (value) => this.selectionEnd = value,
         }
       );
     },
   },
-  directives: {
-    restoreCursorPosition: {
-      update(e, { value }, b, c) {
-        const element = e.childNodes[0];
-        console.log(value, element.selectionStart, element);
-        // if (element.selectionStart !== value) {
-        //   element.selectionStart = value;
-        //   element.selectionEnd = value;
-        // }
-      }
+  watch: {
+    value() {
+      const element = this.$refs.input.$refs.input;
+      this.$nextTick(() => {
+        try {
+          element.selectionStart = this.selectionStart;
+          element.selectionEnd = this.selectionEnd;
+        } finally {}
+      });
     }
   },
   computed: {
     value: {
       get() {
-        return this['dataGet'](
-          this['element'].path,
-          this['arrayPosition'],
+        return this.dataGet(
+          this.element.path,
+          this.arrayPosition,
         );
       },
       set(value) {

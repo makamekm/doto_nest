@@ -16,7 +16,7 @@
 }
 </style>
 
-<script lang="ts">
+<script>
 import FormRowsProperty from "./form-rows-property.vue";
 
 export default {
@@ -29,17 +29,19 @@ export default {
   computed: {
     value: {
       get() {
-        return this['dataGet'](
-          this['element'].path,
-          this['arrayPosition'],
+        return this.dataGet(
+          this.element.path,
+          this.arrayPosition,
         ) || [];
       },
       set(value) {
-        this['$emit'](
+        this.$emit(
           'data-change',
-          this['element'].path,
-          value,
-          this['arrayPosition'],
+          {
+            path: this.element.path,
+            value,
+            arrayPosition: this.arrayPosition,
+          },
         );
       }
     },

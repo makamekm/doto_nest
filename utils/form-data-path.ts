@@ -19,22 +19,73 @@ export interface Directives {
   [path: string]: Directive[];
 }
 
-export interface Validators {
-  [path: string]: Validator[];
+export interface Validators<S = any> {
+  [path: string]: Array<Validator<any, S>>;
 }
 
 export interface GetSetValue<T = any> {
   setValue(value: T, directives: Directive[], scope);
   value: T | undefined;
+  values?: Array<{
+    setValue(value: T, directives: Directive[], scope);
+    value: T | undefined;
+    fullPath: string;
+    fullPosition: number[];
+  }>;
 }
 
-export function validate<S = any>(
+export interface ValidationResult {
+  position: number[];
+  errors: string[];
+}
+
+export function validate<T = any, S = any>(
   data: S,
   path: string,
   position: number[] = [],
-  validators: Validator[],
+  validators: Array<Validator<T, S>>,
+): ValidationResult[] {
+  const { value, values } = getParseValue<T>(data, path, position);
+  const errors: ValidationResult[] = [];
+
+  if (values) {
+    values.forEach(item => {
+      const itemErrors = validateValue<T, S>(
+        item.value as T,
+        data,
+        path,
+        item.fullPosition,
+        validators,
+      );
+      errors.push({
+        errors: itemErrors,
+        position: item.fullPosition,
+      });
+    });
+  } else {
+    const valueErrors = validateValue<T, S>(
+      value as T,
+      data,
+      path,
+      position,
+      validators,
+    );
+    errors.push({
+      errors: valueErrors,
+      position,
+    });
+  }
+
+  return errors;
+}
+
+export function validateValue<T = any, S = any>(
+  value: T,
+  data: S,
+  path: string,
+  position: number[] = [],
+  validators: Array<Validator<T, S>>,
 ): string[] {
-  const { value } = getParseValue(data, path, position);
   let errors: string[] = [];
   validators.forEach((validator) => {
     errors = [
@@ -51,7 +102,7 @@ export function validate<S = any>(
 }
 
 export const IS_ARRAY_DELIMITER_REGEXP = /^(\$|[0-9]{1,})$/gi;
-export const IS_ARRAY_DIGIT_REGEXP = /^(\[0-9]{1,})$/gi;
+export const IS_ARRAY_DIGIT_REGEXP = /^([0-9]{1,})$/gi;
 
 export function applyDirectives(directives: Directives, data) {
   for (const fullPath of Object.keys(directives)) {
@@ -145,6 +196,25 @@ export function getArrayGetSetValue<T = any>(
       });
     },
     value: undefined,
+    values: data.reduce((acc, row, index) => {
+      const { setValue, value, values } = getValue<T>(
+        row,
+        path,
+        position,
+        fullPath,
+        [index, ...position],
+      );
+      acc = values ? [...acc, ...values] : acc;
+      if (value !== undefined) {
+        acc.push({
+          setValue,
+          value,
+          fullPath,
+          fullPosition: [index, ...position],
+        });
+      }
+      return acc;
+    }, []),
   };
 }
 

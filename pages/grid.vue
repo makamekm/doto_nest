@@ -1,5 +1,6 @@
 <template>
   <div class="gl-layout-margin is-full-page">
+    <button @click="validate">Validate</button>
     <div class="columns">
       <div class="column is-one-fifth">
         <aside class="menu">
@@ -41,7 +42,7 @@
 
 <script lang="ts">
 import FormMenu from "~/components/form-creator/form-menu.vue";
-import { getParseValue, applyDirectives, validate, Validators, Directives, Directive } from "~/utils/form-data-path";
+import { getParseValue, applyDirectives, validate, Validators, Validator, Directives, Directive } from "~/utils/form-data-path";
 
 const validators: Validators = {
   'auth.username': [
@@ -50,8 +51,8 @@ const validators: Validators = {
     },
   ],
   'friends.$.username': [
-    ({value, scope}) => {
-      return [];
+    ({value, scope, fullPosition, fullPath}) => {
+      return ['test'];
     },
   ]
 };
@@ -97,7 +98,10 @@ export default {
       Object.assign(element, data);
     },
     validate() {
-      
+      for (const path in validators) {
+        const res = validate(this['data'], path, [], validators[path]);
+        console.log(res);
+      }
     },
   },
   data: () => ({

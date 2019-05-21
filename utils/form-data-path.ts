@@ -1,20 +1,53 @@
 import Vue from 'vue';
 
-export type Directive<T = any> = (context: {
+export type Directive<T = any, S = any> = (context: {
   value: T;
   prevValue: T;
-  scope;
+  scope: S;
   fullPath: string;
   fullPosition: number[];
 }) => T;
+
+export type Validator<T = any, S = any> = (context: {
+  value: T;
+  scope: S;
+  fullPath: string;
+  fullPosition: number[];
+}) => string[];
 
 export interface Directives {
   [path: string]: Directive[];
 }
 
+export interface Validators {
+  [path: string]: Validator[];
+}
+
 export interface GetSetValue<T = any> {
   setValue(value: T, directives: Directive[], scope);
   value: T | undefined;
+}
+
+export function validate<S = any>(
+  data: S,
+  path: string,
+  position: number[] = [],
+  validators: Validator[],
+): string[] {
+  const { value } = getParseValue(data, path, position);
+  let errors: string[] = [];
+  validators.forEach((validator) => {
+    errors = [
+      ...errors,
+      ...validator({
+        value,
+        scope: data,
+        fullPath: path,
+        fullPosition: position,
+      }) || [],
+    ];
+  });
+  return errors;
 }
 
 export const IS_ARRAY_DELIMITER_REGEXP = /^(\$|[0-9]{1,})$/gi;

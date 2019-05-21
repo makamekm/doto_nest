@@ -41,22 +41,22 @@
 
 <script lang="ts">
 import FormMenu from "~/components/form-creator/form-menu.vue";
-import { getParseValue, applyDirectives, Directive } from "~/utils/form-data-path";
+import { getParseValue, applyDirectives, validate, Validators, Directives, Directive } from "~/utils/form-data-path";
 
-const validators = {
+const validators: Validators = {
   'auth.username': [
-    ({value, prevValue, data}) => {
+    ({value, scope}) => {
       return ['test'];
     },
   ],
   'friends.$.username': [
-    ({value, prevValue, data}) => {
+    ({value, scope}) => {
       return [];
     },
   ]
 };
 
-const directives = {
+const directives: Directives = {
   'auth.username': [
     ({value, prevValue, scope, fullPath, fullPosition}): Directive<string> => {
       return value.toUpperCase();
@@ -95,6 +95,9 @@ export default {
     },
     onChangeAction(element, data) {
       Object.assign(element, data);
+    },
+    validate() {
+      
     },
   },
   data: () => ({

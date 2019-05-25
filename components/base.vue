@@ -1,6 +1,6 @@
 <template>
   <div class="lc-container">
-    <nav class="navbar is-fixed-top">
+    <nav :class="{'navbar': true, 'is-fixed-top': true, 'is-large-height': isOnTop}">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
@@ -58,12 +58,28 @@ export default {
   },
   data: () => ({
     isMenuOpen: false,
+    isOnTop: true,
   }),
   head () {
     return {
       bodyAttrs: {
-        class: 'has-navbar-fixed-top',
+        class: this.isOnTop ? 'has-navbar-fixed-top is-large-height' : 'has-navbar-fixed-top',
       }
+    }
+  },
+  created() {
+    if (process.client) {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+  },
+  destroyed() {
+    if (process.client) {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  },
+  methods: {
+    handleScroll(event) {
+      this.isOnTop = window.scrollY < 30;
     }
   },
 }

@@ -4,6 +4,7 @@
   margin-bottom: 1px;
   background-color: #fff;
   color: $text;
+  transition: min-height 300ms;
 
   .navbar-item {
     text-transform: uppercase;
@@ -19,4 +20,16 @@
       box-shadow: inset 0 -3px 0px 0px rgba(0, 41, 73, 0.5);
     }
   }
+
+  &.is-large-height {
+    min-height: 6.5rem;
+  }
 }
+
+.has-navbar-fixed-top {
+  transition: padding-top 300ms;
+}
+
+.has-navbar-fixed-top.is-large-height {
+  padding-top: 6.5rem;
+};

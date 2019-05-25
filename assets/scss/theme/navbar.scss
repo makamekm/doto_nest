@@ -4,7 +4,7 @@
   margin-bottom: 1px;
   background-color: #fff;
   color: $text;
-  transition: min-height 300ms;
+  transition: min-height 500ms;
 
   .navbar-item {
     text-transform: uppercase;
@@ -22,14 +22,16 @@
   }
 
   &.is-large-height {
+    transition: min-height 250ms;
     min-height: 6.5rem;
   }
 }
 
 .has-navbar-fixed-top {
-  transition: padding-top 300ms;
+  transition: padding-top 500ms;
 }
 
 .has-navbar-fixed-top.is-large-height {
+  transition: padding-top 250ms;
   padding-top: 6.5rem;
 };

@@ -47,7 +47,7 @@
               </div>
             </div>
             <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">Register</button>
+              <button type="submit" class="button is-primary is-fullwidth">Register</button>
             </div>
           </form>
 

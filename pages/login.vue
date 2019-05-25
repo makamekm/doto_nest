@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">Log In</button>
+              <button type="submit" class="button is-primary is-fullwidth">Log In</button>
             </div>
           </form>
           <div class="has-text-centered" style="margin-top: 20px">

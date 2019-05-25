@@ -1,13 +1,11 @@
 <template>
   <div class="lc-container">
-    <nav class="navbar is-light">
+    <nav class="navbar is-fixed-top">
       <div class="container">
         <div class="navbar-brand">
-          <div class="navbar-item">
-            <div class="title is-4">
-              Version Control
-            </div>
-          </div>
+          <a class="navbar-item" href="/">
+            <img src="/raymond-james-logo-blue.svg" width="250px">
+          </a>
 
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isMenuOpen = !isMenuOpen">
             <span aria-hidden="true"></span>
@@ -61,6 +59,13 @@ export default {
   data: () => ({
     isMenuOpen: false,
   }),
+  head () {
+    return {
+      bodyAttrs: {
+        class: 'has-navbar-fixed-top',
+      }
+    }
+  },
 }
 </script>
 

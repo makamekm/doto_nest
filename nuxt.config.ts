@@ -16,6 +16,7 @@ A simple planning todo list per day. Made by Dundeeops team` },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap' },
     ],
   },
   plugins: [

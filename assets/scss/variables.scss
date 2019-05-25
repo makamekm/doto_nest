@@ -1,9 +1,14 @@
 @import "~bulma/sass/utilities/_all";
 
-$primary: #4099FF;
+$theme: rgba(0, 40, 71, 100);
+
+$primary: #002949;
 $primary-invert: findColorInvert($primary);
 $twitter: #8c67ef;
 $twitter-invert: findColorInvert($twitter);
+$light: #fbfbfb;
+$light-invert: $theme;
+
 $size-1: 2.25rem;
 $size-2: 2rem;
 $size-3: 1.75rem;
@@ -11,26 +16,40 @@ $size-4: 1.5rem;
 $size-5: 1.25rem;
 $size-6: 0.75rem;
 $size-7: 0.5rem;
-$gap: 64px;
-$text: #444;
-$body-color: #444;
-$card-header: #f0f0f0;
-$body-family: FS Me Web, Arial, Helvetica, sans-serif;
-// $family-sans-serif: Arial, Helvetica, sans-serif;
-// $family-monospace: Arial, Helvetica, sans-serif;
-$body-background-color: #ebebeb;
-$radius-small: 0px;
-$radius: 0px;
-$radius-large: 0px;
-$control-radius-small: 0px;
-$control-radius: 3px;
-$control-radius-large: 3px;
-$radius-rounded: 290486px;
-$body-size: 13px;
-$label-weight: 400;
 $size-normal: inherit;
+
+$text: #002949;
+
+$body-color: #002949;
+$body-size: 0.95em;
+$body-family: "Source Sans Pro", sans-serif;
+$body-background-color: #fbfbfb;
+
+$radius: 0px;
+$radius-small: 0px;
+$radius-large: 0px;
+$radius-rounded: 290486px;
+
+$control-radius-small: 0px;
+$control-radius: 4px;
+$control-radius-large: 4px;
+
+$gap: 64px;
 $column-gap: 0.35rem;
+
+$label-weight: 400;
 $input-border-color: #939698;
+
+$card-header: #f0f0f0;
+$navbar-height: 3.5rem;
+$footer-padding: 3rem 1.5rem 3rem;
+$button-background-color: rgba(0, 40, 71, 0);
+$button-border-color: $theme;
+$button-hover-color:	#ffffff;
+$button-hover-border-color: $theme;
+$button-hover-background-color: $theme;
+$button-active-color: #ffffff;
+$button-active-background-color: darken($theme, 4%);
 
 $colors: (
   "white": ($white, $black),

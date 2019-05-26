@@ -23,7 +23,7 @@
             <!-- <nuxt-link class="navbar-item" to="/contacts" active-class="is-active" exact>
               Contacts
             </nuxt-link> -->
-            <template v-if="$auth.$state.loggedIn">
+            <template>
               <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-item">
                   <div class="has-text-centered">
@@ -33,7 +33,7 @@
                         Welcome
                       </div>
                       <div>
-                        {{ $auth.user.username }}
+                        <!-- {{ $auth.user.username }} -->
                       </div>
                     </div>
                   </div>
@@ -46,7 +46,7 @@
                 </div>
               </div>
             </template>
-            <template v-else>
+            <template>
               <nuxt-link class="navbar-item" to="/login">
                 <div class="has-text-centered">
                   <i class="fas fa-fingerprint is-size-5"></i>

@@ -62,8 +62,8 @@
 
 <script>
 export default {
-  middleware: ['auth'],
-  auth: false,
+  // middleware: ['auth'],
+  // auth: false,
   data() {
     return {
       username: '',

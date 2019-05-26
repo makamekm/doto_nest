@@ -55,7 +55,7 @@ A simple planning todo list per day. Made by Dundeeops team`,
       prefix: '/api',
       browserBaseURL: '/api',
     }],
-    '@nuxtjs/auth',
+    // '@nuxtjs/auth',
     '@nuxtjs/style-resources',
   ],
   loading: '~/components/loading.vue',
@@ -79,25 +79,25 @@ A simple planning todo list per day. Made by Dundeeops team`,
     { path: '/api', handler: '~/api/main.ts'},
   ],
   router: {
-    middleware: ['auth'],
+    // middleware: ['auth'],
   },
-  auth: {
-    redirect: {
-      login: '/login',
-      register: '/register',
-      callback: '/callback',
-    },
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: 'login', method: 'post', propertyName: 'token' },
-          register: { url: 'register', method: 'post', propertyName: '' },
-          user: { url: 'user', method: 'get', propertyName: '' },
-          logout: false,
-        },
-      },
-    },
-  },
+  // auth: {
+  //   redirect: {
+  //     login: '/login',
+  //     register: '/register',
+  //     callback: '/callback',
+  //   },
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: { url: 'login', method: 'post', propertyName: 'token' },
+  //         register: { url: 'register', method: 'post', propertyName: '' },
+  //         user: { url: 'user', method: 'get', propertyName: '' },
+  //         logout: false,
+  //       },
+  //     },
+  //   },
+  // },
 };
 
 export default config;

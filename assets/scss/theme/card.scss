@@ -1,15 +1,16 @@
 .card > .card-header {
   // background-color: $card-header;
-  max-height: $column-gap * 7.5;
+  max-height: $column-gap * 4;
   margin-bottom: 1px;
   position: relative;
   box-shadow: none;
+  color: $primary;
 
   &::after {
     content: '';
     position: absolute;
-    left: $column-gap * 2;
-    right: $column-gap * 2;
+    left: $column-gap;
+    right: $column-gap;
     top: 100%;
     height: 1px;
     background-color: $primary;
@@ -17,7 +18,11 @@
   }
 
   > .card-header-title {
-    padding: $column-gap * 2;
-    font-weight: 400;
+    padding-top: $column-gap;
+    padding-bottom: $column-gap / 2;
+    padding-left: $column-gap;
+    padding-right: $column-gap;
+    font-weight: 600;
+    color: $primary;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="gl-layout-margin">
+  <div class="m-t-6 m-b-6">
     <div class="card" ref="form">
       <header class="card-header">
         <div class="card-header-title">Change Version</div>
@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="card gl-form-margin-top">
+    <div class="card m-t-6">
       <header class="card-header">
         <div class="card-header-title">Info</div>
       </header>
@@ -75,7 +75,7 @@
       </div>
     </div>
 
-    <div class="card gl-form-margin-top">
+    <div class="card m-t-6">
       <header class="card-header">
         <div class="card-header-title">History</div>
       </header>

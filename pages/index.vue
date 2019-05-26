@@ -1,16 +1,19 @@
 <template>
   <div class="m-b-0">
-    <!-- <div class="card">
-      <header class="card-header">
-        <div class="card-header-title">Nodes</div>
-      </header>
-      <div class="card-content" style="padding: 0">
-        <b-table :data="data" :columns="columns" 
-          :row-class="() => ({'lc-pointer': true})"
-          @click="openNode"
-          hoverable striped/>
+
+    <div class="container p-t-6 p-b-6 p-l-6 p-r-6">
+      <div class="card">
+        <header class="card-header">
+          <div class="card-header-title">Nodes</div>
+        </header>
+        <div class="card-content" style="padding: 0">
+          <b-table :data="data" :columns="columns" 
+            :row-class="() => ({'lc-pointer': true})"
+            @click="openNode"
+            hoverable striped/>
+        </div>
       </div>
-    </div> -->
+    </div>
 
     <section class="hero is-dark">
       <div class="container">
@@ -84,18 +87,6 @@
           </div>
         </div>
       </div>
-
-      <!-- <div class="container has-text-centered">
-        <h1 class="title is-2">
-          dsfsadfasdf
-        </h1>
-        <h2 class="subtitle is-4">
-          asdfsadf
-        </h2>
-        <button class="button is-medium is-inverted">
-          Refresh
-        </button>
-      </div> -->
     </section>
 
     <section class="hero is-light">

@@ -106,7 +106,7 @@
       </div>
     </section>
 
-    <div class="container p-t-6 p-b-6 p-l-6 p-r-6">
+    <div class="container p-t-6 p-b-6">
       <div class="card">
         <header class="card-header">
           <div class="card-header-title">Nodes</div>

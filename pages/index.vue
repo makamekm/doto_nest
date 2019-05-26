@@ -48,8 +48,8 @@
               </div>
             </div>
           </div>
-          <div class="column is-12 is-4-desktop">
-            <div class="hero is-primary p-r-6 p-l-6" style="height: 100%;">
+          <div class="column is-12 is-4-desktop m-b-6-mobile">
+            <div class="hero is-primary p-r-6 p-l-6 p-b-6" style="height: 100%;">
               <div>
                 <div class="is-size-3 has-text-weight-semibold m-t-5 p-t-4">
                   Find an Advisor

@@ -1,6 +1,6 @@
 <template>
   <div class="lc-container">
-    <nav :class="{'navbar': true, 'has-uppercase': true, 'is-fixed-top': true, 'is-large-height': isOnTop}">
+    <nav :class="{'navbar': true, 'has-uppercase': true, 'is-fixed-top-desktop': true, 'is-large-height': isOnTop}">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
@@ -113,7 +113,7 @@ export default {
   head () {
     return {
       bodyAttrs: {
-        class: 'has-navbar-fixed-top is-large-height',
+        class: 'has-navbar-fixed-top-desktop is-large-height',
       }
     }
   },
@@ -144,10 +144,12 @@ export default {
   max-height: 100px;
   font-size: 0.7rem;
 
-  &.lc-is-hidden {
-    opacity: 0;
-    max-height: 1px;
-    margin-top: 0;
+  @include from($desktop) {
+    &.lc-is-hidden {
+      opacity: 0;
+      max-height: 1px;
+      margin-top: 0;
+    }
   }
 }
 

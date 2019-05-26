@@ -13,7 +13,7 @@
   }
 
   .navbar-item {
-    color: $text;
+    color: $text !important;
     transition: box-shadow 300ms;
     box-shadow: inset 0 0px 0px 0px rgba(0, 41, 73, 0.4);
 

@@ -6,15 +6,9 @@
           <a class="navbar-item" href="/">
             <img src="/raymond-james-logo-blue.svg" style="width: 250px; height: 22px">
           </a>
-
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isMenuOpen = !isMenuOpen">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
         </div>
-        <div :class="{'navbar-menu': true, 'is-active': isMenuOpen}">
-          <div class="navbar-start" @click="isMenuOpen = false">
+        <div class="navbar-menu">
+          <div class="navbar-start">
             <nuxt-link class="navbar-item is-size-5" style="margin-left: 2rem;" to="/aboutus" active-class="is-active" exact>
               About Us
             </nuxt-link>
@@ -31,7 +25,7 @@
               Contacts Us
             </nuxt-link>
           </div>
-          <div class="navbar-end" @click="isMenuOpen = false">
+          <div class="navbar-end">
             <nuxt-link class="navbar-item is-size-4" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-facebook-square"></i>
             </nuxt-link>

@@ -9,19 +9,19 @@
         </div>
         <div class="navbar-menu">
           <div class="navbar-start">
-            <nuxt-link class="navbar-item is-size-5" style="margin-left: 2rem;" to="/aboutus" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-5 m-l-7-desktop" to="/aboutus" active-class="is-active" exact>
               About Us
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-5" style="margin-left: 2rem;" to="/career" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-5 m-l-7-desktop" to="/career" active-class="is-active" exact>
               Career
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-5" style="margin-left: 2rem;" to="/investors" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-5 m-l-7-desktop" to="/investors" active-class="is-active" exact>
               Inverstors
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-5" style="margin-left: 2rem;" to="/investors" active-class="is-active" exact>
-              Inverstors
+            <nuxt-link class="navbar-item is-size-5 m-l-7-desktop" to="/investors" active-class="is-active" exact>
+              News & Media
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-5" style="margin-left: 2rem;" to="/contacts" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-5 m-l-7-desktop" to="/contacts" active-class="is-active" exact>
               Contacts Us
             </nuxt-link>
           </div>

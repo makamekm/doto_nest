@@ -1,20 +1,6 @@
 <template>
   <div class="m-b-0">
 
-    <div class="container p-t-6 p-b-6 p-l-6 p-r-6">
-      <div class="card">
-        <header class="card-header">
-          <div class="card-header-title">Nodes</div>
-        </header>
-        <div class="card-content" style="padding: 0">
-          <b-table :data="data" :columns="columns" 
-            :row-class="() => ({'lc-pointer': true})"
-            @click="openNode"
-            hoverable striped/>
-        </div>
-      </div>
-    </div>
-
     <section class="hero is-dark">
       <div class="container">
         <div class="columns is-multiline">
@@ -119,6 +105,25 @@
         </div>
       </div>
     </section>
+
+    <div class="container p-t-6 p-b-6 p-l-6 p-r-6">
+      <div class="card">
+        <header class="card-header">
+          <div class="card-header-title">Nodes</div>
+        </header>
+        <div class="card-content" style="padding: 0">
+          <b-table
+            :data="data"
+            :columns="columns"
+            icon-pack="fa"
+            default-sort-direction="desc"
+            default-sort="name"
+            :row-class="() => ({'lc-pointer': true})"
+            @click="openNode"
+            hoverable striped/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -135,27 +140,33 @@ const NodeStore = namespace("node");
     columns: [
       {
         field: "name",
-        label: "Name"
+        label: "Name",
+        sortable: true,
       },
       {
         field: "version.version",
-        label: "Version"
+        label: "Version",
+        sortable: true,
       },
       {
         field: "status",
-        label: "Status"
+        label: "Status",
+        sortable: true,
       },
       {
         field: "author",
-        label: "Author"
+        label: "Author",
+        sortable: true,
       },
       {
         field: "date",
-        label: "Date"
+        label: "Date",
+        sortable: true,
       },
       {
         field: "comments",
-        label: "Comments"
+        label: "Comments",
+        sortable: true,
       }
     ]
   }),

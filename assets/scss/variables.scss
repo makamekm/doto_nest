@@ -2,7 +2,7 @@
 
 $theme: rgba(0, 40, 71, 100);
 
-$primary: #002949;
+$primary: $theme;
 $primary-invert: findColorInvert($primary);
 $light: #fbfbfb;
 $light-invert: $theme;
@@ -17,9 +17,9 @@ $size-7: 0.75rem;
 $size-8: 0.5rem;
 $size-normal: inherit;
 
-$text: #002949;
+$text: $theme;
 
-$body-color: #002949;
+$body-color: $theme;
 $body-size: 0.95em;
 $body-family: "Source Sans Pro", sans-serif;
 $body-background-color: #fbfbfb;
@@ -39,12 +39,11 @@ $column-gap: 0.8rem;
 $label-weight: 400;
 $input-border-color: $primary;
 
-$card-header: #f0f0f0;
 $navbar-height: 3.5rem;
 $footer-padding: 3rem 1.5rem 3rem;
-$table-head-cell-color: $body-color;
-// $table-color: $body-color;
-// $table-cell-heading-color: $body-color;
+$table-head-cell-color: $theme;
+$white-bis: rgba($theme, 0.045);
+$white-ter: rgba($theme, 0.09);
 $button-background-color: rgba(0, 40, 71, 0);
 $button-color: $theme;
 $button-border-color: $theme;
@@ -53,6 +52,12 @@ $button-hover-border-color: $theme;
 $button-hover-background-color: $theme;
 $button-active-color: #ffffff;
 $button-active-background-color: darken($theme, 4%);
+
+$input-hover-color: darken($theme, 4%);
+$grey-light: lighten($theme, 30%);
+$grey-lighter: lighten($theme, 10%);
+$grey-dark: darken($theme, 4%);
+$grey-darker: $theme;
 
 $dark: #0c3352;
 $dark-invert: #ffffff;

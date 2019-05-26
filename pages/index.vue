@@ -141,6 +141,7 @@ const NodeStore = namespace("node");
 @Component({
   layout: 'full',
   middleware: ['auth'],
+  auth: false,
   data: () => ({
     columns: [
       {

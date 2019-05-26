@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-bottom: 1rem;">
+  <div class="m-b-0">
     <!-- <div class="card">
       <header class="card-header">
         <div class="card-header-title">Nodes</div>
@@ -17,20 +17,20 @@
         <div class="columns is-multiline">
           <div class="column is-12 is-8-desktop">
             <div class="columns is-multiline">
-              <div class="column is-12" style="padding-top: 2rem;">
+              <div class="column is-12 m-t-6">
                 <div class="title is-5">Commentary &amp; Insights</div>
                 <div class="divider is-light"></div>
               </div>
               <div class="column is-12 is-6-desktop">
-                <div style="padding-top: 1rem;">
+                <div class="p-t-5">
                   <div class="is-size-7 has-text-weight-semibold">
                     Lifestyle
                     <span>&nbsp;|&nbsp;</span>
                     May 13, 2019
                   </div>
-                  <div class="is-size-4 has-text-light has-text-weight-semibold" style="margin-top: 0.5rem;">6 hacks to boost your productivity</div>
-                  <div style="margin-top: 0.5rem;">Streamline your day with these simdivle suggestions.</div>
-                  <div class="has-text-right" style="margin-top: 2rem;">
+                  <div class="is-size-4 has-text-light has-text-weight-semibold m-t-4">6 hacks to boost your productivity</div>
+                  <div class="m-t-4">Streamline your day with these simdivle suggestions.</div>
+                  <div class="has-text-right m-t-6">
                     <a class="next-button is-invert" href="/pointofview/6-hacks-to-boost-your-productivity-infographic?utm_source=rjdotcom">
                       View Infographic
                     </a>
@@ -38,35 +38,35 @@
                 </div>
               </div>
               <div class="column is-12 is-6-desktop">
-                <div style="padding-top: 1rem;">
+                <div class="p-t-5">
                   <div class="title is-7 has-text-weight-semibold">
                     Market Updates
                     <span>&nbsp;|&nbsp;</span>
                     May 13, 2019
                   </div>
-                  <div class="is-size-4 has-text-light has-text-weight-semibold" style="margin-top: 0.5rem;">Trade tensions escalate; markets decline</div>
-                  <div style="margin-top: 0.5rem;">China has announced retaliatory tariffs on $60 billion of U.S. goods effective June 1.</div>
-                  <div class="has-text-right" style="margin-top: 2rem;">
+                  <div class="is-size-4 has-text-light has-text-weight-semibold m-t-4">Trade tensions escalate; markets decline</div>
+                  <div class="m-t-4">China has announced retaliatory tariffs on $60 billion of U.S. goods effective June 1.</div>
+                  <div class="has-text-right m-t-6">
                     <a class="next-button is-invert" href="/pointofview/trade-tensions-escalate-markets-decline?utm_source=rjdotcom">
                       Read Article
                     </a>
                   </div>
                 </div>
               </div>
-              <div class="column is-12 has-text-centered" style="padding-bottom: 2rem;">
+              <div class="column is-12 has-text-centered p-b-6">
                 <div class="divider is-light"/>
-                <a href="/pointofview/?utm_source=rjdotcom" class="button is-hero is-invert" style="margin-top: 1rem;">View All</a>
+                <a href="/pointofview/?utm_source=rjdotcom" class="button is-hero is-invert m-t-5">View All</a>
               </div>
             </div>
           </div>
           <div class="column is-12 is-4-desktop">
-            <div class="hero is-primary" style="height: 100%; padding: 0 1rem;">
+            <div class="hero is-primary p-r-6 p-l-6" style="height: 100%;">
               <div>
-                <div class="is-size-3" style="margin-top: 1.5rem; has-text-weight-semibold">
+                <div class="is-size-3 has-text-weight-semibold m-t-5 p-t-4">
                   Find an Advisor
                 </div>
-                <div class="has-text-weight-semibold" style="margin-top: 1rem;">Connect with a Raymond James advisor or office near you.</div>
-                <form action="/find-an-advisor" method="get" style="margin-top: 1.5rem;">
+                <div class="has-text-weight-semibold m-t-5">Connect with a Raymond James advisor or office near you.</div>
+                <form class="m-t-5 p-t-4" action="/find-an-advisor" method="get">
                   <div class="field has-addons">
                     <div class="control is-mt-like is-medium">
                       <input type="text" autocomplete="on" name="citystatezip" class="input is-medium" placeholder="empty">
@@ -101,24 +101,24 @@
     <section class="hero is-light">
       <div class="container">
         <div class="columns is-multiline">
-          <div class="column is-12 is-5-desktop" style="padding: 3rem 0;">
-            <div class="card" style="margin-top: 1.5rem; padding: 1rem 1.5rem;">
+          <div class="column is-12 is-5-desktop">
+            <div class="card m-t-6 m-b-6 p-t-5 p-b-6 p-l-6 p-r-6">
               <div class="has-text-weight-semibold is-size-6">
                 Raymond James
               </div>
-              <div class="divider" style="margin-top: 2px;"></div>
-              <div style="margin-top: 10px">
+              <div class="divider m-t-4"></div>
+              <div class="m-t-4">
                 <div class="has-text-weight-semibold is-size-3">
                   The right advice
                 </div>
                 <div class="has-text-weight-medium is-size-3">
                   starts with a trusted relationship.
                 </div>
-                <div style="margin-top: 1rem;">
+                <div class="m-t-4">
                   We believe financial advice is about more than just having a plan. It’s about having the right plan for you. And that only happens with a true understanding of your whole life, beyond just your finances. Because as your needs become more complex, sophisticated advice and a relationship built for the long term become even more important.
                 </div>
-                <div class="has-text-right" style="margin-top: 1rem; margin-bottom: 0.5rem;">
-                  <button class="button has-text-weight-semibold" style="padding: calc(0.5em - 1px) 3.0em; height: 2.75em">
+                <div class="has-text-right m-t-5">
+                  <button class="button is-hero">
                     Learn more
                   </button>
                 </div>

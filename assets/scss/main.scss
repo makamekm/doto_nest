@@ -8,7 +8,14 @@
 @import "./theme/table.scss";
 @import "./theme/navbar.scss";
 @import "./theme/button.scss";
+@import "./theme/loading.scss";
 
 @import "./global/form.scss";
 @import "./global/margin.scss";
 @import "./global/page-transition.scss";
+
+@import "./components/divider.scss";
+
+.columns {
+  flex-wrap: wrap;
+}

@@ -1,0 +1,10 @@
+.divider {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: $primary;
+
+  &.is-light {
+    background-color: $light;
+  }
+}

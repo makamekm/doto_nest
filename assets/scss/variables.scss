@@ -4,8 +4,6 @@ $theme: rgba(0, 40, 71, 100);
 
 $primary: #002949;
 $primary-invert: findColorInvert($primary);
-$twitter: #8c67ef;
-$twitter-invert: findColorInvert($twitter);
 $light: #fbfbfb;
 $light-invert: $theme;
 
@@ -44,12 +42,19 @@ $card-header: #f0f0f0;
 $navbar-height: 3.5rem;
 $footer-padding: 3rem 1.5rem 3rem;
 $button-background-color: rgba(0, 40, 71, 0);
+$button-color: $theme;
 $button-border-color: $theme;
 $button-hover-color:	#ffffff;
 $button-hover-border-color: $theme;
 $button-hover-background-color: $theme;
 $button-active-color: #ffffff;
 $button-active-background-color: darken($theme, 4%);
+
+$dark: #0c3352;
+$dark-invert: #ffffff;
+
+$light: #5489b6;
+$light-invert: #ffffff;
 
 $colors: (
   "white": ($white, $black),
@@ -61,7 +66,6 @@ $colors: (
   "success": ($success, $success-invert),
   "warning": ($warning, $warning-invert),
   "danger": ($danger, $danger-invert),
-  "twitter": ($twitter, $twitter-invert)
 );
 
 $link: $primary;

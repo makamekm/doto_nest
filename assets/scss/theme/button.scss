@@ -8,4 +8,26 @@
   &:active {
     background-color: $button-active-background-color;
   }
+
+  &.is-hero {
+    font-weight: 600;
+    padding: calc(0.5em - 1px) 3.0em;
+    height: 2.75em;
+  }
+  
+  &.is-invert {
+    border-color: #ffffff;
+    color: #ffffff;
+
+    &:hover {
+      color: $primary;
+      background-color: #ffffff;
+    }
+  
+    &:active {
+      color: $primary;
+      border-color: #ccc;
+      background-color: #ccc;
+    }
+  }
 }

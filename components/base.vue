@@ -23,20 +23,33 @@
             <!-- <nuxt-link class="navbar-item" to="/contacts" active-class="is-active" exact>
               Contacts
             </nuxt-link> -->
-            <div class="navbar-item has-dropdown is-hoverable" v-if="$auth.$state.loggedIn">
-              <a class="navbar-link">
-                {{ $auth.user.username }}
-              </a>
-              <div class="navbar-dropdown">
-                <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
-                <hr class="navbar-divider">
-                <a class="navbar-item" @click="$auth.logout(); $router.go();">Logout</a>
+            <template v-if="$auth.$state.loggedIn">
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-item">
+                  <div class="has-text-centered">
+                    <i class="fas fa-fingerprint is-size-5"></i>
+                    <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
+                      <div>
+                        Welcome
+                      </div>
+                      <div>
+                        {{ $auth.user.username }}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <div class="navbar-dropdown is-right">
+                  <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
+                  <hr class="navbar-divider">
+                  <nuxt-link class="navbar-item" to="/preferences">Preferences</nuxt-link>
+                  <a class="navbar-item" @click="$auth.logout(); $router.go();">Logout</a>
+                </div>
               </div>
-            </div>
+            </template>
             <template v-else>
               <nuxt-link class="navbar-item" to="/login">
                 <div class="has-text-centered">
-                  <i class="fas fa-key is-size-5"></i>
+                  <i class="fas fa-fingerprint is-size-5"></i>
                   <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
                     <div>
                       Account
@@ -47,33 +60,33 @@
                   </div>
                 </div>
               </nuxt-link>
-              <nuxt-link class="navbar-item" to="/register">
-                <div class="has-text-centered">
-                  <i class="fas fa-search is-size-5"></i>
-                  <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
-                    <div>
-                      Search
-                    </div>
-                    <div>
-                      Globally
-                    </div>
-                  </div>
-                </div>
-              </nuxt-link>
-              <nuxt-link class="navbar-item" to="/register">
-                <div class="has-text-centered">
-                  <i class="fas fa-fingerprint is-size-5"></i>
-                  <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
-                    <div>
-                      Find
-                    </div>
-                    <div>
-                      Advisor
-                    </div>
-                  </div>
-                </div>
-              </nuxt-link>
             </template>
+            <nuxt-link class="navbar-item" to="/search">
+              <div class="has-text-centered">
+                <i class="fas fa-search is-size-5"></i>
+                <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
+                  <div>
+                    Search
+                  </div>
+                  <div>
+                    Globally
+                  </div>
+                </div>
+              </div>
+            </nuxt-link>
+            <nuxt-link class="navbar-item" to="/register">
+              <div class="has-text-centered">
+                <i class="fas fa-key is-size-5"></i>
+                <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
+                  <div>
+                    Find
+                  </div>
+                  <div>
+                    Advisor
+                  </div>
+                </div>
+              </div>
+            </nuxt-link>
           </div>
         </div>
       </div>

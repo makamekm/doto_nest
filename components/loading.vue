@@ -1,18 +1,20 @@
 <template>
-  <div/>
+  <b-loading is-full-page :active.sync="isLoading"></b-loading>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
   methods: {
     start() {
-      this.finish();
-      this.loadingComponent = this.$loading.open();
+      this.isLoading = true;
     },
     finish() {
-      if (this.loadingComponent) {
-        this.loadingComponent.close();
-      }
+      this.isLoading = false;
     }
   }
 }

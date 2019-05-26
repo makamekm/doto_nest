@@ -129,7 +129,7 @@ export default {
   },
   methods: {
     handleScroll(event) {
-      this.isOnTop = window.scrollY < 30;
+      this.isOnTop = window.scrollY < 60;
     }
   },
 }

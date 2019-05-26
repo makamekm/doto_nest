@@ -1,6 +1,6 @@
 <template>
   <div class="lc-container">
-    <nav :class="{'navbar': true, 'is-fixed-top': true, 'is-large-height': isOnTop}">
+    <nav :class="{'navbar': true, 'has-uppercase': true, 'is-fixed-top': true, 'is-large-height': isOnTop}">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">

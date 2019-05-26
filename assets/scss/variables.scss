@@ -9,11 +9,12 @@ $light-invert: $theme;
 
 $size-1: 2.25rem;
 $size-2: 2rem;
-$size-3: 1.75rem;
+$size-3: 1.65rem;
 $size-4: 1.5rem;
 $size-5: 1.25rem;
-$size-6: 0.75rem;
-$size-7: 0.5rem;
+$size-6: 1.0rem;
+$size-7: 0.75rem;
+$size-8: 0.5rem;
 $size-normal: inherit;
 
 $text: #002949;
@@ -33,10 +34,10 @@ $control-radius: 4px;
 $control-radius-large: 4px;
 
 $gap: 64px;
-$column-gap: 0.35rem;
+$column-gap: 0.8rem;
 
 $label-weight: 400;
-$input-border-color: #939698;
+$input-border-color: $primary;
 
 $card-header: #f0f0f0;
 $navbar-height: 3.5rem;

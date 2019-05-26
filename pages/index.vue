@@ -53,9 +53,9 @@
                   </div>
                 </div>
               </div>
-              <div class="column is-12 has-text-centered p-b-6">
+              <div class="column is-12 has-text-centered">
                 <div class="divider is-light"/>
-                <a href="/pointofview/?utm_source=rjdotcom" class="button is-hero is-invert m-t-5">View All</a>
+                <a href="/pointofview/?utm_source=rjdotcom" class="button is-hero is-invert m-t-6 m-b-6">View All</a>
               </div>
             </div>
           </div>

@@ -1,10 +1,10 @@
 <template>
   <transition name="fade">
     <section class="hero" v-if="show">
-      <div class="hero-bodys p-t-9 p-b-5">
+      <div class="hero-bodys p-t-9 p-b-10">
         <div class="container has-text-centered">
           <div style="font-size: 5rem;">
-            <i class="far fa-compass has-text-grey-lighter"></i>
+            <i class="far fa-compass has-text-grey-light"></i>
           </div>
           <div class="title is-2 has-text-grey-dark">
             {{ error.statusCode }}

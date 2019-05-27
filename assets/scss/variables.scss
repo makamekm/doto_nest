@@ -58,6 +58,7 @@ $grey-light: lighten($theme, 30%);
 $grey-lighter: lighten($theme, 10%);
 $grey-dark: darken($theme, 4%);
 $grey-darker: $theme;
+$grey: darken($theme, 2%);
 
 $dark: #0c3352;
 $dark-invert: #ffffff;

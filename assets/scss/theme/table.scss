@@ -10,14 +10,17 @@
 }
 
 .b-table {
-  .field.table-mobile-sort {
-    margin-left: $column-gap;
-    margin-right: $column-gap;
-    margin-top: $column-gap;
-    margin-bottom: $column-gap;
 
-    & + .table-wrapper {
-      border-top: 1px solid rgba($primary, 0.2);
+  @include until($tablet) {
+    .field.table-mobile-sort {
+      margin-left: $column-gap;
+      margin-right: $column-gap;
+      margin-top: $column-gap;
+      margin-bottom: $column-gap;
+
+      & + .table-wrapper {
+        border-top: 1px solid rgba($primary, 0.2);
+      }
     }
   }
 

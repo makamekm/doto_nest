@@ -5,3 +5,9 @@
 .gl-form-btn {
   min-width: 7.5rem;
 }
+
+body {
+  overflow-x: hidden;
+  overflow-y: visible;
+  max-width: 100vw;
+}

@@ -1,11 +1,10 @@
 <template>
   <div class="m-b-0">
-
     <section class="hero is-dark">
       <div class="container">
         <div class="columns is-multiline">
           <div class="column is-12 is-8-desktop">
-            <div class="columns is-multiline">
+            <div class="columns is-multiline m-l-4 m-r-4">
               <div class="column is-12 m-t-6">
                 <div class="title is-5">Commentary &amp; Insights</div>
                 <div class="divider is-light"></div>

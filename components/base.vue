@@ -157,7 +157,7 @@ export default {
 {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh - 6.5rem);
 }
 
 .lc-container .lc-flex-child {

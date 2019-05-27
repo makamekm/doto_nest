@@ -1,14 +1,17 @@
 <template>
   <transition name="fade">
-    <section class="hero is-light" v-if="show">
-      <div class="hero-body">
+    <section class="hero" v-if="show">
+      <div class="hero-bodys p-t-9 p-b-5">
         <div class="container has-text-centered">
-          <h1 class="title is-2">
+          <div style="font-size: 5rem;">
+            <i class="far fa-compass has-text-grey-lighter"></i>
+          </div>
+          <div class="title is-2 has-text-grey-dark">
             {{ error.statusCode }}
-          </h1>
-          <h2 class="subtitle is-4">
+          </div>
+          <div class="subtitle is-4 has-text-grey">
             {{ error.message }}
-          </h2>
+          </div>
           <button class="button is-medium" to="/" @click="reload">
             Refresh
           </button>

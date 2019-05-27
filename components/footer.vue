@@ -7,7 +7,7 @@
             <img src="/raymond-james-logo-blue.svg" style="width: 250px; height: 22px">
           </a>
         </div>
-        <div class="navbar-menu">
+        <div class="navbar-menu is-active">
           <div class="navbar-start">
             <nuxt-link class="navbar-item is-size-5 m-l-7-desktop" to="/aboutus" active-class="is-active" exact>
               About Us
@@ -25,23 +25,39 @@
               Contacts Us
             </nuxt-link>
           </div>
+        </div>
+        <div class="navbar-menu">
           <div class="navbar-end">
-            <nuxt-link class="navbar-item is-size-4" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-4 has-text-centered m-l-7-desktop" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-facebook-square"></i>
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-4" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-twitter-square"></i>
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-4" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-linkedin"></i>
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-4" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-instagram"></i>
             </nuxt-link>
           </div>
         </div>
       </div>
     </nav>
+    <div class="lc-until-desktop has-text-centered m-t-4 m-b-4">
+      <nuxt-link class="is-size-3 p-l-6 p-r-6" to="/facebook" active-class="is-active" exact>
+        <i class="fab fa-facebook-square"></i>
+      </nuxt-link>
+      <nuxt-link class="is-size-3 p-l-6 p-r-6" to="/facebook" active-class="is-active" exact>
+        <i class="fab fa-twitter-square"></i>
+      </nuxt-link>
+      <nuxt-link class="is-size-3 p-l-6 p-r-6" to="/facebook" active-class="is-active" exact>
+        <i class="fab fa-linkedin"></i>
+      </nuxt-link>
+      <nuxt-link class="is-size-3 p-l-6 p-r-6" to="/facebook" active-class="is-active" exact>
+        <i class="fab fa-instagram"></i>
+      </nuxt-link>
+    </div>
     <footer class="footer">
       <div class="content has-text-centered">
         <div>
@@ -63,9 +79,12 @@
 </template>
 
 <style lang="scss" scoped>
-.lc-footer
+.lc-until-desktop
 {
-  text-align: center;
-  padding: $column-gap * 2;
+  display: none;
+
+  @include until($desktop) {
+    display: block;
+  }
 }
 </style>

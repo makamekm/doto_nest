@@ -1,28 +1,95 @@
 .navbar {
-  border-bottom: 3px solid $body-color;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 1px;
   background-color: #fff;
   color: $text;
   transition: min-height 500ms;
+  
+  .navbar-brand > .navbar-item {
+    &:hover, &:focus {
+      background-color: rgba($theme, 0.2);
+    }
+  }
 
-  &.has-uppercase {
-    .navbar-item {
-      text-transform: uppercase;
+  .navbar-brand > .navbar-item .logo {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    word-wrap: none;
+    white-space: nowrap;
+
+    .dot {
+      width: 0.4rem;
+      height: 0.4rem;
+      background-color: $theme;
+      content: "";
+      margin-left: 0.075rem;
+      display: inline-block;
+    }
+  }
+
+  .navbar-menu {
+    & > * > .navbar-item {
+      &::before {
+        transition: background-color 300ms, transform 300ms;
+        position: absolute;
+        left: 0.5rem;
+        right: 0.5rem;
+        top: 50%;
+        height: 0.6rem;
+        background-color: rgba($theme, 0);
+        transform: translateY(100%);
+        content: "";
+        z-index: -1;
+      }
+  
+      &:hover, &:focus {
+        &::before {
+          background-color: darken($theme, 7%);
+          transform: translateY(0);
+        }
+      }
+  
+      &.is-active {
+        &::before {
+          background-color: $theme;
+          transform: translateY(0);
+        }
+      }
+
+      &.has-icon {
+        &::before {
+          top: unset;
+          bottom: 0%;
+        }
+
+        &:hover, &:focus {
+          background-color: rgba($theme, 0.2);
+        }
+      }
     }
   }
 
   .navbar-item {
     color: $text !important;
-    transition: box-shadow 300ms;
-    box-shadow: inset 0 0px 0px 0px rgba(0, 41, 73, 0.4);
+    // transition: box-shadow 300ms;
+    // box-shadow: inset 0 0px 0px 0px rgba(0, 41, 73, 0.4);
+    // &::before {
+    //   position: absolute;
+    //   left: 0.5rem;
+    //   right: 0.5rem;
+    //   top: 50%;
+    //   height: 0.4rem;
+    //   background-color: $theme;
+    //   content: "";
+    // }
 
     &:hover, &:focus {
-      box-shadow: inset 0 -3px 0px 0px rgba(0, 41, 73, 0.4);
+      // box-shadow: inset 0 -3px 0px 0px rgba(0, 41, 73, 0.4);
     }
 
     &.is-active {
-      box-shadow: inset 0 -3px 0px 0px rgba(0, 41, 73, 0.5);
+      // box-shadow: inset 0 -3px 0px 0px rgba(0, 41, 73, 0.5);
     }
   }
 

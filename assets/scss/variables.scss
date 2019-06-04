@@ -1,9 +1,9 @@
 @import "~bulma/sass/utilities/_all";
 
-$theme: rgba(0, 40, 71, 100);
+$theme: #EDD888;
 
 $primary: $theme;
-$primary-invert: findColorInvert($primary);
+$primary-invert: findColorInvert($theme);
 $light: #fbfbfb;
 $light-invert: $theme;
 
@@ -17,9 +17,9 @@ $size-7: 0.75rem;
 $size-8: 0.5rem;
 $size-normal: inherit;
 
-$text: $theme;
+$text: #3D3F43;
 
-$body-color: $theme;
+$body-color: $text;
 $body-size: 0.95em;
 $body-family: "Source Sans Pro", sans-serif;
 $body-background-color: #fbfbfb;
@@ -60,10 +60,10 @@ $grey-dark: darken($theme, 4%);
 $grey-darker: $theme;
 $grey: darken($theme, 2%);
 
-$dark: #0c3352;
+$dark: darken($theme, 10%);
 $dark-invert: #ffffff;
 
-$light: #5489b6;
+$light: lighten($theme, 15%);
 $light-invert: #ffffff;
 
 $colors: (

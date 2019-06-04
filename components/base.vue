@@ -1,10 +1,14 @@
 <template>
   <div class="lc-container">
-    <nav :class="{'navbar': true, 'has-uppercase': true, 'is-fixed-top-desktop': true, 'is-large-height': isOnTop}">
+    <nav :class="{'navbar': true, 'is-fixed-top-desktop': true, 'is-large-height': isOnTop}">
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="/raymond-james-logo-blue.svg" style="width: 250px; height: 22px">
+            <div class="logo">
+              KARPOV'S FURNITURE
+              <div class="dot"/>
+            </div>
+            <!-- <img src="/raymond-james-logo-blue.svg" style="width: 250px; height: 22px"> -->
           </a>
 
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isMenuOpen = !isMenuOpen">
@@ -13,18 +17,26 @@
             <span aria-hidden="true"></span>
           </a>
         </div>
+        <div class="navbar-menu">
+        </div>
         <div :class="{'navbar-menu': true, 'is-active': isMenuOpen}">
           <div class="navbar-start" @click="isMenuOpen = false">
             <nuxt-link class="navbar-item" to="/" active-class="is-active" exact>
-              Example components
+              Collection
+            </nuxt-link>
+            <nuxt-link class="navbar-item" to="/catalog" active-class="is-active" exact>
+              Catalog
+            </nuxt-link>
+            <nuxt-link class="navbar-item" to="/aboutus" active-class="is-active" exact>
+              About Us
+            </nuxt-link>
+            <nuxt-link class="navbar-item" to="/blog" active-class="is-active" exact>
+              Blog
             </nuxt-link>
           </div>
           <div class="navbar-end" @click="isMenuOpen = false">
-            <!-- <nuxt-link class="navbar-item" to="/contacts" active-class="is-active" exact>
-              Contacts
-            </nuxt-link> -->
             <template>
-              <div class="navbar-item has-dropdown is-hoverable">
+              <div class="navbar-item has-icon has-dropdown is-hoverable">
                 <a class="navbar-item">
                   <div class="has-text-centered">
                     <i class="fas fa-fingerprint is-size-5"></i>
@@ -33,7 +45,7 @@
                         Welcome
                       </div>
                       <div>
-                        <!-- {{ $auth.user.username }} -->
+                        &nbsp;
                       </div>
                     </div>
                   </div>
@@ -47,7 +59,7 @@
               </div>
             </template>
             <template>
-              <nuxt-link class="navbar-item" to="/login">
+              <nuxt-link class="navbar-item has-icon" to="/login">
                 <div class="has-text-centered">
                   <i class="fas fa-fingerprint is-size-5"></i>
                   <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
@@ -61,7 +73,7 @@
                 </div>
               </nuxt-link>
             </template>
-            <nuxt-link class="navbar-item" to="/search">
+            <nuxt-link class="navbar-item has-icon" to="/search">
               <div class="has-text-centered">
                 <i class="fas fa-search is-size-5"></i>
                 <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
@@ -74,7 +86,7 @@
                 </div>
               </div>
             </nuxt-link>
-            <nuxt-link class="navbar-item" to="/register">
+            <nuxt-link class="navbar-item has-icon" to="/register">
               <div class="has-text-centered">
                 <i class="fas fa-key is-size-5"></i>
                 <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">

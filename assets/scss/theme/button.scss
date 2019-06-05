@@ -20,12 +20,12 @@
     color: #ffffff;
 
     &:hover {
-      color: $primary;
+      color: $text;
       background-color: #ffffff;
     }
   
     &:active {
-      color: $primary;
+      color: $text;
       border-color: #ccc;
       background-color: #ccc;
     }

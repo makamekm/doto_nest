@@ -1,6 +1,6 @@
 .label {
   font-weight: $label-weight;
-  color: rgba($theme, 0.7);
+  color: rgba($text, 0.7);
 
   &:not(:last-child) {
     margin-bottom: 0.25em;

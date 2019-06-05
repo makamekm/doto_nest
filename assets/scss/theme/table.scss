@@ -5,7 +5,7 @@
   
       &:not(:last-child) {
         margin-bottom: 0;
-        border-bottom: 1px solid rgba($primary, 0.2);
+        border-bottom: 1px solid rgba($background, 0.2);
       }
     }
   
@@ -16,7 +16,7 @@
       margin-bottom: $column-gap;
 
       & + .table-wrapper {
-        border-top: 1px solid rgba($primary, 0.2);
+        border-top: 1px solid rgba($background, 0.2);
       }
     }
   }

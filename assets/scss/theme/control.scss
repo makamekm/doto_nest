@@ -9,7 +9,7 @@
     left: $size-4 / 2;
     font-weight: normal;
     transition: all 300ms ease;
-    color: $theme;
+    color: $text;
     font-weight: 600;
     z-index: 4;
   }
@@ -24,7 +24,7 @@
         top: -$size-7 * 1.5;
         font-size: $size-7;
         left: 0;
-        color: #ffffff;
+        color: inherit;
       }
     }
   }
@@ -32,6 +32,6 @@
 
 .field {
   .button {
-    border-color: $theme;
+    border-color: inherit;
   }
 }

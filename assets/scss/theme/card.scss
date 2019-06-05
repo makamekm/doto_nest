@@ -3,7 +3,7 @@
   margin-bottom: 1px;
   position: relative;
   box-shadow: none;
-  color: $primary;
+  color: $text;
 
   &::after {
     content: '';
@@ -12,7 +12,7 @@
     right: $column-gap;
     top: 100%;
     height: 1px;
-    background-color: $primary;
+    background-color: $background;
   }
 
   > .card-header-title {
@@ -21,7 +21,7 @@
     padding-left: $column-gap;
     padding-right: $column-gap;
     font-weight: 600;
-    color: $primary;
+    color: $text;
   }
 
   &.has-big-header {

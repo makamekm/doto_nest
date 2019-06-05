@@ -1,11 +1,8 @@
 @import "~bulma/sass/utilities/_all";
 
 $theme: #EDD888;
-
-$primary: $theme;
-$primary-invert: findColorInvert($theme);
-$light: #fbfbfb;
-$light-invert: $theme;
+$background: darken(#EDD888, 50%);
+$text: #3D3F43;
 
 $size-1: 2.25rem;
 $size-2: 2rem;
@@ -17,12 +14,40 @@ $size-7: 0.75rem;
 $size-8: 0.5rem;
 $size-normal: inherit;
 
-$text: #3D3F43;
-
 $body-color: $text;
 $body-size: 0.95em;
 $body-family: "Source Sans Pro", sans-serif;
 $body-background-color: #fbfbfb;
+
+
+$primary: $theme;
+$primary-invert: findColorInvert($theme);
+
+$dark: darken($theme, 20%);
+$dark-invert: #ffffff;
+$light: lighten($theme, 20%);
+$light-invert: $text;
+
+// $grey-light: lighten($theme, 30%);
+// $grey-lighter: lighten($theme, 10%);
+// $grey-dark: darken($theme, 4%);
+// $grey-darker: $theme;
+// $grey: darken($theme, 2%);
+// $white-bis: rgba($theme, 0.045);
+// $white-ter: rgba($theme, 0.09);
+
+$colors: (
+  "white": ($white, $black),
+  "black": ($black, $white),
+  "light": ($light, $light-invert),
+  "dark": ($dark, $dark-invert),
+  "primary": ($primary, $primary-invert),
+  "info": ($info, $info-invert),
+  "success": ($success, $success-invert),
+  "warning": ($warning, $warning-invert),
+  "danger": ($danger, $danger-invert),
+);
+
 
 $radius: 0px;
 $radius-small: 0px;
@@ -37,46 +62,23 @@ $gap: 64px;
 $column-gap: 0.8rem;
 
 $label-weight: 400;
-$input-border-color: $primary;
+$input-border-color: $background;
+$input-hover-border-color: darken($background, 40%);
 
 $navbar-height: 3.5rem;
 $footer-padding: 3rem 1.5rem 3rem;
-$table-head-cell-color: $theme;
-$white-bis: rgba($theme, 0.045);
-$white-ter: rgba($theme, 0.09);
+$table-head-cell-color: $text;
+
 $button-background-color: rgba(0, 40, 71, 0);
-$button-color: $theme;
-$button-border-color: $theme;
-$button-hover-color:	#ffffff;
-$button-hover-border-color: $theme;
-$button-hover-background-color: $theme;
-$button-active-color: #ffffff;
-$button-active-background-color: darken($theme, 4%);
+$button-color: $text;
+$button-border-color: $text;
+$button-hover-color: findColorInvert($text);
+$button-hover-border-color: $text;
+$button-hover-background-color: $text;
+$button-active-color: findColorInvert($text);
+$button-active-background-color: darken($text, 4%);
 
-$input-hover-color: darken($theme, 4%);
-$grey-light: lighten($theme, 30%);
-$grey-lighter: lighten($theme, 10%);
-$grey-dark: darken($theme, 4%);
-$grey-darker: $theme;
-$grey: darken($theme, 2%);
-
-$dark: darken($theme, 10%);
-$dark-invert: #ffffff;
-
-$light: lighten($theme, 15%);
-$light-invert: #ffffff;
-
-$colors: (
-  "white": ($white, $black),
-  "black": ($black, $white),
-  "light": ($light, $light-invert),
-  "dark": ($dark, $dark-invert),
-  "primary": ($primary, $primary-invert),
-  "info": ($info, $info-invert),
-  "success": ($success, $success-invert),
-  "warning": ($warning, $warning-invert),
-  "danger": ($danger, $danger-invert),
-);
+// $input-hover-color: darken($theme, 4%);
 
 $link: $primary;
 $link-invert: $primary-invert;

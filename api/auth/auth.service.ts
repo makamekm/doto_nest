@@ -6,7 +6,7 @@ export class AuthService {
   constructor(private readonly jwtService: JwtService) {}
 
   async login(username: string, password: string) {
-    if (!username.length || password !== '123') {
+    if (!username || password !== '123') {
       throw new BadRequestException('Username & password are miss match');
     }
     const email = 'test@test.com';

@@ -2,7 +2,7 @@ import { Controller, Get, Request, Post, Body, UseGuards } from '@nestjs/common'
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 
-@Controller()
+@Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
@@ -16,4 +16,10 @@ export class AuthController {
   public async user(@Request() req) {
     return req.user;
   }
+
+  @Post('register')
+  public async register(@Body() body) {
+    return true;
+  }
+
 }

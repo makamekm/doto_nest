@@ -57,6 +57,13 @@ import { Validator } from "vee-validate";
 const AuthStore = namespace("auth");
 
 @Component({
+  mounted() {
+    if (!!this.$store.state.auth.user) {
+      this.$router.push({
+        path: `/`,
+      });
+    }
+  },
   data() {
     return {
       username: '',
@@ -79,6 +86,10 @@ export default class extends Vue {
       await this.doLogin({
         username: this.username,
         password: this.password,
+      });
+      const redirect = this.$route.query.redirect as string;
+      this.$router.push({
+        path: redirect || `/`,
       });
     } catch (e) {
       this.error = e.response.data.message;

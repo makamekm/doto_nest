@@ -1,5 +1,6 @@
 <template>
   <div class="lc-container">
+    <b-loading is-full-page :active.sync="isLoading"></b-loading>
     <nav :class="{'navbar': true, 'is-fixed-top-desktop': true, 'is-large-height': isOnTop}">
       <div class="container">
         <div class="navbar-brand">
@@ -103,8 +104,11 @@
         </div>
       </div>
     </nav>
-    <div :class="{'lc-flex-child': true, 'lc-can-dim': true, 'lc-is-dim': isMenuOpen}" @click="isMenuOpen = false">
-      <slot/>
+    <div
+      :class="{'lc-flex-child': true, 'lc-can-dim': true, 'lc-is-dim': isMenuOpen}"
+      @click="isMenuOpen = false"
+    >
+      <slot v-if="!isLoading"/>
     </div>
     <div :class="{'lc-can-dim': true, 'lc-is-dim': isMenuOpen}" @click="isMenuOpen = false">
       <default-footer/>
@@ -133,6 +137,14 @@ export default {
     if (process.client) {
       window.addEventListener('scroll', this.handleScroll);
     }
+    if (!this.$store.state.auth.user) {
+      this.$store.dispatch('auth/check');
+    }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.auth.isLoading;
+    },
   },
   destroyed() {
     if (process.client) {
@@ -169,11 +181,12 @@ export default {
 {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - $navbar-large-height);
+  min-height: calc(100vh - #{$navbar-large-height});
 }
 
 .lc-container .lc-flex-child {
   flex: 1;
+  content: '';
 }
 
 .lc-can-dim {

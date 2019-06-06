@@ -9,11 +9,6 @@
 <script>
 import BaseLayout from '~/components/base.vue'
 export default {
-  async beforeMount() {
-    if (!this.$store.state.auth.user) {
-      this.$store.dispatch('auth/check');
-    }
-  },
   components: {
     BaseLayout
   },

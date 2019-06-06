@@ -57,9 +57,7 @@ import { Validator } from "vee-validate";
 const AuthStore = namespace("auth");
 
 @Component({
-  beforeMount() {
-    console.log(this.$store.state.auth.user);
-    
+  async created() {
     if (!!this.$store.state.auth.user) {
       this.$router.push({
         path: `/`,

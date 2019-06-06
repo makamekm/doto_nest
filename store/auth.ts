@@ -9,11 +9,13 @@ export interface User {
 
 export interface UserState {
   user?: User;
+  isLoading: boolean;
 }
 
 const store: StoreOptions<UserState> = {
   state: () => ({
     user: undefined,
+    isLoading: true,
   }),
   actions: {
     async check({ commit }) {
@@ -25,15 +27,15 @@ const store: StoreOptions<UserState> = {
 
       if (token) {
         try {
+          commit('setIsLoading', true);
           const { data } = await this.$axios.get(`/auth/user`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
-
           const { token: _t, ...user } = data;
-
           commit('setUser', user);
+          commit('setIsLoading', false);
         } finally {}
       }
     },
@@ -66,6 +68,7 @@ const store: StoreOptions<UserState> = {
   },
   mutations: {
     setUser: (state, user) => state.user = user,
+    setIsLoading: (state, isLoading) => state.isLoading = isLoading,
   },
 };
 

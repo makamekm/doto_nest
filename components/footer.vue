@@ -4,7 +4,10 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <img src="/raymond-james-logo-blue.svg" style="width: 250px; height: 22px">
+            <div class="logo">
+              KARPOV'S FURNITURE
+              <div class="dot"/>
+            </div>
           </a>
         </div>
         <div class="navbar-menu is-active">
@@ -28,16 +31,16 @@
         </div>
         <div class="navbar-menu">
           <div class="navbar-end">
-            <nuxt-link class="navbar-item is-size-4 has-text-centered m-l-7-desktop" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item has-icon is-size-4 has-text-centered m-l-7-desktop" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-facebook-square"></i>
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item has-icon is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-twitter-square"></i>
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item has-icon is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-linkedin"></i>
             </nuxt-link>
-            <nuxt-link class="navbar-item is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
+            <nuxt-link class="navbar-item has-icon is-size-4 has-text-centered" to="/facebook" active-class="is-active" exact>
               <i class="fab fa-instagram"></i>
             </nuxt-link>
           </div>

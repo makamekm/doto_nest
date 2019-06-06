@@ -100,9 +100,25 @@
   &.is-large-height {
     @include from($desktop) {
       transition: min-height 250ms;
-      min-height: 6.5rem;
+      min-height: $navbar-large-height;
     }
   }
 }
 
 @import "./navbar.sass";
+
+@include until($desktop) {
+  .navbar-menu {
+    transition: max-height 0.4s;
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    max-height: 0px;
+
+    &.is-active {
+      overflow: auto;
+      max-height: 100vh;
+    }
+  }
+}

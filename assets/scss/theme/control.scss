@@ -31,7 +31,16 @@
 }
 
 .field {
+  input, textarea, select {
+    transition: all 300ms;
+    border-color: $theme;
+
+    &:hover {
+      border-color: darken($theme, 30%);
+    }
+  }
+
   .button {
-    border-color: inherit;
+    background-clip: padding-box;
   }
 }

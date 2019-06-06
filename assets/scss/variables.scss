@@ -1,6 +1,7 @@
 @import "~bulma/sass/utilities/_all";
 
 $theme: #EDD888;
+
 $background: darken($theme, 50%);
 $text: #3D3F43;
 
@@ -66,6 +67,7 @@ $input-border-color: $background;
 $input-hover-border-color: darken($background, 40%);
 
 $navbar-height: 3.5rem;
+$navbar-large-height: 6.5rem;
 $footer-padding: 3rem 1.5rem 3rem;
 $table-head-cell-color: $text;
 

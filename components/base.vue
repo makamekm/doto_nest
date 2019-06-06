@@ -169,27 +169,11 @@ export default {
 {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 6.5rem);
+  min-height: calc(100vh - $navbar-large-height);
 }
 
 .lc-container .lc-flex-child {
   flex: 1;
-}
-
-@include until($desktop) {
-  .navbar-menu {
-    transition: max-height 0.4s;
-    display: block;
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
-    max-height: 0px;
-
-    &.is-active {
-      overflow: auto;
-      max-height: 100vh;
-    }
-  }
 }
 
 .lc-can-dim {

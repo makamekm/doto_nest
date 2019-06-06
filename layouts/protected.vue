@@ -11,7 +11,12 @@ import BaseLayout from '~/components/base.vue'
 export default {
   async beforeMount() {
     if (!this.$store.state.auth.user) {
-      this.$store.dispatch('auth/check');
+      await this.$store.dispatch('auth.check');
+    }
+    if (!this.$store.state.auth.user) {
+      this.$router.push({
+        path: `/`,
+      });
     }
   },
   components: {

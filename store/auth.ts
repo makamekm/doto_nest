@@ -16,7 +16,7 @@ const store: StoreOptions<UserState> = {
     user: undefined,
   }),
   actions: {
-    async checkUser({ commit }) {
+    async check({ commit }) {
       let token: string | null = null;
 
       if (process.client) {
@@ -24,10 +24,13 @@ const store: StoreOptions<UserState> = {
       }
 
       if (token) {
-        const { data } = await this.$axios.post(`/auth/user`, {
-          token,
-        });
-        commit('setUser', data.list);
+        try {
+          const authStr = 'Bearer '.concat(token);
+          const { data } = await this.$axios.get(`/auth/user`, {
+            headers: { Authorization: authStr },
+          });
+          commit('setUser', data.list);
+        } finally {}
       }
     },
     async login({ commit }, { username, password }) {

@@ -2,15 +2,21 @@
   transition: all 300ms;
   transform: perspective(1rem) rotateX(0deg) scale(1);
 
-  &:hover {
+  &:hover, &:focus {
+    color: $button-hover-color;
     background-color: $button-hover-background-color;
     transform: perspective(1rem) rotateX(1deg) scale(1);
     transform-origin: bottom;
   }
 
   &:active {
+    color: $button-active-color;
     background-color: $button-active-background-color;
     transform: perspective(1rem) rotateX(0deg) scale(.95);
+  }
+
+  &.fix-white-on-focus:focus:not(:hover) {
+    color: #ffffff;
   }
 
   &.is-hero {

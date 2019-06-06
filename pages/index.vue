@@ -1,14 +1,66 @@
 <template>
   <div class="container m-t-6 p-b-6">
+
+    <div class="p-b-6">
+      <div class="columns is-multiline is-gapless">
+        <div class="column is-2">
+          <b-field label="Name">
+            <b-input
+              placeholder="Name or Description">
+            </b-input>
+          </b-field>
+        </div>
+        <div class="column is-2">
+          <b-field label="Tags">
+            <b-taginput
+              v-model="tags"
+              :data="filteredTags"
+              autocomplete
+              :allow-new="false"
+              field="user.first_name"
+              placeholder="Add tags"
+              @typing="getFilteredTags">
+            </b-taginput>
+          </b-field>
+        </div>
+        <div class="column is-2">
+          <b-field label="Price">
+            <b-input
+              placeholder="From">
+            </b-input>
+          </b-field>
+        </div>
+        <div class="column is-2">
+          <b-field label="Price">
+            <b-input
+              placeholder="To">
+            </b-input>
+          </b-field>
+        </div>
+        <div class="column is-one-quarter">
+          <b-field label="Search">
+            <button class="button">
+              <span class="icon is-small">
+                <i class="fas fa-search"></i>
+              </span>
+              <span>Filter</span>
+            </button>
+          </b-field>
+        </div>
+      </div>
+    </div>
+
     <div class="columns is-multiline">
+
       <div class="column is-12 is-4-desktop" v-for="a in [1,2,3,4,5]" v-bind:key="a">
-        <div class="card m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6">
+        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
+          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
             Raymond James
           </div>
+          <img src="/uploads/2cr1.jpg">
           <div class="divider m-t-4"></div>
           <div class="m-t-4">
-            <div class="has-text-weight-semibold is-size-3">
+            <!-- <div class="has-text-weight-semibold is-size-3">
               The right advice
             </div>
             <div class="has-text-weight-medium is-size-3">
@@ -16,16 +68,56 @@
             </div>
             <div class="m-t-4">
               We believe financial advice is about more than just having a plan. It’s about having the right plan for you. And that only happens with a true understanding of your whole life, beyond just your finances. Because as your needs become more complex, sophisticated advice and a relationship built for the long term become even more important.
+            </div> -->
+
+            <div class="columns is-vcentered m-t-7">
+              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
+                500$
+              </div>
+              <div class="column is-size-7 has-text-weight-semibold has-text-centered">
+                <span class="tag is-light m-t-1 m-b-1">SOFA</span>
+                <span class="tag is-info m-t-1 m-b-1">SALE</span>
+                <span class="tag is-success m-t-1 m-b-1">GREEN</span>
+                <span class="tag is-warning m-t-1 m-b-1">LIMITED</span>
+                <span class="tag is-black m-t-1 m-b-1">SOON</span>
+                <span class="tag is-danger m-t-1 m-b-1">OLD</span>
+              </div>
             </div>
-            <div class="has-text-right m-t-5">
-              <button class="button is-hero">
-                Learn more
-              </button>
+
+            <div class="level m-t-5">
+              <div class="level-left">
+                <div class="level-item">
+                  <button class="button is-transparent fix-white-on-focus is-hero">
+                    <span class="icon is-small">
+                      <i class="fas fa-cart-plus"></i>
+                    </span>
+                    <span>To Cart</span>
+                  </button>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <button class="button is-hero">
+                    Overview
+                  </button>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
     </div>
+
+    <b-pagination
+      :total="100"
+      :current.sync="current"
+      :per-page="20"
+      aria-next-label="Next page"
+      aria-previous-label="Previous page"
+      aria-page-label="Page"
+      aria-current-label="Current page">
+    </b-pagination>
   </div>
 </template>
 

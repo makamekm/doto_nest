@@ -36,3 +36,16 @@
     }
   }
 }
+
+.card {
+  &.is-interactable {
+    transition: all 300ms;
+    transform: scale(1);
+
+    &:hover {
+      transform: scale(1.005);
+      transform-origin: bottom;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    }
+  }
+}

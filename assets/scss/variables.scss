@@ -47,6 +47,7 @@ $colors: (
   "success": ($success, $success-invert),
   "warning": ($warning, $warning-invert),
   "danger": ($danger, $danger-invert),
+  "transparent": (transparent, $text),
 );
 
 
@@ -68,7 +69,7 @@ $input-hover-border-color: darken($background, 40%);
 
 $navbar-height: 3.5rem;
 $navbar-large-height: 6.5rem;
-$footer-padding: 3rem 1.5rem 3rem;
+$footer-padding: 1rem 1.5rem 1rem;
 $table-head-cell-color: $text;
 
 $button-background-color: rgba(0, 40, 71, 0);

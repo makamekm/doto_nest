@@ -4,12 +4,14 @@
   background-color: #fff;
   color: $text;
   transition: min-height 500ms;
-  
-  .navbar-brand > .navbar-item {
-    transition: background-color 300ms;
 
-    &:hover, &:focus {
-      background-color: rgba($theme, 0.2);
+  .navbar-menu, .navbar-brand {
+    .navbar-item {
+      transition: background-color 300ms;
+
+      &:hover, &:focus {
+        background-color: rgba($theme, 0.2);
+      }
     }
   }
 
@@ -32,7 +34,8 @@
 
   .navbar-menu {
     & > * > .navbar-item {
-      transition: background-color 300ms;
+      transition: backgrond-coulor 300ms;
+
       &::before {
         transition: background-color 300ms, transform 300ms;
         position: absolute;
@@ -48,6 +51,7 @@
   
       &:hover, &:focus {
         background-color: rgba($theme, 0.075);
+
         &::before {
           background-color: darken($theme, 5%);
           transform: translateY(0);

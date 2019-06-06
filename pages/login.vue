@@ -30,6 +30,12 @@
             </div>
             <div class="control">
               <button type="submit" class="button is-primary is-fullwidth">Log In</button>
+              <button type="button" class="button is-transparent is-fullwidth m-t-5">
+                <span class="icon is-small">
+                  <i class="fab fa-google"></i>
+                </span>
+                <span>Google Account</span>
+              </button>
             </div>
           </form>
           <div class="has-text-centered" style="margin-top: 20px">
@@ -62,6 +68,7 @@ const AuthStore = namespace("auth");
 export default class extends Vue {
   @AuthStore.State('user') user;
   @AuthStore.Action('login') doLogin;
+  @AuthStore.Action('loginGoogle') doLoginGoogle;
 
   username!: string;
   password!: string;
@@ -73,6 +80,20 @@ export default class extends Vue {
         username: this.username,
         password: this.password,
       });
+    } catch (e) {
+      this.error = e.response.data.message;
+      this.$toast.open({
+        duration: 5000,
+        message: this.error,
+        position: 'is-bottom',
+        type: 'is-danger',
+      });
+    }
+  }
+
+  async loginGoogle() {
+    try {
+      await this.doLoginGoogle();
     } catch (e) {
       this.error = e.response.data.message;
       this.$toast.open({

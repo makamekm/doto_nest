@@ -7,12 +7,11 @@ delete process.env.HTTPS_PROXY;
 
 const config: NuxtConfiguration = {
   head: {
-    title: 'Node Version Control',
+    title: 'Karpov\'s Furniture',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: `Node Version Control. \
-A simple planning todo list per day. Made by Dundeeops team` },
+      { hid: 'description', name: 'description', content: `Karpov\'s Furniture.\n The best place to buy your next luxury furniture` },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -39,12 +38,11 @@ A simple planning todo list per day. Made by Dundeeops team` },
     ],
   },
   manifest: {
-    name: 'Node Version Control',
-    short_name: 'Node VC',
-    description: `Node Version Control. \
-A simple planning todo list per day. Made by Dundeeops team`,
+    name: 'Karpov\'s Furniture',
+    short_name: 'KFurniture',
+    description: `Karpov\'s Furniture.\n The best place to buy your next luxury furniture`,
     lang: 'en',
-    theme_color: '#f5f5f5',
+    theme_color: '#EDD888',
     start_url: '/',
   },
   modules: [

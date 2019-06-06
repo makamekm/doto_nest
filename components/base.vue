@@ -86,15 +86,15 @@
                 </div>
               </div>
             </nuxt-link>
-            <nuxt-link class="navbar-item has-icon" to="/register">
+            <nuxt-link class="navbar-item has-icon" to="/cart">
               <div class="has-text-centered">
-                <i class="fas fa-key is-size-5"></i>
+                <i class="fas fa-shopping-cart is-size-5"></i>
                 <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
                   <div>
-                    Find
+                    Shopping
                   </div>
                   <div>
-                    Advisor
+                    Cart
                   </div>
                 </div>
               </div>

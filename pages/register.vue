@@ -5,10 +5,6 @@
         <div class="column is-4 is-offset-4">
           <h2 class="title has-text-centered">Register!</h2>
 
-          <div class="notification is-danger" v-if="error">
-            {{ error }}
-          </div>
-
           <form method="post" @submit.prevent="register">
             <div class="field">
               <label class="label">Username</label>
@@ -60,10 +56,21 @@
   </section>
 </template>
 
-<script>
-export default {
-  // middleware: ['auth'],
-  // auth: false,
+<script lang="ts">
+import { Component, Vue, Prop, Inject } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+import { Validator } from "vee-validate";
+
+const AuthStore = namespace("auth");
+
+@Component({
+  async created() {
+    if (!!this.$store.state.auth.user) {
+      this.$router.push({
+        path: `/`,
+      });
+    }
+  },
   data() {
     return {
       username: '',
@@ -72,23 +79,40 @@ export default {
       error: null
     }
   },
-  methods: {
-    async register() {
-      try {
-        await this.$axios.post('register', {
-          username: this.username,
-          email: this.email,
-          password: this.password
-        });
-        await this.$auth.loginWith('local', {
-          data: {
-            email: this.email,
-            password: this.password
-          },
-        });
-      } catch (e) {
-        this.error = e.response.data.message
-      }
+  computed: {
+    redirect() {
+      return this.$route.query.redirect;
+    }
+  },
+})
+export default class extends Vue {
+  @AuthStore.State('user') user;
+  @AuthStore.Action('register') doRegister;
+
+  username!: string;
+  email!: string;
+  password!: string;
+  error!: string;
+
+  async register() {
+    try {
+      await this.doRegister({
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      });
+      const redirect = this.$route.query.redirect as string;
+      this.$router.push({
+        path: redirect || `/`,
+      });
+    } catch (e) {
+      this.error = e.response.data.message;
+      this.$toast.open({
+        duration: 5000,
+        message: this.error,
+        position: 'is-bottom',
+        type: 'is-danger',
+      });
     }
   }
 }

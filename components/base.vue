@@ -36,11 +36,11 @@
             </nuxt-link>
           </div>
           <div class="navbar-end" @click="isMenuOpen = false">
-            <template>
+            <template v-if="user">
               <div class="navbar-item has-icon has-dropdown is-hoverable">
                 <a class="navbar-item">
                   <div class="has-text-centered">
-                    <i class="fas fa-fingerprint is-size-5"></i>
+                    <i class="fas fa-key is-size-5"></i>
                     <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
                       <div>
                         Welcome
@@ -59,8 +59,8 @@
                 </div>
               </div>
             </template>
-            <template>
-              <nuxt-link class="navbar-item has-icon" to="/login">
+            <template v-if="!user">
+              <nuxt-link class="navbar-item has-icon" to="/login" active-class="is-active" exact>
                 <div class="has-text-centered">
                   <i class="fas fa-fingerprint is-size-5"></i>
                   <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
@@ -74,7 +74,7 @@
                 </div>
               </nuxt-link>
             </template>
-            <nuxt-link class="navbar-item has-icon" to="/search">
+            <nuxt-link class="navbar-item has-icon" to="/search" active-class="is-active" exact>
               <div class="has-text-centered">
                 <i class="fas fa-search is-size-5"></i>
                 <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
@@ -87,7 +87,7 @@
                 </div>
               </div>
             </nuxt-link>
-            <nuxt-link class="navbar-item has-icon" to="/cart">
+            <nuxt-link class="navbar-item has-icon" to="/cart" active-class="is-active" exact>
               <div class="has-text-centered">
                 <i class="fas fa-shopping-cart is-size-5"></i>
                 <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
@@ -144,6 +144,9 @@ export default {
   computed: {
     isLoading() {
       return this.$store.state.auth.isLoading;
+    },
+    user() {
+      return this.$store.state.auth.user;
     },
   },
   destroyed() {

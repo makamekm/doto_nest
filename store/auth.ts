@@ -35,8 +35,9 @@ const store: StoreOptions<UserState> = {
           });
           const { token: _t, ...user } = data;
           commit('setUser', user);
+        } finally {
           commit('setIsLoading', false);
-        } finally {}
+        }
       }
     },
     async login({ commit }, { username, password }) {

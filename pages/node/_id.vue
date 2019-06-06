@@ -133,6 +133,7 @@ const defaultFormData = () => ({
     ]
   }),
   async fetch(props) {
+    await props.store.dispatch("auth/check");
     return await props.store.dispatch("node/loadNode", props.params.id);
   }
 })

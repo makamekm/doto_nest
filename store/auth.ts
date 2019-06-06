@@ -25,11 +25,15 @@ const store: StoreOptions<UserState> = {
 
       if (token) {
         try {
-          const authStr = 'Bearer '.concat(token);
           const { data } = await this.$axios.get(`/auth/user`, {
-            headers: { Authorization: authStr },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           });
-          commit('setUser', data.list);
+
+          const { token: _t, ...user } = data;
+
+          commit('setUser', user);
         } finally {}
       }
     },
@@ -38,10 +42,12 @@ const store: StoreOptions<UserState> = {
         username, password,
       });
 
-      commit('setUser', data.user);
+      const { token, ...user } = data;
+
+      commit('setUser', user);
 
       if (process.client) {
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('token', token);
       }
     },
     async logout({ commit }) {

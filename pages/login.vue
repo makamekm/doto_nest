@@ -58,6 +58,8 @@ const AuthStore = namespace("auth");
 
 @Component({
   beforeMount() {
+    console.log(this.$store.state.auth.user);
+    
     if (!!this.$store.state.auth.user) {
       this.$router.push({
         path: `/`,

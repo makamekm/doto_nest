@@ -1,7 +1,7 @@
 @import "~bulma/sass/utilities/_all";
 
 $theme: #EDD888;
-$background: darken(#EDD888, 50%);
+$background: darken($theme, 50%);
 $text: #3D3F43;
 
 $size-1: 2.25rem;

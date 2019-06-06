@@ -36,7 +36,16 @@
             </nuxt-link>
           </div>
           <div class="navbar-end" @click="isMenuOpen = false">
-            <template v-if="user">
+            <template v-if="isLoading">
+              <nuxt-link class="navbar-item has-icon" to="/login" active-class="is-active" exact>
+                <div class="has-text-centered">
+                  <span class="icon">
+                    <i class="fas fa-spinner fa-pulse is-size-5"></i>
+                  </span>
+                </div>
+              </nuxt-link>
+            </template>
+            <template v-if="user && !isLoading">
               <div class="navbar-item has-icon has-dropdown is-hoverable">
                 <a class="navbar-item">
                   <div class="has-text-centered">
@@ -59,7 +68,7 @@
                 </div>
               </div>
             </template>
-            <template v-if="!user">
+            <template v-if="!user && !isLoading">
               <nuxt-link class="navbar-item has-icon" to="/login" active-class="is-active" exact>
                 <div class="has-text-centered">
                   <i class="fas fa-fingerprint is-size-5"></i>

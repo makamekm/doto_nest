@@ -31,16 +31,24 @@
 }
 
 .field {
-  input, textarea, select {
+  input, textarea, select, .is-focusable {
     transition: all 300ms;
     border-color: $theme;
 
-    &:hover {
+    &:hover, &.is-focused {
       border-color: darken($theme, 30%);
     }
   }
 
   .button {
     background-clip: padding-box;
+  }
+}
+
+.control {
+  &.has-icons-left {
+    .icon.is-left {
+      transform: scale(0.75);
+    }
   }
 }

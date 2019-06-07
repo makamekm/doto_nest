@@ -47,7 +47,7 @@
     "vee-validate": "^2.2.2",
     "vuex-class": "0.3.2",
     "ts-node": "^8.1.0",
-    "buefy": "^0.7.6",
+    "buefy": "^0.7.7",
     "node-sass": "4.11.0",
     "sass-loader": "7.1.0",
     "vuedraggable": "2.20.0"

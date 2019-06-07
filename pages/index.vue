@@ -180,38 +180,6 @@ const NodeStore = namespace("node");
   components: { VueperSlides, VueperSlide },
   data: () => ({
     isShowFilters: false,
-    columns: [
-      {
-        field: "name",
-        label: "Name",
-        sortable: true,
-      },
-      {
-        field: "version.version",
-        label: "Version",
-        sortable: true,
-      },
-      {
-        field: "status",
-        label: "Status",
-        sortable: true,
-      },
-      {
-        field: "author",
-        label: "Author",
-        sortable: true,
-      },
-      {
-        field: "date",
-        label: "Date",
-        sortable: true,
-      },
-      {
-        field: "comments",
-        label: "Comments",
-        sortable: true,
-      }
-    ]
   }),
   fetch: async props => props.store.dispatch("node/loadNodes")
 })

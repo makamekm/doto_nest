@@ -39,7 +39,7 @@ const config: NuxtConfiguration = {
   },
   manifest: {
     name: 'Karpov\'s Furniture',
-    short_name: 'KFurniture',
+    short_name: 'Karpov\'s Furniture',
     description: `Karpov\'s Furniture.\n The best place to buy your next luxury furniture`,
     lang: 'en',
     theme_color: '#EDD888',
@@ -77,7 +77,7 @@ const config: NuxtConfiguration = {
     { path: '/api', handler: '~/api/main.ts'},
   ],
   router: {
-    // middleware: ['auth'],
+    middleware: ['fwdcookies', 'auth'],
   },
   // auth: {
   //   redirect: {

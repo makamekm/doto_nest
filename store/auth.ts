@@ -1,4 +1,5 @@
 import { StoreOptions } from 'vuex';
+import cookie from 'cookie';
 
 export interface User {
   id: number;
@@ -12,6 +13,21 @@ export interface UserState {
   isLoading: boolean;
 }
 
+const getCookie = ($axios) => {
+  if (process.client) {
+    return cookie.parse(document.cookie || '');
+  } else {
+    return cookie.parse($axios.defaults.headers.common.cookie || '');
+  }
+};
+
+const setCookie = (cookies) => {
+  const newCookie = Object.keys(cookies)
+    .map(key => cookie.serialize(key, cookies[key]))
+    .join('; ');
+  document.cookie = newCookie;
+};
+
 const store: StoreOptions<UserState> = {
   state: () => ({
     user: undefined,
@@ -19,11 +35,7 @@ const store: StoreOptions<UserState> = {
   }),
   actions: {
     async check({ commit }) {
-      let token: string | null = null;
-
-      if (process.client) {
-        token = localStorage.getItem('token');
-      }
+      const token = getCookie(this.$axios).token;
 
       if (token) {
         try {
@@ -52,12 +64,16 @@ const store: StoreOptions<UserState> = {
       commit('setUser', user);
 
       if (process.client) {
-        localStorage.setItem('token', token);
+        const cookies = getCookie(this.$axios);
+        cookies.token = token;
+        setCookie(cookies);
       }
     },
     async logout({ commit }) {
       if (process.client) {
-        localStorage.removeItem('token');
+        const cookies = getCookie(this.$axios);
+        cookies.token = '';
+        setCookie(cookies);
       }
       commit('setUser', null);
     },

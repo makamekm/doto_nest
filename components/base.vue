@@ -64,7 +64,7 @@
                   <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
                   <hr class="navbar-divider">
                   <nuxt-link class="navbar-item" to="/preferences">Preferences</nuxt-link>
-                  <a class="navbar-item" @click="$auth.logout(); $router.go();">Logout</a>
+                  <nuxt-link class="navbar-item" to="/logout" no-prefetch>Logout</nuxt-link>
                 </div>
               </div>
             </template>
@@ -126,7 +126,8 @@
 </template>
 
 <script>
-import DefaultFooter from '~/components/footer.vue'
+import DefaultFooter from '~/components/footer.vue';
+
 export default {
   components: {
     DefaultFooter
@@ -135,7 +136,7 @@ export default {
     isMenuOpen: false,
     isOnTop: true,
   }),
-  head () {
+  head() {
     return {
       bodyAttrs: {
         class: 'has-navbar-fixed-top-desktop is-large-height',
@@ -146,10 +147,20 @@ export default {
     if (process.client) {
       window.addEventListener('scroll', this.handleScroll);
     }
-    if (!this.$store.state.auth.user) {
-      this.$store.dispatch('auth/check');
-    }
+    // if (!this.$store.state.auth.user) {
+    //   this.$store.dispatch('auth/check');
+    // }
   },
+  // async mounted(...args) {
+  //   console.log(this);
+  //   if (!this.$store.state.auth.user) {
+  //     this.$nextTick(async () => {
+  //       this.$nuxt.$loading.start();
+  //       await this.$store.dispatch('auth/check');
+  //       this.$nuxt.$loading.finish();
+  //     });
+  //   }
+  // },
   computed: {
     isLoading() {
       return this.$store.state.auth.isLoading;

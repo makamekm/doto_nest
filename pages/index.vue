@@ -129,23 +129,19 @@
                 </div>
               </div>
 
-              <div class="level m-t-5">
-                <div class="level-left">
-                  <div class="level-item">
-                    <button class="button is-transparent fix-white-on-focus is-hero">
-                      <span class="icon is-small">
-                        <i class="fas fa-cart-plus"></i>
-                      </span>
-                      <span>To Cart</span>
-                    </button>
-                  </div>
+              <div class="columns m-t-5">
+                <div class="column">
+                  <button class="button is-transparent fix-white-on-focus is-hero is-expanded">
+                    <span class="icon is-small">
+                      <i class="fas fa-cart-plus"></i>
+                    </span>
+                    <span>To Cart</span>
+                  </button>
                 </div>
-                <div class="level-right">
-                  <div class="level-item">
-                    <button class="button is-hero">
-                      Overview
-                    </button>
-                  </div>
+                <div class="column">
+                  <button class="button is-hero is-expanded">
+                    Overview
+                  </button>
                 </div>
               </div>
 
@@ -154,15 +150,17 @@
         </div>
       </div>
 
-      <b-pagination
-        :total="100"
-        :current.sync="current"
-        :per-page="20"
-        aria-next-label="Next page"
-        aria-previous-label="Previous page"
-        aria-page-label="Page"
-        aria-current-label="Current page">
-      </b-pagination>
+      <div class="p-b-2 p-l-4 p-r-4 p-l-0-desktop p-r-0-desktop">
+        <b-pagination
+          :total="100"
+          :current.sync="current"
+          :per-page="20"
+          aria-next-label="Next page"
+          aria-previous-label="Previous page"
+          aria-page-label="Page"
+          aria-current-label="Current page">
+        </b-pagination>
+      </div>
     </div>
   </div>
 </template>

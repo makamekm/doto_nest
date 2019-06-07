@@ -25,6 +25,8 @@ const store: StoreOptions<UserState> = {
         const { data } = await this.$axios.get(`/auth/user`);
         const { token, ...user } = data;
         commit('setUser', user);
+      } catch (e) {
+        // Ignore 401 error
       } finally {
         commit('setIsLoading', false);
       }

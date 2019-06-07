@@ -134,7 +134,6 @@ import { Validator } from "vee-validate";
 const NodeStore = namespace("node");
 
 @Component({
-  layout: 'full',
   data: () => ({
     columns: [
       {

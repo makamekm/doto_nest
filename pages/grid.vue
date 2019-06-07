@@ -71,9 +71,6 @@ const directives: Directives = {
 };
 
 export default {
-  // middleware: ['auth'],
-  // auth: false,
-  layout: 'full',
   components: {
     FormMenu,
   },

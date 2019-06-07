@@ -26,7 +26,6 @@ export default {
   data: () => ({
     show: false,
   }),
-  layout: 'full',
   mounted: function() {
     if (process.client) {
       window.setTimeout(() => this.show = true, 300);

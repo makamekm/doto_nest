@@ -19,9 +19,11 @@ const store: StoreOptions<UserState> = {
     isLoading: true,
   }),
   actions: {
-    async check({ commit }) {
+    async check({ commit, state }) {
       try {
-        commit('setIsLoading', true);
+        if (!state.user) {
+          commit('setIsLoading', true);
+        }
         const { data } = await this.$axios.get(`/auth/user`);
         const { token, ...user } = data;
         commit('setUser', user);

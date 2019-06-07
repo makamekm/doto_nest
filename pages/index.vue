@@ -174,7 +174,6 @@ import { VueperSlides, VueperSlide } from 'vueperslides';
 const NodeStore = namespace("node");
 
 @Component({
-  layout: 'full',
   components: { VueperSlides, VueperSlide },
   data: () => ({
     isShowFilters: false,

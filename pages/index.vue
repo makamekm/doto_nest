@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="hero is-light p-b-6 p-t-5 m-t-7">
-      <div class="container" style="width: 100%;">
-        <div class="columns is-multiline is-variable is-1 m-b-1 is-vcentered">
+    <div class="hero is-light p-b-6 p-t-6 m-t-7">
+      <div class="container p-b-2" style="width: 100%;">
+        <div class="columns is-multiline is-variable is-1 is-vcentered">
           <div class="column">
             <b-field expanded>
               <b-input icon-pack="fab" icon="searchengin" placeholder="Lookup..." expanded></b-input>
@@ -28,50 +28,51 @@
               </button>
             </div>
           </div>
-        </div>
 
-        <b-collapse class="columns is-multiline is-variable is-1" style="align-items: flex-end;" :open="isShowFilters">
-          <div class="column">
-            <b-field>
-              <b-taginput
-                icon-pack="fas" icon="tags"
-                placeholder="Add tags"
-                autocomplete
-                v-model="tags"
-                :data="filteredTags"
-                :allow-new="false"
-                field="user.first_name"
-                @typing="getFilteredTags">
-              </b-taginput>
-            </b-field>
-          </div>
-          <div class="column">
-            <b-field>
-              <b-input expanded
-                icon-pack="fas" icon="dollar-sign"
-                placeholder="From...">
-              </b-input>
-              <b-input expanded
-                icon-pack="fas" icon="dollar-sign"
-                placeholder="To...">
-              </b-input>
-            </b-field>
-          </div>
-          <div class="column">
-            <b-field>
-              <b-taginput
-                icon-pack="fas" icon="palette"
-                placeholder="Colors"
-                autocomplete
-                v-model="tags"
-                :data="filteredTags"
-                :allow-new="false"
-                field="user.first_name"
-                @typing="getFilteredTags">
-              </b-taginput>
-            </b-field>
-          </div>
-        </b-collapse>
+          <template v-if="isShowFilters">
+            <div class="column is-12 is-paddingless"></div>
+            <div class="column">
+              <b-field>
+                <b-taginput
+                  icon-pack="fas" icon="tags"
+                  placeholder="Add tags"
+                  autocomplete
+                  v-model="tags"
+                  :data="filteredTags"
+                  :allow-new="false"
+                  field="user.first_name"
+                  @typing="getFilteredTags">
+                </b-taginput>
+              </b-field>
+            </div>
+            <div class="column">
+              <b-field>
+                <b-input expanded
+                  icon-pack="fas" icon="dollar-sign"
+                  placeholder="From...">
+                </b-input>
+                <b-input expanded
+                  icon-pack="fas" icon="dollar-sign"
+                  placeholder="To...">
+                </b-input>
+              </b-field>
+            </div>
+            <div class="column">
+              <b-field>
+                <b-taginput
+                  icon-pack="fas" icon="palette"
+                  placeholder="Colors"
+                  autocomplete
+                  v-model="tags"
+                  :data="filteredTags"
+                  :allow-new="false"
+                  field="user.first_name"
+                  @typing="getFilteredTags">
+                </b-taginput>
+              </b-field>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
 

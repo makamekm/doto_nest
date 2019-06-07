@@ -47,6 +47,20 @@
             </div>
             <div class="column">
               <b-field>
+                <b-taginput
+                  icon-pack="fas" icon="dice-one"
+                  placeholder="Add types"
+                  autocomplete
+                  v-model="tags"
+                  :data="filteredTags"
+                  :allow-new="false"
+                  field="user.first_name"
+                  @typing="getFilteredTags">
+                </b-taginput>
+              </b-field>
+            </div>
+            <div class="column">
+              <b-field>
                 <b-input expanded
                   icon-pack="fas" icon="dollar-sign"
                   placeholder="From...">

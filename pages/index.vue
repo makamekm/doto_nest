@@ -102,12 +102,12 @@
                   500$
                 </div>
                 <div class="column is-size-7 has-text-weight-semibold has-text-centered">
-                  <span class="tag is-light m-t-1 m-b-1">SOFA</span>
-                  <span class="tag is-info m-t-1 m-b-1">SALE</span>
-                  <span class="tag is-success m-t-1 m-b-1">GREEN</span>
-                  <span class="tag is-warning m-t-1 m-b-1">LIMITED</span>
-                  <span class="tag is-black m-t-1 m-b-1">SOON</span>
-                  <span class="tag is-danger m-t-1 m-b-1">OLD</span>
+                  <span class="tag is-light m-t-2 m-b-1">SOFA</span>
+                  <span class="tag is-info m-t-2 m-b-1">SALE</span>
+                  <span class="tag is-success m-t-2 m-b-1">ECO</span>
+                  <span class="tag is-warning m-t-2 m-b-1">LIMITED</span>
+                  <span class="tag is-black m-t-2 m-b-1">SOON</span>
+                  <span class="tag is-danger m-t-2 m-b-1">OLD</span>
                 </div>
               </div>
 

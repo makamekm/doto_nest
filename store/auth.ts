@@ -38,6 +38,8 @@ const store: StoreOptions<UserState> = {
         } finally {
           commit('setIsLoading', false);
         }
+      } else {
+        commit('setIsLoading', false);
       }
     },
     async login({ commit }, { username, password }) {

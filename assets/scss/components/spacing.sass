@@ -1,8 +1,17 @@
-$space-amounts: 0.05rem, 0.1rem, 0.2rem, 0.4rem, 0.8rem, 1.2rem, 1.6rem, 2.0rem, 3.0rem, 4.0rem, 5.0rem, 6.0rem, 7.0rem
+$space-amounts: 0, 0.05rem, 0.1rem, 0.2rem, 0.4rem, 0.8rem, 1.2rem, 1.6rem, 2.0rem, 3.0rem, 4.0rem, 5.0rem, 6.0rem, 7.0rem
 $sides: top, bottom, left, right
 
-@each $space in $space-amounts
-  $i: index($space-amounts, $space)
+@function reverse($list, $recursive: false)
+   $result: ()
+   @for $i from length($list)*-1 through -1
+      @if type-of(nth($list, abs($i))) == list and $recursive
+        $result: append($result, reverse(nth($list, abs($i)), $recursive))
+      @else
+        $result: append($result, nth($list, abs($i)))
+   @return $result
+
+@each $space in reverse($space-amounts)
+  $i: index($space-amounts, $space) - 1
 
   @each $side in $sides
     .m-#{str-slice($side, 0, 1)}-#{$i}

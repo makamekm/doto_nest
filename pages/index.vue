@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="hero is-light p-b-6 p-t-6 m-t-7">
-      <div class="container p-b-2" style="width: 100%;">
+      <div class="container p-b-2 p-l-4 p-r-4 p-l-0-desktop p-r-0-desktop" style="width: 100%;">
         <div class="columns is-multiline is-variable is-1 is-vcentered">
           <div class="column">
             <b-field expanded>
@@ -10,7 +10,7 @@
           </div>
           <div class="column is-narrow">
             <b-field>
-              <button class="button is-primary fix-white-on-focus">
+              <button class="button is-primary fix-white-on-focus is-expanded">
                 <span class="icon is-small">
                   <i class="fas fa-search"></i>
                 </span>
@@ -20,7 +20,7 @@
           </div>
           <div class="column is-narrow">
             <div class="has-text-centered">
-              <button type="button" class="button is-transparent is-small fix-white-on-focus" @click="isShowFilters=!isShowFilters">
+              <button type="button" class="button is-transparent is-small fix-white-on-focus is-expanded" @click="isShowFilters=!isShowFilters">
                 <span class="icon is-small">
                   <i class="fas fa-caret-down" :class="{'fas': true, 'fa-caret-down': isShowFilters, 'fa-caret-up': !isShowFilters}"></i>
                 </span>

@@ -1,5 +1,5 @@
 import { StoreOptions } from 'vuex';
-import cookie from 'cookie';
+import { getCookie, setCookie } from '~/utils/cookie';
 
 export interface User {
   id: number;
@@ -13,21 +13,6 @@ export interface UserState {
   isLoading: boolean;
 }
 
-const getCookie = ($axios) => {
-  if (process.client) {
-    return cookie.parse(document.cookie || '');
-  } else {
-    return cookie.parse($axios.defaults.headers.common.cookie || '');
-  }
-};
-
-const setCookie = (cookies) => {
-  const newCookie = Object.keys(cookies)
-    .map(key => cookie.serialize(key, cookies[key]))
-    .join('; ');
-  document.cookie = newCookie;
-};
-
 const store: StoreOptions<UserState> = {
   state: () => ({
     user: undefined,
@@ -35,22 +20,12 @@ const store: StoreOptions<UserState> = {
   }),
   actions: {
     async check({ commit }) {
-      const token = getCookie(this.$axios).token;
-
-      if (token) {
-        try {
-          commit('setIsLoading', true);
-          const { data } = await this.$axios.get(`/auth/user`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          const { token: _t, ...user } = data;
-          commit('setUser', user);
-        } finally {
-          commit('setIsLoading', false);
-        }
-      } else {
+      try {
+        commit('setIsLoading', true);
+        const { data } = await this.$axios.get(`/auth/user`);
+        const { token, ...user } = data;
+        commit('setUser', user);
+      } finally {
         commit('setIsLoading', false);
       }
     },

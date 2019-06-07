@@ -107,7 +107,6 @@ const defaultFormData = () => ({
 });
 
 @Component({
-  // middleware: ['auth'],
   components: {
     SelectVersion,
   },
@@ -133,7 +132,6 @@ const defaultFormData = () => ({
     ]
   }),
   async fetch(props) {
-    await props.store.dispatch("auth/check");
     return await props.store.dispatch("node/loadNode", props.params.id);
   }
 })

@@ -147,20 +147,7 @@ export default {
     if (process.client) {
       window.addEventListener('scroll', this.handleScroll);
     }
-    // if (!this.$store.state.auth.user) {
-    //   this.$store.dispatch('auth/check');
-    // }
   },
-  // async mounted(...args) {
-  //   console.log(this);
-  //   if (!this.$store.state.auth.user) {
-  //     this.$nextTick(async () => {
-  //       this.$nuxt.$loading.start();
-  //       await this.$store.dispatch('auth/check');
-  //       this.$nuxt.$loading.finish();
-  //     });
-  //   }
-  // },
   computed: {
     isLoading() {
       return this.$store.state.auth.isLoading;

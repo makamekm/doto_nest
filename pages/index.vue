@@ -179,7 +179,7 @@ const NodeStore = namespace("node");
   data: () => ({
     isShowFilters: false,
   }),
-  fetch: async props => props.store.dispatch("node/loadNodes")
+  fetch: async props => props.store.dispatch("cart/loadItems"),
 })
 export default class extends Vue {
   @NodeStore.State("nodes") data;

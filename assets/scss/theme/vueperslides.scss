@@ -1,0 +1,16 @@
+.vueperslides__bullet {
+  background-color: $theme;
+  border: none;
+  box-shadow: 0 0 0.1rem rgba($theme, 0);
+  transition: 0.3s;
+  width: 0.6rem;
+  height: 0.6rem;
+  max-width: 0.6rem;
+  max-height: 0.6rem;
+  margin: 0.6em .6em
+}
+
+.vueperslides__bullet--active {
+  background-color: darken($theme, 30%);
+  box-shadow: 0 0 0.2rem rgba($theme, 1);
+}

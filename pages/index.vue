@@ -20,9 +20,9 @@
           </div>
           <div class="column is-narrow">
             <div class="has-text-centered">
-              <button class="button is-transparent is-small fix-white-on-focus">
+              <button type="button" class="button is-transparent is-small fix-white-on-focus" @click="isShowFilters=!isShowFilters">
                 <span class="icon is-small">
-                  <i class="fas fa-caret-down"></i>
+                  <i class="fas fa-caret-down" :class="{'fas': true, 'fa-caret-down': isShowFilters, 'fa-caret-up': !isShowFilters}"></i>
                 </span>
                 <span>Filters</span>
               </button>
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div class="columns is-multiline is-variable is-1" style="align-items: flex-end;">
+        <b-collapse class="columns is-multiline is-variable is-1" style="align-items: flex-end;" :open="isShowFilters">
           <div class="column">
             <b-field>
               <b-taginput
@@ -71,7 +71,7 @@
               </b-taginput>
             </b-field>
           </div>
-        </div>
+        </b-collapse>
       </div>
     </div>
 
@@ -84,9 +84,12 @@
             <div class="has-text-weight-semibold is-size-6 has-text-font-title">
               Raymond James
             </div>
-            <img src="/uploads/2cr1.jpg">
-            <div class="divider m-t-4"></div>
-            <div class="m-t-4">
+            <vueper-slides :dragging-distance="50" :slide-ratio="1/1.5" class="no-shadow" autoplay bullets-outside :arrows="false" :transition-speed="300">
+              <vueper-slide
+                :image="'/uploads/2cr1.jpg'"></vueper-slide>
+            </vueper-slides>
+            <!-- <div class="divider m-t-4"></div> -->
+            <div>
               <!-- <div class="has-text-weight-semibold is-size-3">
                 The right advice
               </div>
@@ -97,7 +100,7 @@
                 We believe financial advice is about more than just having a plan. It’s about having the right plan for you. And that only happens with a true understanding of your whole life, beyond just your finances. Because as your needs become more complex, sophisticated advice and a relationship built for the long term become even more important.
               </div> -->
 
-              <div class="columns is-vcentered m-t-7">
+              <div class="columns is-vcentered m-t-3">
                 <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
                   500$
                 </div>
@@ -153,12 +156,15 @@
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
+import { VueperSlides, VueperSlide } from 'vueperslides';
 
 const NodeStore = namespace("node");
 
 @Component({
   layout: 'full',
+  components: { VueperSlides, VueperSlide },
   data: () => ({
+    isShowFilters: false,
     columns: [
       {
         field: "name",
@@ -196,6 +202,8 @@ const NodeStore = namespace("node");
 })
 export default class extends Vue {
   @NodeStore.State("nodes") data;
+
+  isShowFilters?: boolean;
 
   openNode(row) {
     this.$router.push({

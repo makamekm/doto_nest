@@ -2,6 +2,7 @@
 
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
+@import 'vueperslides/dist/vueperslides.css';
 
 @import "./theme/card.scss";
 @import "./theme/label.scss";
@@ -11,6 +12,7 @@
 @import "./theme/loading.scss";
 @import "./theme/control.scss";
 @import "./theme/text.scss";
+@import "./theme/vueperslides.scss";
 
 @import "./global/form.scss";
 @import "./global/margin.scss";

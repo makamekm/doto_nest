@@ -84,7 +84,7 @@
             <div class="has-text-weight-semibold is-size-6 has-text-font-title">
               Raymond James
             </div>
-            <vueper-slides :dragging-distance="50" :slide-ratio="1/1.5" class="no-shadow" autoplay bullets-outside :arrows="false" :transition-speed="300">
+            <vueper-slides :dragging-distance="50" :slide-ratio="1/1.5" class="no-shadow" :arrows="false" :transition-speed="300">
               <vueper-slide
                 :image="'/uploads/2cr1.jpg'"></vueper-slide>
             </vueper-slides>

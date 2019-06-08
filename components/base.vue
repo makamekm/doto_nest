@@ -36,20 +36,11 @@
             </nuxt-link>
           </div>
           <div class="navbar-end" @click="isMenuOpen = false">
-            <template v-if="isLoading">
-              <nuxt-link class="navbar-item has-icon" to="/login" active-class="is-active" exact>
-                <div class="has-text-centered">
-                  <span class="icon">
-                    <i class="fas fa-spinner fa-pulse is-size-5"></i>
-                  </span>
-                </div>
-              </nuxt-link>
-            </template>
-            <template v-if="user && !isLoading">
+            <template v-if="user">
               <div class="navbar-item has-icon has-dropdown is-hoverable">
                 <a class="navbar-item">
                   <div class="has-text-centered">
-                    <i class="fas fa-key is-size-5"></i>
+                    <i :class="{'fas is-size-5': true, 'fa-key': !isLoading, 'fa-spinner fa-pulse': isLoading}"></i>
                     <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
                       <div>
                         Welcome
@@ -68,10 +59,10 @@
                 </div>
               </div>
             </template>
-            <template v-if="!user && !isLoading">
+            <template v-if="!user">
               <nuxt-link class="navbar-item has-icon" to="/login" active-class="is-active" exact>
                 <div class="has-text-centered">
-                  <i class="fas fa-fingerprint is-size-5"></i>
+                  <i :class="{'fas is-size-5': true, 'fa-fingerprint': !isLoading, 'fa-spinner fa-pulse': isLoading}"></i>
                   <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
                     <div>
                       Account

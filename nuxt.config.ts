@@ -28,6 +28,7 @@ const config: NuxtConfiguration = {
     '~/plugins/vee-validate',
     '~/plugins/buefy',
     '~/plugins/form-creator',
+    { src: '~/plugins/vuex-shared-mutations', ssr: false },
   ],
   css: [
     '~/assets/scss/main.scss',

@@ -8,17 +8,17 @@ process.env.IS_EXPRESS = 'true';
 
 config.dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
-const nuxt = new Nuxt(config);
+// const nuxt = new Nuxt(config);
 
-app.use(/^\/(?!api).*/, nuxt.render);
+// app.use(/^\/(?!api).*/, nuxt.render);
 
-if (config.dev) {
-  new Builder(nuxt)
-    .build()
-    .then(listen);
-} else {
+// if (config.dev) {
+//   new Builder(nuxt)
+//     .build()
+//     .then(listen);
+// } else {
   listen();
-}
+// }
 
 tryStartBootstrap();
 

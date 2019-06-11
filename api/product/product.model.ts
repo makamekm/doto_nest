@@ -16,9 +16,10 @@ export const ProductTagTypeLabel = {
   },
 };
 
-export interface ProductTagEntity {
-  key: ProductTag;
-  value: string;
+export class ProductTagEntity {
+  id?: number;
+  key?: ProductTag;
+  value?: string;
 }
 
 export class ProductEntity {

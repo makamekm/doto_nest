@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { IAddress } from '~/shared/address/address.interface';
+import { IOrderAddressModel } from '~/shared/order/order-address.model';
 
 @Entity()
-export class OrderAddressEntity implements IAddress {
+export class OrderAddressEntity implements IOrderAddressModel {
   @PrimaryGeneratedColumn()
   id?: number;
 

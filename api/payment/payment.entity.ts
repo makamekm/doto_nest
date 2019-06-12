@@ -1,5 +1,5 @@
-import { PaymentStatus } from './payment-status.enum';
 import { PaymentAddressEntity } from './payment-address.entity';
+import { PaymentStatus } from '~/shared/payment/payment-status.enum';
 
 export class PaymentEntity {
   id?: number;

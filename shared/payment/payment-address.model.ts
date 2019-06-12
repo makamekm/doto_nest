@@ -1,6 +1,6 @@
-import { IAddress } from '~/shared/address/address.interface';
+import { IAddress } from '../address/address.interface';
 
-export class PaymentAddressEntity implements IAddress {
+export class IPaymentAddressModel implements IAddress {
   id?: number;
   email: string = '';
   firstName: string = '';

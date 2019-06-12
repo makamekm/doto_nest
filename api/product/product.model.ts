@@ -1,26 +1,4 @@
-export enum ProductTag {
-  Type = 'type',
-  Color = 'color',
-  SaleStatus = 'sale_status',
-}
-
-export enum ProductTagType {
-  Sofa = 'sofa',
-  Chair = 'chair',
-}
-
-export const ProductTagTypeLabel = {
-  [ProductTagType.Sofa]: {
-    ru: 'Диван',
-    en: 'Sofa',
-  },
-};
-
-export class ProductTagEntity {
-  id?: number;
-  key?: ProductTag;
-  value?: string;
-}
+import { ProductTagEntity } from './product-tag.model';
 
 export class ProductEntity {
   id?: number;

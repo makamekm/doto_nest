@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { IOrderProductModel } from '~/shared/order/order-product.model';
+import { IOrderProductModel } from '../shared/order/order-product.model';
 import { OrderEntity } from './order.entity';
 import { ProductEntity } from '../product/product.entity';
 

@@ -4,7 +4,7 @@ import { IUserModel } from '../auth/user.model';
 export interface IProductCartModel {
   id?: number;
   user?: IUserModel;
-  date: Date;
   product?: IProductModel;
   count: number;
+  created_at?: Date;
 }

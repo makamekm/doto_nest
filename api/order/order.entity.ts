@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, OneToOne, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, OneToOne, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { CommentEntity } from '../comment/comment.entity';
 import { OrderProductEntity } from './order-product.entity';
 import { OrderAddressEntity } from './order-address.entity';
-import { OrderStatus } from '~/shared/order/order-status.enum';
-import { IOrderModel } from '~/shared/order/order.model';
+import { OrderStatus } from '../shared/order/order-status.enum';
+import { IOrderModel } from '../shared/order/order.model';
 import { UserEntity } from '../auth/user.entity';
 
 @Entity()
@@ -14,14 +14,11 @@ export class OrderEntity implements IOrderModel {
   @ManyToOne(() => UserEntity)
   user?: UserEntity;
 
-  @Column({ default: new Date() })
-  date: Date = new Date();
-
   @Column({ default: 0 })
   totalPrice: number = 0;
 
   @OneToMany(() => OrderProductEntity, e => e.order)
-  products: OrderProductEntity[] = [];
+  products?: OrderProductEntity[];
 
   @Column({ default: OrderStatus.Initialized })
   status: OrderStatus = OrderStatus.Initialized;
@@ -33,8 +30,14 @@ export class OrderEntity implements IOrderModel {
   hasAnswer: boolean = false;
 
   @ManyToMany(() => OrderProductEntity)
-  comments: CommentEntity[] = [];
+  comments?: CommentEntity[];
 
   @OneToOne(() => OrderProductEntity)
-  address: OrderAddressEntity = new OrderAddressEntity();
+  address?: OrderAddressEntity;
+
+  @CreateDateColumn()
+  created_at?: Date;
+
+  @UpdateDateColumn()
+  updated_at?: Date;
 }

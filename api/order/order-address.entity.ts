@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { IOrderAddressModel } from '~/shared/order/order-address.model';
+import { IOrderAddressModel } from '../shared/order/order-address.model';
 
 @Entity()
 export class OrderAddressEntity implements IOrderAddressModel {

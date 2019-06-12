@@ -1,6 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { UserAddressEntity } from './user-address.entity';
-import { IUserModel } from '~/shared/auth/user.model';
+import { IUserModel } from '../shared/auth/user.model';
 
 @Entity()
 export class UserEntity implements IUserModel {
@@ -25,9 +25,12 @@ export class UserEntity implements IUserModel {
   @Column({ default: '' })
   phoneNumber: string = '';
 
-  @Column({ default: new Date() })
-  date: Date = new Date();
-
   @ManyToMany(() => UserAddressEntity)
-  addresses: UserAddressEntity[] = [];
+  addresses?: UserAddressEntity[];
+
+  @CreateDateColumn()
+  created_at?: Date;
+
+  @UpdateDateColumn()
+  updated_at?: Date;
 }

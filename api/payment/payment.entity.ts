@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, ManyToOne } from 'typeorm';
 import { PaymentAddressEntity } from './payment-address.entity';
-import { PaymentStatus } from '~/shared/payment/payment-status.enum';
-import { IPaymentModel } from '~/shared/payment/payment.entity';
+import { PaymentStatus } from '../shared/payment/payment-status.enum';
+import { IPaymentModel } from '../shared/payment/payment.entity';
 import { UserEntity } from '../auth/user.entity';
 
 @Entity()
@@ -25,5 +25,5 @@ export class PaymentEntity implements IPaymentModel {
   status: PaymentStatus = PaymentStatus.Initialized;
 
   @OneToOne(() => PaymentAddressEntity)
-  billingAddress: PaymentAddressEntity = new PaymentAddressEntity();
+  billingAddress?: PaymentAddressEntity;
 }

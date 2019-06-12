@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { IPaymentAddressModel } from '~/shared/payment/payment-address.model';
+import { IPaymentAddressModel } from '../shared/payment/payment-address.model';
 
 @Entity()
 export class PaymentAddressEntity implements IPaymentAddressModel {

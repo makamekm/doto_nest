@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { IProductCartModel } from '~/shared/cart/cart.model';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
+import { IProductCartModel } from '../shared/cart/cart.model';
 import { UserEntity } from '../auth/user.entity';
 import { ProductEntity } from '../product/product.entity';
 
@@ -7,9 +7,6 @@ import { ProductEntity } from '../product/product.entity';
 export class ProductCartEntity implements IProductCartModel {
   @PrimaryGeneratedColumn()
   id?: number;
-
-  @Column({ default: new Date() })
-  date: Date = new Date();
 
   @ManyToOne(() => UserEntity)
   user?: UserEntity;
@@ -19,4 +16,7 @@ export class ProductCartEntity implements IProductCartModel {
 
   @Column({ default: 1 })
   count: number = 1;
+
+  @CreateDateColumn()
+  created_at?: Date;
 }

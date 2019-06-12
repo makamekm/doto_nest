@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { IProductModel } from '~/shared/product/product.model';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { IProductModel } from '../shared/product/product.model';
 import { ProductTagEntity } from './product-tag.entity';
 
 @Entity()
@@ -13,9 +13,6 @@ export class ProductEntity implements IProductModel {
   @Column({ default: '' })
   description: string = '';
 
-  @Column({ default: new Date() })
-  date: Date = new Date();
-
   @Column({ default: 0 })
   price: number = 0;
 
@@ -23,5 +20,11 @@ export class ProductEntity implements IProductModel {
   isDisabled: boolean = false;
 
   @OneToMany(() => ProductTagEntity, e => e.product)
-  tags: ProductTagEntity[] = [];
+  tags?: ProductTagEntity[];
+
+  @CreateDateColumn()
+  created_at?: Date;
+
+  @UpdateDateColumn()
+  updated_at?: Date;
 }

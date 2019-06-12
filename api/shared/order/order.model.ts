@@ -7,12 +7,13 @@ import { IUserModel } from '../auth/user.model';
 export interface IOrderModel {
   id?: number;
   user?: IUserModel;
-  date: Date;
   totalPrice: number;
-  products: IOrderProductModel[];
+  products?: IOrderProductModel[];
   status: OrderStatus;
   hasQuestion: boolean;
   hasAnswer: boolean;
-  comments: ICommentModel[];
-  address: IOrderAddressModel;
+  comments?: ICommentModel[];
+  address?: IOrderAddressModel;
+  created_at?: Date;
+  updated_at?: Date;
 }

@@ -4,8 +4,9 @@ export interface IProductModel {
   id?: number;
   name: string;
   description: string;
-  date: Date;
   price: number;
   isDisabled: boolean;
-  tags: IProductTagModel[];
+  tags?: IProductTagModel[];
+  created_at?: Date;
+  updated_at?: Date;
 }

@@ -1,4 +1,6 @@
-import { ProductTagEntity } from './product-tag.model';
+import { ProductTagEntity } from './product-tag.entity';
+
+// import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 export class ProductEntity {
   id?: number;

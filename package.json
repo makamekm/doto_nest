@@ -56,7 +56,9 @@
     "cookie": "0.4.0",
     "vuex-shared-mutations": "1.0.2",
     "nodemon": "1.19.1",
-    "chokidar": "3.0.1"
+    "chokidar": "3.0.1",
+    "typeorm": "0.2.18",
+    "pg": "7.11.0"
   },
   "devDependencies": {
     "@types/supertest": "^2.0.7",

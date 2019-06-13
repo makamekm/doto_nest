@@ -55,6 +55,7 @@ const config: NuxtConfiguration = {
       browserBaseURL: '/api',
     }],
     // '@nuxtjs/auth',
+    '@nuxtjs/proxy',
     '@nuxtjs/style-resources',
   ],
   loading: '~/components/loading.vue',
@@ -80,6 +81,9 @@ const config: NuxtConfiguration = {
   router: {
     middleware: ['fwdcookies', 'auth'],
   },
+  proxy: process.env.IS_EXPRESS ? {
+    '/api': 'http://localhost:4000',
+  } : {},
   // auth: {
   //   redirect: {
   //     login: '/login',

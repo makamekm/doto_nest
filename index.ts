@@ -1,13 +1,16 @@
-import { Nuxt, Builder } from 'nuxt';
-import config from './nuxt.config';
+// import { Nuxt, Builder } from 'nuxt';
+// import config from './nuxt.config';
 import app, {
   tryStartBootstrap,
 } from './api/main';
 
 process.env.IS_EXPRESS = 'true';
 
-config.dev = process.env.NODE_ENV !== 'production';
-const port = process.env.PORT || 3000;
+// config.dev = process.env.NODE_ENV !== 'production';
+const port = process.env.PORT || 4000;
+
+listen();
+
 // const nuxt = new Nuxt(config);
 
 // app.use(/^\/(?!api).*/, nuxt.render);
@@ -17,7 +20,7 @@ const port = process.env.PORT || 3000;
 //     .build()
 //     .then(listen);
 // } else {
-  listen();
+  // listen();
 // }
 
 tryStartBootstrap();

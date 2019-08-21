@@ -1,18 +1,18 @@
 <template>
   <transition name="fade">
-    <section class="hero" v-if="show">
+    <section class="hero on-appear-slide-down on-delay-0" v-if="show">
       <div class="hero-bodys p-t-9 p-b-10">
         <div class="container has-text-centered">
           <div style="font-size: 5rem;">
-            <i class="far fa-compass has-text-grey-light"></i>
+            <i class="far fa-compass has-text-grey-light on-appear-slide-down on-delay-1"></i>
           </div>
-          <div class="title is-2 has-text-grey-dark">
+          <div class="title is-2 has-text-grey-dark on-appear-scale-left on-delay-2">
             {{ error.statusCode }}
           </div>
-          <div class="subtitle is-4 has-text-grey">
+          <div class="subtitle is-4 has-text-grey on-appear-rotate on-delay-3">
             {{ error.message }}
           </div>
-          <button class="button is-medium" to="/" @click="reload">
+          <button class="button is-medium on-appear-slide-up on-delay-4" to="/" @click="reload">
             Refresh
           </button>
         </div>

@@ -1,147 +1,41 @@
 <template>
-  <div class="lc-container">
-    <b-loading is-full-page :active.sync="isLoading"></b-loading>
-    <nav :class="{'navbar': true, 'is-fixed-top-desktop': true, 'is-large-height': isOnTop}">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="/">
-            <div class="logo">
-              KARPOV'S FURNITURE
-              <div class="dot"/>
-            </div>
-            <!-- <img src="/raymond-james-logo-blue.svg" style="width: 250px; height: 22px"> -->
-          </a>
-
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="isMenuOpen = !isMenuOpen">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div class="navbar-menu">
-        </div>
-        <div :class="{'navbar-menu': true, 'is-active': isMenuOpen}">
-          <div class="navbar-start" @click="isMenuOpen = false">
-            <nuxt-link class="navbar-item" to="/" active-class="is-active" exact>
-              Collection
-            </nuxt-link>
-            <nuxt-link class="navbar-item" to="/catalog" active-class="is-active" exact>
-              Catalog
-            </nuxt-link>
-            <nuxt-link class="navbar-item" to="/aboutus" active-class="is-active" exact>
-              About Us
-            </nuxt-link>
-            <nuxt-link class="navbar-item" to="/blog" active-class="is-active" exact>
-              Blog
-            </nuxt-link>
-          </div>
-          <div class="navbar-end" @click="isMenuOpen = false">
-            <template v-if="user">
-              <div class="navbar-item has-icon has-dropdown is-hoverable">
-                <a class="navbar-item">
-                  <div class="has-text-centered">
-                    <i :class="{'fas is-size-5': true, 'fa-key': !isLoading, 'fa-spinner fa-pulse': isLoading}"></i>
-                    <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
-                      <div>
-                        Welcome
-                      </div>
-                      <div>
-                        &nbsp;
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                <div class="navbar-dropdown is-right">
-                  <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
-                  <hr class="navbar-divider">
-                  <nuxt-link class="navbar-item" to="/preferences">Preferences</nuxt-link>
-                  <nuxt-link class="navbar-item" to="/logout" no-prefetch>Logout</nuxt-link>
-                </div>
-              </div>
-            </template>
-            <template v-if="!user">
-              <nuxt-link class="navbar-item has-icon" to="/login" active-class="is-active" exact>
-                <div class="has-text-centered">
-                  <i :class="{'fas is-size-5': true, 'fa-fingerprint': !isLoading, 'fa-spinner fa-pulse': isLoading}"></i>
-                  <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
-                    <div>
-                      Account
-                    </div>
-                    <div>
-                      Login
-                    </div>
-                  </div>
-                </div>
-              </nuxt-link>
-            </template>
-            <nuxt-link class="navbar-item has-icon" to="/search" active-class="is-active" exact>
-              <div class="has-text-centered">
-                <i class="fas fa-search is-size-5"></i>
-                <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
-                  <div>
-                    Search
-                  </div>
-                  <div>
-                    Globally
-                  </div>
-                </div>
-              </div>
-            </nuxt-link>
-            <nuxt-link class="navbar-item has-icon" to="/cart" active-class="is-active" exact>
-              <div class="has-text-centered">
-                <i class="fas fa-shopping-cart is-size-5"></i>
-                <div :class="{'lc-item': true, 'lc-is-hidden': !isOnTop}">
-                  <div>
-                    Shopping
-                  </div>
-                  <div>
-                    Cart
-                  </div>
-                </div>
-              </div>
-            </nuxt-link>
-          </div>
-        </div>
-      </div>
-    </nav>
+  <div :class="{'lc-container': true, 'is-loading': isLoading, 'is-mounted': isMounted}">
     <div
-      :class="{'lc-flex-child': true, 'lc-can-dim': true, 'lc-is-dim': isMenuOpen}"
-      @click="isMenuOpen = false"
+      class="lc-flex-child"
     >
+      <navbar v-if="!isLoading"/>
       <slot v-if="!isLoading"/>
     </div>
-    <div :class="{'lc-can-dim': true, 'lc-is-dim': isMenuOpen}" @click="isMenuOpen = false">
-      <default-footer/>
+    <div class="lc-loading">
+      <img src="/logo.svg">
     </div>
   </div>
 </template>
 
 <script>
-import DefaultFooter from '~/components/footer.vue';
+import Navbar from '~/components/navbar.vue';
 
 export default {
   components: {
-    DefaultFooter
+    Navbar
   },
+  props: ['isLoadingBase'],
   data: () => ({
-    isMenuOpen: false,
-    isOnTop: true,
+    isLoadingBaseFake: true,
+    isMounted: false,
   }),
-  head() {
-    return {
-      bodyAttrs: {
-        class: 'has-navbar-fixed-top-desktop is-large-height',
-      }
-    }
+  mounted() {
+    this.isMounted = true;
   },
   created() {
     if (process.client) {
-      window.addEventListener('scroll', this.handleScroll);
+      setTimeout(() => this.isLoadingBaseFake = false, 3000);
+      // setImmediate(() => this.isLoadingBaseFake = false);
     }
   },
   computed: {
     isLoading() {
-      return this.$store.state.auth.isLoading;
+      return this.isLoadingBase || this.isLoadingBaseFake || this.$store.state.auth.isLoading;
     },
     user() {
       return this.$store.state.auth.user;
@@ -149,67 +43,105 @@ export default {
   },
   destroyed() {
     if (process.client) {
-      window.removeEventListener('scroll', this.handleScroll);
     }
   },
   methods: {
     handleScroll(event) {
-      this.isOnTop = window.scrollY < 60;
     }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.lc-item {
+.lc-container
+{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 5px;
+  left: 5px;
+  height: calc(100vh - 10px);
+  width: calc(100vw - 10px);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateX(0) translateY(0);
   overflow: hidden;
-  margin-top: 0.3rem;
-  line-height: 1.3;
-  transition: all 300ms;
-  max-height: 100px;
-  font-size: 0.7rem;
+  transition: all 0.3s;
+  opacity: 0;
 
-  @include from($desktop) {
-    &.lc-is-hidden {
+  &.is-mounted {
+    opacity: 1;
+  }
+
+  & > .lc-flex-child {
+    flex: 1;
+    content: '';
+    width: calc(100vw - 10px);
+    max-width: calc(100vw - 10px);
+    min-width: calc(100vw - 10px);
+  }
+
+  & > * {
+    transition: opacity 0.6s;
+  }
+
+  & > .lc-flex-child {
+    opacity: 1;
+  }
+
+  & > .lc-loading {
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    font-weight: 800;
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.1s;
+    & > img {
+      max-height: 7px;
+      min-height: 7px;
+    }
+  }
+
+  &.is-loading {
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    width: 50px;
+    transform: translateX(-50%) translateY(-50%);
+    animation: rotate-animation 4s ease-in-out infinite alternate;
+    animation-direction: alternate;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2));
+
+    & > .lc-flex-child {
       opacity: 0;
-      max-height: 1px;
-      margin-top: 0;
+    }
+
+    & > .lc-loading {
+      opacity: 1;
     }
   }
 }
 
-.lc-container
-{
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - #{$navbar-large-height});
-}
-
-.lc-container .lc-flex-child {
-  flex: 1;
-  content: '';
-}
-
-.lc-can-dim {
-  position: relative;
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.0);
-    pointer-events: none;
-    transition: background-color 0.5s;
+@keyframes rotate-animation {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
 
-.lc-is-dim {
-  &:after {
-    background-color: rgba(0, 0, 0, 0.4);
-    pointer-events: all;
-  }
-}
 </style>

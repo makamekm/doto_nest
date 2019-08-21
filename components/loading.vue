@@ -1,9 +1,14 @@
 <template>
-  <b-loading is-full-page :active.sync="isLoading"></b-loading>
+  <base :isLoadingBase="isLoading"/>
 </template>
 
 <script>
+import Base from './base.vue';
+
 export default {
+  components: {
+    Base
+  },
   data() {
     return {
       isLoading: false,

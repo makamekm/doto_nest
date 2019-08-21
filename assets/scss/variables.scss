@@ -1,6 +1,9 @@
 @import "~bulma/sass/utilities/_all";
 
-$theme: #EDD888;
+$theme: #0072E1;
+
+$primary: $theme;
+$primary-invert: findColorInvert($theme);
 
 $background: darken($theme, 50%);
 $text: #3D3F43;
@@ -17,17 +20,18 @@ $size-normal: inherit;
 
 $body-color: $text;
 $body-size: 0.95em;
-$body-family: FS Me Web, "Source Sans Pro", sans-serif;
-$body-background-color: #fbfbfb;
+$body-family: Roboto, sans-serif;
+$body-background-color: #212E43;
 
+$gap: 64px;
+$column-gap: 0.8rem;
 
-$primary: $theme;
-$primary-invert: findColorInvert($theme);
+// -- Style Fixes
 
-$dark: darken($theme, 20%);
-$dark-invert: #ffffff;
-$light: lighten($theme, 20%);
-$light-invert: $text;
+// $dark: darken($theme, 20%);
+// $dark-invert: #ffffff;
+// $light: lighten($theme, 20%);
+// $light-invert: $text;
 
 // $grey-light: lighten($theme, 30%);
 // $grey-lighter: lighten($theme, 10%);
@@ -51,32 +55,29 @@ $colors: (
 );
 
 
-$radius: 0px;
-$radius-small: 0px;
-$radius-large: 0px;
-$radius-rounded: 290486px;
+// $radius: 0px;
+// $radius-small: 0px;
+// $radius-large: 0px;
+// $radius-rounded: 290486px;
 
-$control-radius-small: 0px;
-$control-radius: 4px;
-$control-radius-large: 4px;
+// $control-radius-small: 0px;
+// $control-radius: 4px;
+// $control-radius-large: 4px;
 
-$gap: 64px;
-$column-gap: 0.8rem;
+// $label-weight: 400;
+// $input-border-color: $background;
+// $input-hover-border-color: darken($background, 40%);
 
-$label-weight: 400;
-$input-border-color: $background;
-$input-hover-border-color: darken($background, 40%);
+// $navbar-height: 3.5rem;
+// $navbar-large-height: 6.5rem;
+// $footer-padding: 1rem 1.5rem 1rem;
+// $table-head-cell-color: $text;
 
-$navbar-height: 3.5rem;
-$navbar-large-height: 6.5rem;
-$footer-padding: 1rem 1.5rem 1rem;
-$table-head-cell-color: $text;
-
-$button-background-color: rgba(0, 40, 71, 0);
-$button-color: $text;
-$button-border-color: $text;
-$button-hover-color: findColorInvert($text);
-$button-hover-border-color: $text;
+// $button-background-color: rgba(0, 40, 71, 0);
+// $button-color: $text;
+// $button-border-color: $text;
+// $button-hover-color: findColorInvert($text);
+// $button-hover-border-color: $text;
 $button-hover-background-color: $text;
 $button-active-color: findColorInvert($text);
 $button-active-background-color: darken($text, 4%);

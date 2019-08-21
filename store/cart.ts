@@ -22,6 +22,7 @@ const store: StoreOptions<CartState> = {
   }),
   actions: {
     async loadItems({ commit, rootState }) {
+      // await new Promise((r) => setTimeout(r, 10000));
       //   const { data } = await this.$axios.get(`/cart/list`);
       //   commit('setItems', data.list);
     },

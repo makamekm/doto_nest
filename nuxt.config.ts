@@ -7,15 +7,15 @@ delete process.env.HTTPS_PROXY;
 
 const config: NuxtConfiguration = {
   head: {
-    title: 'Karpov\'s Furniture',
+    title: 'Cardlay | Grid',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: `Karpov\'s Furniture.\n The best place to buy your next luxury furniture` },
+      { hid: 'description', name: 'description', content: `Cardlay | Grid | The grid system, provided by Cardlay, is the best tool for you to invest you money` },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro|Merriweather|Playfair+Display+SC&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto&display=swap' },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.8.2/css/all.css',
@@ -27,7 +27,6 @@ const config: NuxtConfiguration = {
   plugins: [
     '~/plugins/vee-validate',
     '~/plugins/buefy',
-    '~/plugins/form-creator',
     { src: '~/plugins/vuex-shared-mutations', ssr: false },
   ],
   css: [
@@ -39,11 +38,11 @@ const config: NuxtConfiguration = {
     ],
   },
   manifest: {
-    name: 'Karpov\'s Furniture',
-    short_name: 'Karpov\'s Furniture',
-    description: `Karpov\'s Furniture.\n The best place to buy your next luxury furniture`,
+    name: 'Cardlay | Grid',
+    short_name: 'Cardlay | Grid',
+    description: `Cardlay | Grid | The grid system, provided by Cardlay, is the best tool for you to invest you money`,
     lang: 'en',
-    theme_color: '#EDD888',
+    theme_color: '#0072E1',
     start_url: '/',
   },
   modules: [
@@ -54,7 +53,6 @@ const config: NuxtConfiguration = {
       prefix: '/api',
       browserBaseURL: '/api',
     }],
-    // '@nuxtjs/auth',
     '@nuxtjs/proxy',
     '@nuxtjs/style-resources',
   ],
@@ -84,23 +82,6 @@ const config: NuxtConfiguration = {
   proxy: process.env.IS_EXPRESS ? {
     '/api': 'http://localhost:4000',
   } : {},
-  // auth: {
-  //   redirect: {
-  //     login: '/login',
-  //     register: '/register',
-  //     callback: '/callback',
-  //   },
-  //   strategies: {
-  //     local: {
-  //       endpoints: {
-  //         login: { url: 'login', method: 'post', propertyName: 'token' },
-  //         register: { url: 'register', method: 'post', propertyName: '' },
-  //         user: { url: 'user', method: 'get', propertyName: '' },
-  //         logout: false,
-  //       },
-  //     },
-  //   },
-  // },
 };
 
 export default config;

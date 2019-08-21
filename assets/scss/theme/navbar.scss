@@ -1,5 +1,5 @@
 .navbar {
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 1px;
   background-color: #fff;
   color: $text;
@@ -34,7 +34,7 @@
 
   .navbar-menu {
     & > * > .navbar-item {
-      transition: backgrond-coulor 300ms;
+      transition: background-color 300ms;
 
       &::before {
         transition: background-color 300ms, transform 300ms;
@@ -100,29 +100,22 @@
       // box-shadow: inset 0 -3px 0px 0px rgba(0, 41, 73, 0.5);
     }
   }
-
-  &.is-large-height {
-    @include from($desktop) {
-      transition: min-height 250ms;
-      min-height: $navbar-large-height;
-    }
-  }
 }
 
-@import "./navbar.sass";
+// @import "./navbar.sass";
 
-@include until($desktop) {
-  .navbar-menu {
-    transition: max-height 0.4s;
-    display: block;
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
-    max-height: 0px;
+// @include until($desktop) {
+//   .navbar-menu {
+//     transition: max-height 0.4s;
+//     display: block;
+//     padding-top: 0;
+//     padding-bottom: 0;
+//     overflow: hidden;
+//     max-height: 0px;
 
-    &.is-active {
-      overflow: auto;
-      max-height: 100vh;
-    }
-  }
-}
+//     &.is-active {
+//       overflow: auto;
+//       max-height: 100vh;
+//     }
+//   }
+// }

@@ -19,23 +19,16 @@ export default {
   components: {
     Navbar
   },
-  props: ['isLoadingBase'],
   data: () => ({
-    isLoadingBaseFake: true,
     isMounted: false,
   }),
   mounted() {
     this.isMounted = true;
   },
-  created() {
-    if (process.client) {
-      setTimeout(() => this.isLoadingBaseFake = false, 3000);
-      // setImmediate(() => this.isLoadingBaseFake = false);
-    }
-  },
   computed: {
     isLoading() {
-      return this.isLoadingBase || this.isLoadingBaseFake || this.$store.state.auth.isLoading;
+      return this.$store.state.auth.isLoading
+        || this.$store.state.app.isLoading;
     },
     user() {
       return this.$store.state.auth.user;

@@ -1,5 +1,5 @@
 <template>
-  <base :isLoadingBase="isLoading"/>
+  <div></div>
 </template>
 
 <script>
@@ -9,17 +9,12 @@ export default {
   components: {
     Base
   },
-  data() {
-    return {
-      isLoading: false,
-    };
-  },
   methods: {
     start() {
-      this.isLoading = true;
+      this.$store.dispatch('app/setLoading', true);
     },
     finish() {
-      this.isLoading = false;
+      this.$store.dispatch('app/setLoading', false);
     }
   }
 }

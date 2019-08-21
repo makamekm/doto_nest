@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item p-l-7 p-r-7 p-t-6 p-b-6" href="/">
+      <nuxt-link class="navbar-item p-l-7 p-r-7 p-t-6 p-b-6" to="/" exact>
         <img src="/logo.svg" style="min-height: 38px; max-height: 38px;">
-      </a>
+      </nuxt-link>
     </div>
     <div class="navbar-menu">
     </div>

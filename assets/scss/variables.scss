@@ -6,7 +6,7 @@ $primary: $theme;
 $primary-invert: findColorInvert($theme);
 
 $background: darken($theme, 50%);
-$text: #3D3F43;
+$text: #1D1D1D;
 
 $size-1: 2.25rem;
 $size-2: 2rem;
@@ -71,7 +71,6 @@ $colors: (
 // $navbar-height: 3.5rem;
 // $navbar-large-height: 6.5rem;
 // $footer-padding: 1rem 1.5rem 1rem;
-// $table-head-cell-color: $text;
 
 // $button-background-color: rgba(0, 40, 71, 0);
 // $button-color: $text;
@@ -87,3 +86,10 @@ $button-active-background-color: darken($text, 4%);
 $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
+
+$table-cell-padding: 0.75em 1.6rem;
+$table-head-cell-color: $text;
+$table-head-cell-border-width: 0 1px 1px;
+$table-foot-cell-border-width: 1px 0 0;
+$table-cell-border: solid 1px #EFF1F1;
+$table-striped-row-even-background-color: #FAFBFB;

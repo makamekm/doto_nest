@@ -1,3 +1,33 @@
+.table {
+  & > thead {
+    & > tr {
+      & > th {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 800;
+        min-height: 3rem;
+        height: 3rem;
+        vertical-align: middle;
+      }
+    }
+  }
+  & > tbody, tfoot {
+    & > tr {
+      & > td {
+        min-height: 3.5rem;
+        height: 3.5rem;
+        vertical-align: middle;
+        // border-bottom: $table-cell-border;
+        // border-bottom-width: 1px !important;
+      }
+    }
+  }
+}
+
+.table-container {
+  margin-bottom: 0 !important;
+}
+
 .b-table {
   @include until($tablet) {
     .table.has-mobile-cards tr {

@@ -1,4 +1,5 @@
 import { StoreOptions } from 'vuex';
+import * as debounce from 'debounce';
 import { getCookie, setCookie } from '~/utils/cookie';
 
 export interface User {
@@ -19,10 +20,15 @@ const store: StoreOptions<UserState> = {
     isLoading: true,
   }),
   actions: {
-    async check({ commit, state }) {
+    setLoading: process.client ? debounce(({ commit }, isLoading) => {
+      commit('setLoading', isLoading);
+    }, 600) : ({ commit }, isLoading) => {
+      commit('setLoading', isLoading);
+    },
+    async check({ commit, dispatch, state }) {
       try {
         if (!state.user) {
-          commit('setIsLoading', true);
+          dispatch('setLoading', true);
         }
         const { data } = await this.$axios.get(`/auth/user`);
         const { token, ...user } = data;
@@ -30,7 +36,7 @@ const store: StoreOptions<UserState> = {
       } catch (e) {
         // Ignore 401 error
       } finally {
-        commit('setIsLoading', false);
+        dispatch('setLoading', false);
       }
     },
     async login({ commit }, { username, password }) {
@@ -66,7 +72,7 @@ const store: StoreOptions<UserState> = {
   },
   mutations: {
     setUser: (state, user) => state.user = user,
-    setIsLoading: (state, isLoading) => state.isLoading = isLoading,
+    setLoading: (state, isLoading) => state.isLoading = isLoading,
   },
 };
 

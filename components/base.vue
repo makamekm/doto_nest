@@ -1,10 +1,10 @@
 <template>
   <div :class="{'lc-container': true, 'is-loading': isLoading, 'is-mounted': isMounted}">
-    <div
-      class="lc-flex-child"
-    >
+    <div class="lc-container-child">
       <navbar v-if="!isLoading"/>
-      <slot v-if="!isLoading"/>
+      <div class="lc-content">
+        <slot v-if="!isLoading"/>
+      </div>
     </div>
     <div class="lc-loading">
       <img src="/logo.svg">
@@ -38,10 +38,6 @@ export default {
     if (process.client) {
     }
   },
-  methods: {
-    handleScroll(event) {
-    }
-  },
 }
 </script>
 
@@ -66,19 +62,26 @@ export default {
     opacity: 1;
   }
 
-  & > .lc-flex-child {
+  & > .lc-container-child {
     flex: 1;
     content: '';
     width: calc(100vw - 10px);
     max-width: calc(100vw - 10px);
     min-width: calc(100vw - 10px);
+    display: flex;
+    flex-direction: column;
+
+    & > .lc-content {
+      position: relative;
+      flex: 1;
+    }
   }
 
   & > * {
     transition: opacity 0.6s;
   }
 
-  & > .lc-flex-child {
+  & > .lc-container-child {
     opacity: 1;
   }
 
@@ -109,7 +112,7 @@ export default {
     animation-direction: alternate;
     background: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.2));
 
-    & > .lc-flex-child {
+    & > .lc-container-child {
       opacity: 0;
     }
 

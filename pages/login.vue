@@ -3,12 +3,12 @@
     <div class="container">
       <div class="columns">
         <div class="column is-4 is-offset-4">
-          <h2 class="title has-text-centered">Welcome back!</h2>
+          <h2 class="title has-text-centered on-appear-slide-down on-delay-0">Welcome back!</h2>
 
           <form method="post" @submit.prevent="login">
             <div class="field">
-              <label class="label">Username</label>
-              <div class="control">
+              <label class="label on-appear-scale-left on-delay-1">Username</label>
+              <div class="control on-appear-scale-right on-delay-2">
                 <input
                   type="username"
                   class="input"
@@ -18,8 +18,8 @@
               </div>
             </div>
             <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
+              <label class="label on-appear-scale-left on-delay-3">Password</label>
+              <div class="control on-appear-scale-right on-delay-4">
                 <input
                   type="password"
                   class="input"
@@ -29,8 +29,8 @@
               </div>
             </div>
             <div class="control">
-              <button type="submit" class="button is-primary is-fullwidth">Log In</button>
-              <button type="button" class="button is-transparent is-fullwidth m-t-5">
+              <button type="submit" class="button is-primary is-fullwidth on-appear-rotate on-delay-5">Log In</button>
+              <button type="button" class="button is-transparent is-fullwidth m-t-5 on-appear-rotate on-delay-6">
                 <span class="icon is-small">
                   <i class="fab fa-google"></i>
                 </span>
@@ -38,7 +38,7 @@
               </button>
             </div>
           </form>
-          <div class="has-text-centered" style="margin-top: 20px">
+          <div class="has-text-centered on-appear-slide-up on-delay-7" style="margin-top: 20px">
             <p>
               Don't have an account? <nuxt-link to="/register">Register</nuxt-link>
             </p>

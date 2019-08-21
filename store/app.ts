@@ -1,4 +1,5 @@
 import { StoreOptions } from 'vuex';
+import * as debounce from 'debounce';
 
 export interface AppState {
   [x: string]: any;
@@ -10,9 +11,9 @@ const store: StoreOptions<AppState> = {
     isLoading: false,
   }),
   actions: {
-    async setLoading({ commit, rootState }, isLoading) {
+    setLoading: debounce(({ commit, rootState }, isLoading) => {
       commit('setLoading', isLoading);
-    },
+    }, 600),
   },
   mutations: {
     setLoading: (state, isLoading) => state.isLoading = isLoading,

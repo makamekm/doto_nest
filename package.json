@@ -63,7 +63,10 @@
     "vuex-class": "0.3.2",
     "vuex-shared-mutations": "1.0.2",
     "debounce": "1.2.0",
-    "vue-rx": "6.2.0"
+    "vue-rx": "6.2.0",
+    "popper.js": "1.15.0",
+    "portal-vue": "2.1.6",
+    "vue-dom-portal": "0.1.6"
   },
   "devDependencies": {
     "@types/supertest": "2.0.8",

@@ -2,6 +2,8 @@
   <div :class="{'lc-container': true, 'is-loading': isLoading, 'is-mounted': isMounted}">
     <div class="lc-container-child">
       <navbar v-if="!isLoading"/>
+      <portal-target name="toolbox">
+      </portal-target>
       <div class="lc-content">
         <slot v-if="!isLoading"/>
       </div>
@@ -9,6 +11,8 @@
     <div class="lc-loading">
       <img src="/logo.svg">
     </div>
+    <portal-target name="footer">
+    </portal-target>
   </div>
 </template>
 

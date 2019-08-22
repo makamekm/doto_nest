@@ -7,11 +7,11 @@
     </div>
 
     <div class="table-container on-appear-slide-up on-delay-1">
-      <table class="table is-striped is-hoverable is-fullwidth">
+      <table class="table is-striped is-fullwidth">
         <thead>
           <tr class="on-appear-scale-left on-delay-3">
             <th>Date</th>
-            <th class="interactable">
+            <th class="interactable" style="width: 20rem;">
               <div class="columns is-vcentered">
                 <div class="column">
                   Merchant
@@ -21,7 +21,7 @@
                 </div>
               </div>
             </th>
-            <th class="interactable">
+            <th class="interactable" style="width: 15rem;">
               <div class="columns is-vcentered">
                 <div class="column">
                   Category
@@ -31,9 +31,9 @@
                 </div>
               </div>
             </th>
-            <th class="interactable">
-              <div class="columns is-vcentered">
-                <div class="column">
+            <th class="interactable" style="width: 12rem;">
+              <div class="columns is-vcentered is-variable is-3">
+                <div class="column has-text-right">
                   Amount
                 </div>
                 <div class="column is-narrow font-size-0">
@@ -41,7 +41,7 @@
                 </div>
               </div>
             </th>
-            <th>Valuta</th>
+            <th class="has-text-right" style="width: 6rem;">Valuta</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -54,9 +54,20 @@
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
                 <inline-edit-text :value="item.merchant" @change="item.merchant = $event"/>
               </td>
-              <td>{{item.categoryName}}</td>
-              <td>{{item.amount}}</td>
-              <td>{{item.currency}}</td>
+              <td class="p-t-2 p-b-2 p-r-2 p-l-2">
+                <inline-edit-select
+                  :value="item.categoryName"
+                  @change="item.categoryName = $event.categoryName"
+                  :items="[
+                    {key: 'category1', label: 'Category Name 1'},
+                    {key: 'category2', label: 'Category Name 2'},
+                    {key: 'category3', label: 'Category Name 3'},
+                    {key: 'category4', label: 'Category Name 4'},
+                  ]"
+                />
+              </td>
+              <td class="has-text-right"><b>{{item.amount}}</b></td>
+              <td class="has-text-right is-uppercase"><b>{{item.currency}}</b></td>
               <td>{{item.status.stage}}</td>
           </tr>
         </tbody>
@@ -86,6 +97,7 @@
 
 <script lang="ts">
 import InlineEditText from '../components/inline-edit-text.vue';
+import InlineEditSelect from '../components/inline-edit-select.vue';
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
@@ -93,7 +105,10 @@ import { Validator } from "vee-validate";
 const ExpensesStore = namespace("expenses");
 
 @Component({
-  components: {InlineEditText},
+  components: {
+    InlineEditText,
+    InlineEditSelect,
+  },
   data: () => ({
     currentPage: 1,
   }),

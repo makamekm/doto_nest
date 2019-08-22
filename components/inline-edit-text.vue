@@ -1,31 +1,32 @@
 <template>
-  <div :class="{'inline-edit': true, 'is-editing': isEditing}">
-    <div class="inline-edit-value">
+  <div :class="{'inline-edit-input': true, 'is-editing': isEditing}">
+    <div class="inline-edit-input--value">
       <div class="columns is-vcentered">
-        <div class="column">
+        <div class="column" @dblclick="onStartEdit()">
           {{value}}
         </div>
         <div class="column is-narrow font-size-0">
-          <div class="inline-edit-value-edit">
+          <div class="inline-edit-input--value-edit">
             <i class="i is-size-6 edit" @click="onStartEdit()"></i>
           </div>
         </div>
       </div>
     </div>
-    <div class="inline-edit-input">
+    <div class="inline-edit-input--input">
       <div class="columns is-vcentered is-gapless">
         <div class="column">
           <input
             ref="input"
-            v-on:blur="onStopEdit()"
-            class="inline-edit-input-control"
+            @blur="onStopEdit()"
+            @keydown.enter="onSaveEdit()"
+            class="inline-edit-input--input-control"
             placeholder="Merchant"
             type="text"
             v-model="inputValue"
           >
         </div>
         <div class="column is-narrow">
-          <div class="inline-edit-input-save"
+          <div class="inline-edit-input--input-save"
             @mousedown="onSaveMouseDown()"
             @click="onSaveEdit()"
             @mouseleave="onSaveMouseLeave()"
@@ -51,7 +52,10 @@ export default {
       this.inputValue = this.value;
       this.isEditing = true;
       this.isTryingToSave = false;
-      setImmediate(() => this.$refs.input.focus());
+      setImmediate(() => {
+        this.$refs.input.focus();
+        this.$refs.input.select();
+      });
     },
     onStopEdit() {
       if (!this.isTryingToSave) {

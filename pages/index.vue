@@ -52,36 +52,7 @@
             v-bind:key="item.id + index">
               <td>{{parseDate(item.date)}}</td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
-                <div class="inline-edit">
-                  <div class="inline-edit-value">
-                    <div class="columns is-vcentered">
-                      <div class="column">
-                        {{item.merchant}}
-                      </div>
-                      <div class="column is-narrow font-size-0">
-                        <div class="inline-edit-value-edit">
-                          <i class="i is-size-6 edit"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="inline-edit-input">
-                    <div class="columns is-vcentered is-gapless">
-                      <div class="column">
-                        <input
-                          class="inline-edit-input-control"
-                          placeholder="Merchant"
-                          type="text"
-                        >
-                      </div>
-                      <div class="column is-narrow">
-                        <div class="inline-edit-input-save">
-                          Save
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <inline-edit-text :value="item.merchant" @change="item.merchant = $event"/>
               </td>
               <td>{{item.categoryName}}</td>
               <td>{{item.amount}}</td>
@@ -114,6 +85,7 @@
 </template>
 
 <script lang="ts">
+import InlineEditText from '../components/inline-edit-text.vue';
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
@@ -121,6 +93,7 @@ import { Validator } from "vee-validate";
 const ExpensesStore = namespace("expenses");
 
 @Component({
+  components: {InlineEditText},
   data: () => ({
     currentPage: 1,
   }),

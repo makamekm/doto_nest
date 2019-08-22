@@ -4,8 +4,6 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import express from 'express';
 import cookie from 'cookie';
 
-// import './restart';
-
 const expressApp = express();
 
 expressApp.use(express.static('dist'));

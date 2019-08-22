@@ -25,6 +25,7 @@
       "@types/jest-environment-puppeteer",
       "@types/jest-image-snapshot",
       "@types/puppeteer",
+      "buefy",
       "node",
       "jest"
     ],

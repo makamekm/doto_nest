@@ -115,12 +115,10 @@
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
-import { VueperSlides, VueperSlide } from 'vueperslides';
 
 const NodeStore = namespace("node");
 
 @Component({
-  components: { VueperSlides, VueperSlide },
   data: () => ({
     isShowFilters: false,
     currentPage: 1,

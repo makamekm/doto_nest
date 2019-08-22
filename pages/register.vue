@@ -60,6 +60,7 @@
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
+import 'buefy';
 
 const AuthStore = namespace("auth");
 
@@ -105,7 +106,7 @@ export default class extends Vue {
       });
     } catch (e) {
       this.error = e.response.data.message;
-      this.$toast.open({
+      this.$buefy.toast.open({
         duration: 5000,
         message: this.error,
         position: 'is-bottom',

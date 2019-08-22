@@ -5,8 +5,14 @@
 
   &.sort {
     content: url('../icons/sort.svg');
-    // background: url('../icons/sort.svg') no-repeat top left;
-    // background-image: url('../icons/sort.svg');
+  }
+
+  &.sort-up {
+    content: url('../icons/sort_up.svg');
+  }
+
+  &.sort-down {
+    content: url('../icons/sort_down.svg');
   }
 
   &.is-size-1 {

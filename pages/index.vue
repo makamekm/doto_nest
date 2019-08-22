@@ -11,7 +11,7 @@
         <thead>
           <tr class="on-appear-scale-left on-delay-3">
             <th>Date</th>
-            <th>
+            <th class="interactable">
               <div class="columns">
                 <div class="column">
                   Merchant
@@ -21,23 +21,23 @@
                 </div>
               </div>
             </th>
-            <th>
+            <th class="interactable">
               <div class="columns">
                 <div class="column">
                   Category
                 </div>
                 <div class="column is-narrow">
-                  <i :class="{'i is-size-6': true, 'sort': true}"></i>
+                  <i :class="{'i is-size-6': true, 'sort-up': true}"></i>
                 </div>
               </div>
             </th>
-            <th>
+            <th class="interactable">
               <div class="columns">
                 <div class="column">
                   Amount
                 </div>
                 <div class="column is-narrow">
-                  <i :class="{'i is-size-6': true, 'sort': true}"></i>
+                  <i :class="{'i is-size-6': true, 'sort-down': true}"></i>
                 </div>
               </div>
             </th>

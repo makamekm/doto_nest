@@ -16,7 +16,7 @@
       <div class="inline-edit-select--input-control" ref="target">
         <div class="columns is-vcentered">
           <div class="column">
-            <b>Select Category</b>
+            <b>{{placeholder}}</b>
           </div>
           <div class="column is-narrow font-size-0">
             <i class="fas is-size-5 fa-chevron-down"/>
@@ -48,7 +48,14 @@
 import Popper from 'popper.js';
 
 export default {
-  props: ['value', 'items'],
+  props: {
+    'value': [String, Object, Number],
+    'items': Array,
+    placeholder: {
+      type: String,
+      dafault: 'Select Category',
+    },
+  },
   data: () => ({
     isEditing: false,
     isClosing: false,

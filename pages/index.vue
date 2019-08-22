@@ -56,8 +56,9 @@
               </td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
                 <inline-edit-select
+                  placeholder="Select Category"
                   :value="item.categoryName"
-                  @change="item.categoryName = $event.categoryName"
+                  @change="item.categoryName = $event.key"
                   :items="[
                     {key: 'category1', label: 'Category Name 1'},
                     {key: 'category2', label: 'Category Name 2'},
@@ -68,7 +69,14 @@
               </td>
               <td class="has-text-right"><b>{{item.amount}}</b></td>
               <td class="has-text-right is-uppercase"><b>{{item.currency}}</b></td>
-              <td>{{item.status.stage}}</td>
+              <td>
+                <toggle-box
+                  placeholder-true="Approve"
+                  placeholder-false="Decline"
+                  :value="item.status.stage === 'Submitted'"
+                  @change="item.status.stage = $event"
+                />
+              </td>
           </tr>
         </tbody>
         <tfoot>
@@ -98,6 +106,7 @@
 <script lang="ts">
 import InlineEditText from '../components/inline-edit-text.vue';
 import InlineEditSelect from '../components/inline-edit-select.vue';
+import ToggleBox from '../components/toggle-box.vue';
 import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
@@ -108,6 +117,7 @@ const ExpensesStore = namespace("expenses");
   components: {
     InlineEditText,
     InlineEditSelect,
+    ToggleBox,
   },
   data: () => ({
     currentPage: 1,

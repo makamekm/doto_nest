@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "noLib": false,
     "baseUrl": ".",
+    "strictNullChecks": false,
     "resolveJsonModule": true,
     "types": [
       "@nuxt/vue-app",

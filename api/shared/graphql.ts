@@ -12,6 +12,21 @@ export interface Author {
     posts?: Post[];
 }
 
+export interface Expenses {
+    id: string;
+    date?: string;
+    amount?: number;
+    merchant?: string;
+    currency?: string;
+    categoryName?: string;
+    parentId?: string;
+    status?: ExpensesStatus;
+}
+
+export interface ExpensesStatus {
+    stage: string;
+}
+
 export interface Post {
     id: number;
     title: string;
@@ -20,4 +35,5 @@ export interface Post {
 
 export interface IQuery {
     author(id: number): Author | Promise<Author>;
+    expenses(): Expenses[] | Promise<Expenses[]>;
 }

@@ -27,7 +27,7 @@
       opacity: 0;
     }
 
-    &:hover {
+    &:hover, &:focus {
       border: $table-cell-border;
       .inline-edit-value-edit {
         opacity: 1;

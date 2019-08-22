@@ -52,18 +52,20 @@
             v-bind:key="item.id + index">
               <td>{{parseDate(item.date)}}</td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
-                <inline-edit-text :value="item.merchant" @change="item.merchant = $event"/>
+                <inline-edit-text
+                  :value="item.merchant"
+                  @change="setValue(item, 'merchant', $event)"/>
               </td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
                 <inline-edit-select
                   placeholder="Select Category"
                   :value="item.categoryName"
-                  @change="item.categoryName = $event.key"
+                  @change="setValue(item, 'category', $event)"
                   :items="[
-                    {key: 'category1', label: 'Category Name 1'},
-                    {key: 'category2', label: 'Category Name 2'},
-                    {key: 'category3', label: 'Category Name 3'},
-                    {key: 'category4', label: 'Category Name 4'},
+                    {key: 'Food', label: 'Food'},
+                    {key: 'Parking', label: 'Parking'},
+                    {key: 'Transport', label: 'Transport'},
+                    {key: 'Car Rental', label: 'Car Rental'},
                   ]"
                 />
               </td>
@@ -74,7 +76,7 @@
                   placeholder-true="Approve"
                   placeholder-false="Decline"
                   :value="item.status.stage === 'Submitted'"
-                  @change="item.status.stage = $event"
+                  @change="setValue(item, 'stage', $event)"
                 />
               </td>
           </tr>
@@ -133,6 +135,10 @@ export default class extends Vue {
     this.$router.push({
       path: `/node/${row.id}`
     });
+  }
+
+  setValue(item, key: string, value) {
+    console.log(item, key, value);
   }
 
   standartTwoDigits(str: string) {

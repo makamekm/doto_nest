@@ -46,45 +46,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="on-appear-scale-left on-delay-4">
-            <td>Three</td>
-            <td>Three</td>
-            <td>Four</td>
-            <td>Four</td>
-            <td>Four</td>
-            <td>Four</td>
-          </tr>
-          <tr class="on-appear-scale-left on-delay-5">
-            <td>Three</td>
-            <td>Five</td>
-            <td>Six</td>
-            <td>Four</td>
-            <td>Four</td>
-            <td>Four</td>
-          </tr>
-          <tr class="on-appear-scale-left on-delay-5">
-            <td>Three</td>
-            <td>Seven</td>
-            <td>Eight</td>
-            <td>Four</td>
-            <td>Four</td>
-            <td>Four</td>
-          </tr>
-          <tr class="on-appear-scale-left on-delay-6">
-            <td>Three</td>
-            <td>Nine</td>
-            <td>Ten</td>
-            <td>Four</td>
-            <td>Four</td>
-            <td>Four</td>
-          </tr>
-          <tr class="on-appear-scale-left on-delay-7">
-            <td>Eleven</td>
-            <td>Three</td>
-            <td>Twelve</td>
-            <td>Four</td>
-            <td>Four</td>
-            <td>Four</td>
+          <tr
+            :class="'on-appear-scale-left on-delay-' + (index < 6 ? (index + 1) : 7)"
+            v-for="(item, index) in data"
+            v-bind:key="item.id + index">
+              <td>{{item.date}}</td>
+              <td>{{item.merchant}}</td>
+              <td>{{item.categoryName}}</td>
+              <td>{{item.amount}}</td>
+              <td>{{item.currency}}</td>
+              <td>{{item.status.stage}}</td>
           </tr>
         </tbody>
         <tfoot>
@@ -116,17 +87,16 @@ import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
 
-const NodeStore = namespace("node");
+const ExpensesStore = namespace("expenses");
 
 @Component({
   data: () => ({
-    isShowFilters: false,
     currentPage: 1,
   }),
-  fetch: async props => props.store.dispatch("cart/loadItems"),
+  fetch: async props => props.store.dispatch("expenses/loadItems"),
 })
 export default class extends Vue {
-  @NodeStore.State("nodes") data;
+  @ExpensesStore.State("items") data;
 
   isShowFilters?: boolean;
 

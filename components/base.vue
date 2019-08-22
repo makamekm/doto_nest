@@ -74,6 +74,7 @@ export default {
     & > .lc-content {
       position: relative;
       flex: 1;
+      overflow: auto;
     }
   }
 

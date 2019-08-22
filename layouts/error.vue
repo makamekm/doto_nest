@@ -6,7 +6,7 @@
           <div style="font-size: 5rem;">
             <i class="far fa-compass has-text-grey-light on-appear-slide-down on-delay-1"></i>
           </div>
-          <div class="title is-2 has-text-grey-dark on-appear-scale-left on-delay-2">
+          <div class="title is-2 has-text-grey-dark on-appear-rotate on-delay-2">
             {{ error.statusCode }}
           </div>
           <div class="subtitle is-4 has-text-grey on-appear-rotate on-delay-3">

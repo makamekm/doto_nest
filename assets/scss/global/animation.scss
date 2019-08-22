@@ -1,7 +1,9 @@
+$transition-distance: 5rem;
+
 @keyframes on-appear-slide-down-animation {
   0% {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translateY(-$transition-distance);
   }
   100% {
     opacity: 1;
@@ -11,14 +13,14 @@
 
 .on-appear-slide-down {
   opacity: 0;
-  transform: translateY(-100%);
+  transform: translateY(-$transition-distance);
   animation: on-appear-slide-down-animation 0.4s ease-in-out forwards;
 }
 
 @keyframes on-appear-slide-up-animation {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY($transition-distance);
   }
   100% {
     opacity: 1;
@@ -28,7 +30,7 @@
 
 .on-appear-slide-up {
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY($transition-distance);
   animation: on-appear-slide-up-animation 0.4s ease-in-out forwards;
 }
 
@@ -52,7 +54,7 @@
 @keyframes on-appear-scale-left-animation {
   0% {
     opacity: 0;
-    transform: scale(0) translateX(-100%);
+    transform: scale(0) translateX(-$transition-distance);
   }
   100% {
     opacity: 1;
@@ -62,14 +64,14 @@
 
 .on-appear-scale-left {
   opacity: 0;
-  transform: scale(0) translateX(-100%);
+  transform: scale(0) translateX(-$transition-distance);
   animation: on-appear-scale-left-animation 0.4s ease-in-out forwards;
 }
 
 @keyframes on-appear-scale-right-animation {
   0% {
     opacity: 0;
-    transform: scale(0) translateX(100%);
+    transform: scale(0) translateX($transition-distance);
   }
   100% {
     opacity: 1;
@@ -79,7 +81,7 @@
 
 .on-appear-scale-right {
   opacity: 0;
-  transform: scale(0) translateX(100%);
+  transform: scale(0) translateX($transition-distance);
   animation: on-appear-scale-right-animation 0.4s ease-in-out forwards;
 }
 

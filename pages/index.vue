@@ -6,37 +6,37 @@
       </div>
     </div>
 
-    <div class="table-container">
-      <table class="table is-striped is-hoverable is-fullwidth on-appear-scale-left on-delay-1">
+    <div class="table-container on-appear-slide-up on-delay-1">
+      <table class="table is-striped is-hoverable is-fullwidth">
         <thead>
           <tr class="on-appear-scale-left on-delay-3">
             <th>Date</th>
             <th class="interactable">
-              <div class="columns">
+              <div class="columns is-vcentered">
                 <div class="column">
                   Merchant
                 </div>
-                <div class="column is-narrow">
+                <div class="column is-narrow font-size-0">
                   <i :class="{'i is-size-6': true, 'sort': true}"></i>
                 </div>
               </div>
             </th>
             <th class="interactable">
-              <div class="columns">
+              <div class="columns is-vcentered">
                 <div class="column">
                   Category
                 </div>
-                <div class="column is-narrow">
+                <div class="column is-narrow font-size-0">
                   <i :class="{'i is-size-6': true, 'sort-up': true}"></i>
                 </div>
               </div>
             </th>
             <th class="interactable">
-              <div class="columns">
+              <div class="columns is-vcentered">
                 <div class="column">
                   Amount
                 </div>
-                <div class="column is-narrow">
+                <div class="column is-narrow font-size-0">
                   <i :class="{'i is-size-6': true, 'sort-down': true}"></i>
                 </div>
               </div>
@@ -50,8 +50,39 @@
             :class="'on-appear-scale-left on-delay-' + (index < 6 ? (index + 1) : 7)"
             v-for="(item, index) in data"
             v-bind:key="item.id + index">
-              <td>{{item.date}}</td>
-              <td>{{item.merchant}}</td>
+              <td>{{parseDate(item.date)}}</td>
+              <td class="p-t-2 p-b-2 p-r-2 p-l-2">
+                <div class="inline-edit">
+                  <div class="inline-edit-value">
+                    <div class="columns is-vcentered">
+                      <div class="column">
+                        {{item.merchant}}
+                      </div>
+                      <div class="column is-narrow font-size-0">
+                        <div class="inline-edit-value-edit">
+                          <i class="i is-size-6 edit"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inline-edit-input">
+                    <div class="columns is-vcentered is-gapless">
+                      <div class="column">
+                        <input
+                          class="inline-edit-input-control"
+                          placeholder="Merchant"
+                          type="text"
+                        >
+                      </div>
+                      <div class="column is-narrow">
+                        <div class="inline-edit-input-save">
+                          Save
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
               <td>{{item.categoryName}}</td>
               <td>{{item.amount}}</td>
               <td>{{item.currency}}</td>
@@ -104,6 +135,17 @@ export default class extends Vue {
     this.$router.push({
       path: `/node/${row.id}`
     });
+  }
+
+  standartTwoDigits(str: string) {
+    return str.length < 2 ? ('0' + str) : str;
+  }
+
+  parseDate(dateStr: string) {
+    const date = new Date(Date.parse(dateStr));
+    return `${this.standartTwoDigits(String(date.getDate() + 1))}`
+      + `/${this.standartTwoDigits(String(date.getMonth() + 1))}`
+      + `/${this.standartTwoDigits(String(date.getFullYear()))}`
   }
 }
 </script>

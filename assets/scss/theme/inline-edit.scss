@@ -52,6 +52,7 @@
     background-color: $primary;
     box-shadow: 0 2px 2px 0 rgba(7,22,79,0.09), 0 4px 4px 0 rgba(7,22,79,0.01), 0 8px 8px 0 rgba(7,22,79,0.12), 0 16px 16px 0 rgba(7,22,79,0.1), 0 32px 32px 0 rgba(7,22,79,0.12);
     animation: on-appear-inline-edit 0.2s ease-in-out forwards;
+    width: 100%;
 
     .inline-edit-input-control {
       padding: 0.6rem 0.7rem;

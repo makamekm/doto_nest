@@ -10,46 +10,61 @@
       <table class="table is-striped is-fullwidth">
         <thead>
           <tr class="on-appear-scale-left on-delay-3">
-            <th>Date</th>
-            <th class="interactable" style="width: 20rem;">
+            <th style="width: 10rem;">Date</th>
+            <th class="interactable" @click="onToggleSortBy('merchant')">
               <div class="columns is-vcentered">
                 <div class="column">
                   Merchant
                 </div>
                 <div class="column is-narrow font-size-0">
-                  <i :class="{'i is-size-6': true, 'sort': true}"></i>
+                  <i :class="{
+                    'i is-size-6': true,
+                    'sort': sortBy !== 'merchant',
+                    'sort-up': sortBy === 'merchant' && !sortByDescending,
+                    'sort-down': sortBy === 'merchant' && sortByDescending
+                  }"></i>
                 </div>
               </div>
             </th>
-            <th class="interactable" style="width: 15rem;">
+            <th class="interactable" style="width: 15rem;" @click="onToggleSortBy('categoryName')">
               <div class="columns is-vcentered">
                 <div class="column">
                   Category
                 </div>
                 <div class="column is-narrow font-size-0">
-                  <i :class="{'i is-size-6': true, 'sort-up': true}"></i>
+                  <i :class="{
+                    'i is-size-6': true,
+                    'sort': sortBy !== 'categoryName',
+                    'sort-up': sortBy === 'categoryName' && !sortByDescending,
+                    'sort-down': sortBy === 'categoryName' && sortByDescending
+                  }"></i>
                 </div>
               </div>
             </th>
-            <th class="interactable" style="width: 12rem;">
+            <th class="interactable" style="width: 12rem;" @click="onToggleSortBy('amount')">
               <div class="columns is-vcentered is-variable is-3">
                 <div class="column has-text-right">
                   Amount
                 </div>
                 <div class="column is-narrow font-size-0">
-                  <i :class="{'i is-size-6': true, 'sort-down': true}"></i>
+                  <i :class="{
+                    'i is-size-6': true,
+                    'sort': sortBy !== 'amount',
+                    'sort-up': sortBy === 'amount' && !sortByDescending,
+                    'sort-down': sortBy === 'amount' && sortByDescending
+                  }"></i>
                 </div>
               </div>
             </th>
             <th class="has-text-right" style="width: 6rem;">Valuta</th>
-            <th>Status</th>
+            <th style="width: 10rem;">Status</th>
           </tr>
         </thead>
         <tbody>
           <tr
             :class="'on-appear-scale-left on-delay-' + (index < 6 ? (index + 1) : 7)"
             v-for="(item, index) in data"
-            v-bind:key="item.id + index">
+            v-bind:key="item.id">
               <td>{{parseDate(item.date)}}</td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
                 <inline-edit-text
@@ -89,9 +104,11 @@
               <div class="columns is-centered on-appear-slide-up on-delay-4">
                 <div class="column is-one-third">
                   <b-pagination
-                    :total="100"
-                    :current.sync="currentPage"
-                    :per-page="20"
+                    :total="total"
+                    :current="page"
+                    @change="onChangePage($event)"
+                    icon-pack="fa"
+                    :per-page="limit"
                     aria-next-label="Next page"
                     aria-previous-label="Previous page"
                     aria-page-label="Page"
@@ -123,21 +140,17 @@ const ExpensesStore = namespace("expenses");
     InlineEditSelect,
     ToggleBox,
   },
-  data: () => ({
-    currentPage: 1,
-  }),
   fetch: async props => props.store.dispatch("expenses/loadItems"),
 })
 export default class extends Vue {
-  @ExpensesStore.State("items") data;
-
-  isShowFilters?: boolean;
-
-  openNode(row) {
-    this.$router.push({
-      path: `/node/${row.id}`
-    });
-  }
+  @ExpensesStore.Getter("sortedItems") data;
+  @ExpensesStore.Getter("total") total;
+  @ExpensesStore.State("limit") limit;
+  @ExpensesStore.State("page") page;
+  @ExpensesStore.State("sortBy") sortBy;
+  @ExpensesStore.State("sortByDescending") sortByDescending;
+  @ExpensesStore.Action("setPage") onChangePage;
+  @ExpensesStore.Action("toggleSortBy") onToggleSortBy;
 
   setValue(item, key: string, value) {
     console.log(item, key, value);
@@ -155,9 +168,3 @@ export default class extends Vue {
   }
 }
 </script>
-
-<style>
-.lc-pointer {
-  cursor: pointer;
-}
-</style>

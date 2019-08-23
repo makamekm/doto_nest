@@ -10,7 +10,7 @@
       <table class="table is-striped is-fullwidth">
         <thead>
           <tr class="on-appear-scale-left on-delay-3">
-            <th style="width: 10rem;">Date</th>
+            <th>Date</th>
             <th class="interactable" @click="onToggleSortBy('merchant')">
               <div class="columns is-vcentered">
                 <div class="column">
@@ -26,7 +26,7 @@
                 </div>
               </div>
             </th>
-            <th class="interactable" style="width: 15rem;" @click="onToggleSortBy('categoryName')">
+            <th class="interactable" @click="onToggleSortBy('categoryName')">
               <div class="columns is-vcentered">
                 <div class="column">
                   Category
@@ -41,7 +41,7 @@
                 </div>
               </div>
             </th>
-            <th class="interactable" style="width: 12rem;" @click="onToggleSortBy('amount')">
+            <th class="interactable" @click="onToggleSortBy('amount')">
               <div class="columns is-vcentered is-variable is-3">
                 <div class="column has-text-right">
                   Amount
@@ -56,11 +56,11 @@
                 </div>
               </div>
             </th>
-            <th class="has-text-right" style="width: 6rem;">Valuta</th>
-            <th style="width: 10rem;">Status</th>
+            <th class="has-text-right">Valuta</th>
+            <th>Status</th>
           </tr>
         </thead>
-        <tbody is="transition-group" name="flip-list" @enter="enter" @beforeEnter="beforeEnter" @leave="leave">
+        <tbody is="transition-group" name="table-row-on" :duration="{ enter: 500, leave: 0 }">
           <tr
             :class="'ttrow on-appear-scale-left on-delay-' + (index < 6 ? (index + 1) : 7)"
             v-for="(item, index) in data"
@@ -132,12 +132,6 @@ import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
 
-let Velocity;
-
-if (process.client) {
-  Velocity = require("velocity-animate");
-}
-
 const ExpensesStore = namespace("expenses");
 
 @Component({
@@ -147,42 +141,6 @@ const ExpensesStore = namespace("expenses");
     ToggleBox,
   },
   fetch: async props => props.store.dispatch("expenses/loadItems"),
-  data: () => ({
-    ptb: 0,
-    mh: 0
-  }),
-  methods: {
-    beforeEnter(el) {
-      el.style.lastHeight = Math.ceil(el.getBoundingClientRect().height) + "px";
-      el.style.minHeight = "0px";
-      el.style.maxHeight = "0px";
-      el.style.overflow = "hidden";
-    },
-    enter(el, done) {
-      Velocity(
-        el,
-        { maxHeight: [el.style.lastHeight, "0rem"], minHeight: ["3.5rem", "0rem"], overflow: "visible" },
-        {
-          duration: 400,
-          complete: () => {
-            el.style.maxHeight = 'unset';
-            done();
-          },
-        }
-      );
-    },
-    leave(el, done) {
-      el.style.overflow = "hidden";
-      Velocity(
-        el,
-        { maxHeight: "0px", minHeight: "0px"},
-        {
-          duration: 400,
-          complete: done,
-        },
-      );
-    }
-  },
 })
 export default class extends Vue {
   @ExpensesStore.Getter("sortedItems") data;
@@ -212,25 +170,44 @@ export default class extends Vue {
 </script>
 
 <style lang="scss">
-  table, tbody, thead, tfoot, tr {
-    display: flex;
-    flex-direction: column;
+  table {
+    table-layout: fixed;
   }
 
-  tr {
-    display: flex;
-    flex-direction: row;
-    transition: transform 1s;
+  th {
+    &:nth-child(1) {
+      width: 80%;
+    }
+
+    &:nth-child(2) {
+      width: 300%;
+    }
+
+    &:nth-child(3) {
+      width: 200%;
+    }
+
+    &:nth-child(4) {
+      width: 150%;
+    }
+
+    &:nth-child(5) {
+      width: 80%;
+    }
+
+    &:nth-child(6) {
+      width: 130%;
+    }
   }
 
   td, th {
-    flex: 1;
+    vertical-align: middle;
   }
 
   @keyframes on-move-animation {
     0% {
       opacity: 0;
-      transform: scale(0) translateX(-3.5rem);
+      transform: scale(0) rotateY(90deg);
       max-height: 0;
     }
     100% {
@@ -242,15 +219,15 @@ export default class extends Vue {
 
   .on-move {
     opacity: 0;
-    max-height: 0;
-    transform: scale(0) translateX(-3.5rem);
-    animation: on-move-animation 0.4s ease-in-out forwards;
+    transform: scale(0) rotateY(90deg);
+    animation: on-move-animation 0.5s ease-in-out forwards;
   }
 
-  .flip-list-move {
-    @extend .on-move;
+  tr {
+    transition: all 0.5s;
+  }
+
+  .table-row-on-move, .table-row-on-enter-active, .table-row-on-leave-active {
     animation-play-state: initial;
-    animation-delay: 0;
-    max-height: 3.5rem;
   }
 </style>

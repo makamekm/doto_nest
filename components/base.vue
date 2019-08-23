@@ -70,8 +70,11 @@ export default {
     flex: 1;
     content: '';
     width: calc(100vw - 10px);
+    height: calc(100vh - 10px);
     max-width: calc(100vw - 10px);
     min-width: calc(100vw - 10px);
+    max-height: calc(100vh - 10px);
+    min-height: calc(100vh - 10px);
     display: flex;
     flex-direction: column;
 

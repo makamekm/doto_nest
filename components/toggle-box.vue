@@ -46,15 +46,15 @@ export default {
   },
   computed: {
     getFalseWidth() {
-      return this.$refs.false ? this.$refs.false.getBoundingClientRect().width : 0;
+      return this.$refs.false ? this.$refs.false.offsetWidth : 0;
     },
     getTrueWidth() {
-      return this.$refs.true ? this.$refs.true.getBoundingClientRect().width : 0;
+      return this.$refs.true ? this.$refs.true.offsetWidth : 0;
     },
     getIndicatorLeftPosition() {
       return this.inputValue === false
         ? '0.3rem'
-        : this.inputValue === null ? '50%' : `${Math.ceil(this.getFalseWidth)}px`;
+        : this.inputValue === null ? '50%' : `calc(${Math.ceil(this.getFalseWidth)}px)`;
     },
     getIndicatorRightPosition() {
       return this.inputValue === false

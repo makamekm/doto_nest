@@ -1,13 +1,13 @@
 <template>
   <section class="section">
     <div class="container">
-      <h2 class="title">My Profile</h2>
+      <h2 class="title on-appear-slide-down on-delay-0">My Profile</h2>
       <div class="content">
-        <p>
+        <p class="on-appear-scale-left on-delay-1">
           <strong>Username:</strong>
           {{ loggedInUser.username }}
         </p>
-        <p>
+        <p class="on-appear-scale-left on-delay-2">
           <strong>Email:</strong>
           {{ loggedInUser.email }}
         </p>

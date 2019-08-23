@@ -18,6 +18,7 @@
           <input
             ref="input"
             @blur="onStopEdit()"
+            @keydown.esc="onStopEdit()"
             @keydown.enter="onSaveEdit()"
             class="inline-edit-input--input-control"
             placeholder="Merchant"

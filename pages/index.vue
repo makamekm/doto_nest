@@ -62,10 +62,12 @@
                   :value="item.categoryName"
                   @change="setValue(item, 'category', $event)"
                   :items="[
-                    {key: 'Food', label: 'Food'},
-                    {key: 'Parking', label: 'Parking'},
                     {key: 'Transport', label: 'Transport'},
+                    {key: 'Food', label: 'Food'},
                     {key: 'Car Rental', label: 'Car Rental'},
+                    {key: 'Petrol & Services', label: 'Petrol & Services'},
+                    {key: 'Hotel & Accomodation', label: 'Hotel & Accomodation'},
+                    {key: 'Parking', label: 'Parking'},
                   ]"
                 />
               </td>

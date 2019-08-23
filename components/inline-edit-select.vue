@@ -33,8 +33,8 @@
           @focus="onContinueEdit()"
           @click="onSaveEdit(item)"
           @keydown.enter="onSaveEdit(item)"
-          @keydown.up="onFocusNext(index - 1)"
-          @keydown.down="onFocusNext(index + 1)"
+          @keydown.up.prevent="onFocusNext(index - 1)"
+          @keydown.down.prevent="onFocusNext(index + 1)"
           v-for="(item, index) in items"
           v-bind:key="item.key">
           {{item.label}}
@@ -197,7 +197,7 @@ export default {
     border-bottom-left-radius: $radius;
     border-bottom-right-radius: $radius;
     overflow: auto;
-    max-height: 30rem;
+    max-height: 10rem;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.11), 0 2px 2px 0 rgba(7,22,79,0.09), 0 4px 4px 0 rgba(7,22,79,0.01), 0 8px 8px 0 rgba(7,22,79,0.12), 0 16px 16px 0 rgba(7,22,79,0.1), 0 32px 32px 0 rgba(7,22,79,0.12);
     opacity: 0;
     animation: on-appear-inline-edit-select 0.2s ease-in-out forwards;
@@ -214,7 +214,7 @@ export default {
 
       &:hover, &:focus {
         color: inherit;
-        background-color: rgba(0, 0, 0, 0.03);
+        background-color: rgba(0, 0, 0, 0.1);
       }
 
       &:active, &.is-active {

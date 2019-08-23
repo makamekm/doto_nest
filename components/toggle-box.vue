@@ -33,6 +33,12 @@ export default {
       default: 'Decline',
     },
   },
+  watch: {
+    value(value) {
+      this.inputValue = value;
+      this.setStyle();
+    },
+  },
   data() {
     return {
       inputValue: this.value,

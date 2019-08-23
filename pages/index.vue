@@ -68,14 +68,14 @@
               <td>{{parseDate(item.date)}}</td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
                 <inline-edit-text
-                  :value="item.merchant"
+                  :value="getAltValue(item, 'merchant')"
                   @change="setValue(item, 'merchant', $event)"/>
               </td>
               <td class="p-t-2 p-b-2 p-r-2 p-l-2">
                 <inline-edit-select
                   placeholder="Select Category"
-                  :value="item.categoryName"
-                  @change="setValue(item, 'category', $event)"
+                  :value="getAltValue(item, 'categoryName')"
+                  @change="setValue(item, 'categoryName', $event.key)"
                   :items="[
                     {key: 'Transport', label: 'Transport'},
                     {key: 'Food', label: 'Food'},
@@ -92,8 +92,8 @@
                 <toggle-box
                   placeholder-true="Approve"
                   placeholder-false="Decline"
-                  :value="item.status.stage === 'Submitted'"
-                  @change="setValue(item, 'stage', $event)"
+                  :value="getAltValue(item, 'approved')"
+                  @change="setValue(item, 'approved', $event)"
                 />
               </td>
           </tr>
@@ -133,6 +133,7 @@ import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
 
 const ExpensesStore = namespace("expenses");
+const LocalStorage = namespace("localStorage");
 
 @Component({
   components: {
@@ -151,9 +152,26 @@ export default class extends Vue {
   @ExpensesStore.State("sortByDescending") sortByDescending;
   @ExpensesStore.Action("setPage") onChangePage;
   @ExpensesStore.Action("toggleSortBy") onToggleSortBy;
+  @LocalStorage.State("expenses") expenses;
+  @LocalStorage.Action("setExpenses") setExpenses;
+
+  getAltValue(item, key: string) {
+    const rowEdited = this.expenses.find(r => r.id === item.id);
+    return rowEdited && rowEdited[key] !== undefined ? rowEdited[key] : item[key];
+  }
 
   setValue(item, key: string, value) {
-    console.log(item, key, value);
+    let expenses = this.expenses.map(r => r);
+    let rowEdited = this.expenses.find(r => r.id === item.id);
+    if (!rowEdited) {
+      rowEdited = { id: item.id };
+      expenses.push(rowEdited);
+    } else {
+      rowEdited = { ...rowEdited };
+    }
+    rowEdited[key] = value;
+    expenses = expenses.map(r => r.id === rowEdited.id ? rowEdited : item);
+    this.setExpenses(expenses);
   }
 
   standartTwoDigits(str: string) {

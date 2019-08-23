@@ -58,6 +58,7 @@ const config: NuxtConfiguration = {
     }],
     '@nuxtjs/proxy',
     '@nuxtjs/style-resources',
+    'nuxt-vuex-localstorage',
   ],
   loading: '~/components/loading.vue',
   axios: {},

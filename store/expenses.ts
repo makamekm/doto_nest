@@ -81,7 +81,10 @@ const store: StoreOptions<ExpensesState> = {
           }
         }`
       });
-      commit('setItems', expenses);
+      commit('setItems', expenses.map(e => ({
+        ...e,
+        approved: e.status.stage === 'Submitted',
+      })));
     },
   },
   mutations: {

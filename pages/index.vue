@@ -60,9 +60,9 @@
             <th style="width: 10rem;">Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody is="transition-group" name="flip-list" @enter="enter" @beforeEnter="beforeEnter" @leave="leave">
           <tr
-            :class="'on-appear-scale-left on-delay-' + (index < 6 ? (index + 1) : 7)"
+            :class="'ttrow on-appear-scale-left on-delay-' + (index < 6 ? (index + 1) : 7)"
             v-for="(item, index) in data"
             v-bind:key="item.id">
               <td>{{parseDate(item.date)}}</td>
@@ -132,6 +132,12 @@ import { Component, Vue, Prop, Inject } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Validator } from "vee-validate";
 
+let Velocity;
+
+if (process.client) {
+  Velocity = require("velocity-animate");
+}
+
 const ExpensesStore = namespace("expenses");
 
 @Component({
@@ -141,6 +147,42 @@ const ExpensesStore = namespace("expenses");
     ToggleBox,
   },
   fetch: async props => props.store.dispatch("expenses/loadItems"),
+  data: () => ({
+    ptb: 0,
+    mh: 0
+  }),
+  methods: {
+    beforeEnter(el) {
+      el.style.lastHeight = Math.ceil(el.getBoundingClientRect().height) + "px";
+      el.style.minHeight = "0px";
+      el.style.maxHeight = "0px";
+      el.style.overflow = "hidden";
+    },
+    enter(el, done) {
+      Velocity(
+        el,
+        { maxHeight: [el.style.lastHeight, "0rem"], minHeight: ["3.5rem", "0rem"], overflow: "visible" },
+        {
+          duration: 400,
+          complete: () => {
+            el.style.maxHeight = 'unset';
+            done();
+          },
+        }
+      );
+    },
+    leave(el, done) {
+      el.style.overflow = "hidden";
+      Velocity(
+        el,
+        { maxHeight: "0px", minHeight: "0px"},
+        {
+          duration: 400,
+          complete: done,
+        },
+      );
+    }
+  },
 })
 export default class extends Vue {
   @ExpensesStore.Getter("sortedItems") data;
@@ -168,3 +210,47 @@ export default class extends Vue {
   }
 }
 </script>
+
+<style lang="scss">
+  table, tbody, thead, tfoot, tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: row;
+    transition: transform 1s;
+  }
+
+  td, th {
+    flex: 1;
+  }
+
+  @keyframes on-move-animation {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateX(-3.5rem);
+      max-height: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+      max-height: 3.5rem;
+    }
+  }
+
+  .on-move {
+    opacity: 0;
+    max-height: 0;
+    transform: scale(0) translateX(-3.5rem);
+    animation: on-move-animation 0.4s ease-in-out forwards;
+  }
+
+  .flip-list-move {
+    @extend .on-move;
+    animation-play-state: initial;
+    animation-delay: 0;
+    max-height: 3.5rem;
+  }
+</style>

@@ -27,6 +27,8 @@ const config: NuxtConfiguration = {
   plugins: [
     '~/plugins/vee-validate',
     '~/plugins/buefy',
+    '~/plugins/portal-vue',
+    '~/plugins/vue-dom-portal',
     '~/plugins/rxjs',
     { src: '~/plugins/vuex-shared-mutations', ssr: false },
   ],

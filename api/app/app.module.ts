@@ -12,7 +12,7 @@ import { ExpensesModule } from '../expenses/expenses.module';
     GraphQLModule.forRoot({
       playground: true,
       typePaths: ['./**/*.graphql'],
-      path: process.env.IS_EXPRESS ? '/api/graphql' : '/graphql',
+      path: process.env.IS_SEPARATE ? '/api/graphql' : '/graphql',
     }),
     DatabaseModule,
     AuthModule,

@@ -75,15 +75,15 @@ const config: NuxtConfiguration = {
         configExtended.devtool = '#source-map';
       }
     },
-    watch: process.env.IS_EXPRESS ? [] : ['api/**/*'],
+    watch: process.env.IS_SEPARATE ? [] : ['api/**/*'],
   },
-  serverMiddleware: process.env.IS_EXPRESS ? [] : [
+  serverMiddleware: process.env.IS_SEPARATE ? [] : [
     { path: '/api', handler: '~/api/main.ts'},
   ],
   router: {
     middleware: ['fwdcookies', 'auth'],
   },
-  proxy: process.env.IS_EXPRESS ? {
+  proxy: process.env.IS_SEPARATE ? {
     '/api': 'http://localhost:4000',
   } : {},
 };

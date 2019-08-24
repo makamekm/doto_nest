@@ -9,7 +9,7 @@
     "node": "~10.15.3"
   },
   "scripts": {
-    "dev": "IS_EXPRESS=true run-p dev:ui dev:api dev:gql",
+    "dev": "IS_SEPARATE=true run-p dev:ui dev:api dev:gql",
     "dev:ui": "nuxt",
     "dev:gql": "ts-node-dev --project ./tsconfig.express.json generate-typings",
     "start": "nuxt start",

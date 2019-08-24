@@ -2,7 +2,7 @@ import app, {
   tryStartBootstrap,
 } from './api/main';
 
-process.env.IS_EXPRESS = 'true';
+process.env.IS_SEPARATE = 'true';
 
 const port = process.env.PORT || 4000;
 

@@ -33,7 +33,7 @@ export async function tryStartBootstrap() {
 async function bootstrap() {
   const adapter = new ExpressAdapter(expressApp);
   const server = await NestFactory.create(AppModule, adapter);
-  if (!!process.env.IS_EXPRESS) {
+  if (!!process.env.IS_SEPARATE) {
     server.setGlobalPrefix('api');
   }
   await server.enableCors();

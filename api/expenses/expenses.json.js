@@ -7,8 +7,8 @@ export default [{
     categoryName: "Food",
     parentId: null,
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "f14f448",
@@ -19,8 +19,8 @@ export default [{
     categoryName: "Parking",
     parentId: null,
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "333ea42b3db09f",
@@ -31,8 +31,8 @@ export default [{
     parentId: null,
     categoryName: "Transport",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "993a42b3db09f",
@@ -43,8 +43,8 @@ export default [{
     parentId: null,
     categoryName: "Car Rental",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "f2b3db09f",
@@ -55,8 +55,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "14fb3db09f",
@@ -67,8 +67,8 @@ export default [{
     parentId: null,
     categoryName: "Hotel & Accomodation",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7f892b3db09f",
@@ -79,8 +79,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7b09f",
@@ -91,8 +91,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc77ea42b3db09f",
@@ -103,8 +103,8 @@ export default [{
     parentId: null,
     categoryName: "Car Rental",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7fb3db09f",
@@ -115,8 +115,8 @@ export default [{
     parentId: null,
     categoryName: "Transport",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7f82133db09f",
@@ -127,8 +127,8 @@ export default [{
     parentId: null,
     categoryName: "Hotel & Accomodation",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fca42b3db09f",
@@ -139,8 +139,8 @@ export default [{
     parentId: null,
     categoryName: "Parking",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "a42b3db09f",
@@ -151,8 +151,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "2b3db09f",
@@ -163,8 +163,8 @@ export default [{
     categoryName: "Food",
     parentId: null,
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "2b3db09f2342343",
@@ -175,8 +175,8 @@ export default [{
     categoryName: "Parking",
     parentId: null,
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "a42b3db09f23123",
@@ -187,8 +187,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
     {
     id: "fc7f892b3db09f234",
@@ -199,8 +199,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7b09f234",
@@ -211,8 +211,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc77ea42b3db09f23213",
@@ -223,8 +223,8 @@ export default [{
     parentId: null,
     categoryName: "Car Rental",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7fb3db09f123123",
@@ -235,8 +235,8 @@ export default [{
     parentId: null,
     categoryName: "Transport",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "abc3db09f",
@@ -247,8 +247,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "fc7b09f233",
@@ -259,8 +259,8 @@ export default [{
     parentId: null,
     categoryName: "Food",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "abe232333",
@@ -271,8 +271,8 @@ export default [{
     parentId: null,
     categoryName: "Car Rental",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
   {
     id: "asdsds211ab",
@@ -283,7 +283,7 @@ export default [{
     parentId: null,
     categoryName: "Transport",
     status: {
-      stage: "Submitted"
-    }
+      stage: "Submitted",
+    },
   },
-]
+];

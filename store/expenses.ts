@@ -29,7 +29,7 @@ const store: StoreOptions<ExpensesState> = {
         fields: ['merchant', 'currency', 'categoryName', 'amount', 'date'],
         sort: [
           {
-            field: state.sortBy, direction: state.sortByDescending ? 'desc' : 'asc'
+            field: state.sortBy, direction: state.sortByDescending ? 'desc' : 'asc',
           },
         ],
       }).items.map(i => state.items[i.id]).slice(offset, state.limit + offset);
@@ -40,11 +40,11 @@ const store: StoreOptions<ExpensesState> = {
         fields: ['merchant', 'currency', 'categoryName', 'amount', 'date'],
         sort: [
           {
-            field: state.sortBy, direction: state.sortByDescending ? 'desc' : 'asc'
+            field: state.sortBy, direction: state.sortByDescending ? 'desc' : 'asc',
           },
         ],
       }).items.map(i => state.items[i.id]).length;
-    }
+    },
   },
   actions: {
     setPage({ commit, state }, page) {
@@ -79,7 +79,7 @@ const store: StoreOptions<ExpensesState> = {
               stage
             }
           }
-        }`
+        }`,
       });
       commit('setItems', expenses.map(e => ({
         ...e,

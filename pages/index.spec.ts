@@ -8,16 +8,17 @@ import VueRouter from 'vue-router';
 describe('page index', () => {
 
   const getData = () => ([{
-    id: 1,
-    version: {
-      id: 0,
-      version: 'qwerty',
+    id: 'fc7f8213',
+    date: '2019-08-12T09:18:30Z',
+    amount: 1324.00,
+    merchant: 'vitales',
+    currency: 'DKK',
+    categoryName: 'Food',
+    parentId: null,
+    status: {
+      stage: 'Submitted',
     },
-    name: 'test',
-    status: 'good',
-    author: 'maxim',
-    date: '01/01/2019 10:10:10',
-    comments: 'It was very necessary',
+    approved: true,
   }]);
 
   const getStore = (nodes: any[] = []) => {
@@ -26,13 +27,32 @@ describe('page index', () => {
       onLoad,
       store: new Store({
         modules: {
-          node: {
+          LocalStorage: {
+            namespaced: true,
+            state: () => ({
+              expenses: [],
+            }),
+            actions: {
+              setExpenses: jest.fn(),
+            },
+          },
+          expenses: {
             namespaced: true,
             state: () => ({
               nodes,
+              limit: 10,
+              page: 1,
+              sortBy: null,
+              sortByDescending: false,
             }),
             actions: {
-              loadNodes: onLoad,
+              loadItems: onLoad,
+              setPage: jest.fn(),
+              toggleSortBy: jest.fn(),
+            },
+            getters: {
+              sortedItems: () => [],
+              total: () => 0,
             },
           },
         },
@@ -94,22 +114,22 @@ describe('page index', () => {
     expect(onLoad).toBeCalled();
   });
 
-  test('should open page node/1', async () => {
-    const localVue = getLocalVue();
-    const { store } = getStore(getData());
-    let route;
-    const { router, onPush } = getRouter(r => route = r);
-    const wrapper = mount(page, {
-      localVue,
-      store,
-      mocks: {
-        $router: router,
-      },
-    });
-    await wrapper.vm.$options.fetch!(getContext(store));
-    const node = wrapper.find('tbody tr.lc-pointer');
-    node.trigger('click');
-    expect(onPush).toBeCalled();
-    expect(route.path).toBe('/node/1');
-  });
+  // test('should open page node/1', async () => {
+  //   const localVue = getLocalVue();
+  //   const { store } = getStore(getData());
+  //   let route;
+  //   const { router, onPush } = getRouter(r => route = r);
+  //   const wrapper = mount(page, {
+  //     localVue,
+  //     store,
+  //     mocks: {
+  //       $router: router,
+  //     },
+  //   });
+  //   await wrapper.vm.$options.fetch!(getContext(store));
+  //   const node = wrapper.find('tbody tr.lc-pointer');
+  //   node.trigger('click');
+  //   expect(onPush).toBeCalled();
+  //   expect(route.path).toBe('/node/1');
+  // });
 });

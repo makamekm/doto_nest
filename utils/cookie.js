@@ -1,10 +1,10 @@
-import cookie from 'cookie';
+import cookie from "cookie";
 
 export const getCookie = ($axios) => {
   if (process.client) {
-    return cookie.parse(document.cookie || '');
+    return cookie.parse(document.cookie || "");
   } else {
-    return cookie.parse($axios.defaults.headers.common.cookie || '');
+    return cookie.parse($axios.defaults.headers.common.cookie || "");
   }
 };
 
@@ -15,8 +15,8 @@ date.setTime(+ date + (days * 86400000));
 export const setCookie = (cookies, data = {
   token: {
     expiration: date.toGMTString(),
-    path: '/'
-  }
+    path: "/",
+  },
 }) => {
   const newCookie = Object.keys(cookies)
     .map(key => {
@@ -27,6 +27,6 @@ export const setCookie = (cookies, data = {
         return cook;
       }
     })
-    .join('; ');
+    .join("; ");
   document.cookie = newCookie;
 };

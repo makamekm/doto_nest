@@ -7,7 +7,7 @@ export class AuthorResolver {
   @Query()
   async author(@Args('id') id: number): Promise<Author> {
     return {
-      id: id,
+      id,
       firstName: `Hello World! ${id}`,
     };
   }

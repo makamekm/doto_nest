@@ -1,7 +1,7 @@
-import { getCookie } from '~/utils/cookie';
+import { getCookie } from "~/utils/cookie";
 
-export default function (ctx) {
+export default function(ctx) {
   const token = getCookie(ctx.$axios).token;
   ctx.$axios.defaults.headers.Authorization = `Bearer ${token}`;
-  return ctx.store.dispatch('auth/check');
+  return ctx.store.dispatch("auth/check");
 }

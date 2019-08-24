@@ -8,7 +8,7 @@ config.dev = !process.env.PRODUCTION;
 
 async function run() {
   const host = process.env.HOST || '127.0.0.1';
-  const port = process.env.PORT ? parseInt(process.env.PORT, 10) : parseInt(process.argv[process.argv.length - 1] ,10);
+  const port = process.env.PORT ? parseInt(process.env.PORT, 10) : parseInt(process.argv[process.argv.length - 1] , 10);
   expressApp.set('port', port);
   config.env = {
     baseUrl: host,

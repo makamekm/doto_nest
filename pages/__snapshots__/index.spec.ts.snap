@@ -2,598 +2,130 @@
 
 exports[`page index should renders properly with data 1`] = `
 <div>
-  <div class="hero is-light p-b-6 p-t-6 m-t-7">
-    <div class="container p-b-2 p-l-4 p-r-4 p-l-0-desktop p-r-0-desktop" style="width: 100%;">
-      <div class="columns is-multiline is-variable is-1 is-vcentered">
-        <div class="column">
-          <div class="field is-expanded">
-            <!---->
-            <div class="control has-icons-left is-expanded is-clearfix"><input type="text" autocomplete="on" placeholder="Lookup..." class="input"> <span class="icon is-left"><i class="fab fa-searchengin fa-lg"></i></span>
-              <!---->
-              <!---->
-            </div>
-            <!---->
-          </div>
-        </div>
-        <div class="column is-narrow">
-          <div class="field">
-            <!----> <button class="button is-primary fix-white-on-focus is-expanded"><span class="icon is-small"><i class="fas fa-search"></i></span> <span>Search</span></button>
-            <!---->
-          </div>
-        </div>
-        <div class="column is-narrow">
-          <div class="has-text-centered"><button type="button" class="button is-transparent is-small fix-white-on-focus is-expanded"><span class="icon is-small"><i class="fas fa-caret-down fas fa-caret-up"></i></span> <span>Filters</span></button></div>
-        </div>
-        <!---->
-      </div>
+  <div class="hero is-primary p-b-6 p-t-6 p-l-7 p-r-7 on-appear-slide-down on-delay-0">
+    <div class="has-text-weight-bold is-size-5" style="letter-spacing: 1px;">
+      Expenses
     </div>
   </div>
-  <div class="container m-t-6 p-b-6">
-    <div class="columns is-multiline">
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
-                    <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
+  <div class="table-container on-appear-slide-up on-delay-1">
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr class="on-appear-scale-left on-delay-3">
+          <th>Date</th>
+          <th class="interactable">
+            <div class="columns is-vcentered">
+              <div class="column">
+                Merchant
               </div>
-              <!---->
-              <!---->
-              <!---->
+              <div class="column is-narrow font-size-0"><i class="i is-size-6 sort"></i></div>
             </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
+          </th>
+          <th class="interactable">
+            <div class="columns is-vcentered">
+              <div class="column">
+                Category
               </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
+              <div class="column is-narrow font-size-0"><i class="i is-size-6 sort"></i></div>
             </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
+          </th>
+          <th class="interactable">
+            <div class="columns is-vcentered is-variable is-3">
+              <div class="column has-text-right">
+                Amount
+              </div>
+              <div class="column is-narrow font-size-0"><i class="i is-size-6 sort"></i></div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
+          </th>
+          <th class="has-text-right">Valuta</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody name="table-row-on" duration="[object Object]"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6" class="p-t-8 p-b-8 has-text-centered">
+            <div class="columns is-centered on-appear-slide-up on-delay-4">
+              <div class="column is-one-third">
+                <nav class="pagination"><a role="button" href="#" disabled="disabled" aria-label="Previous page" class="pagination-previous"><span class="icon" aria-hidden="true"><i class="fa fa-angle-left fa-lg"></i></span></a> <a role="button" href="#" disabled="disabled" aria-label="Next page" class="pagination-next"><span class="icon" aria-hidden="true"><i class="fa fa-angle-right fa-lg"></i></span></a>
+                  <ul class="pagination-list">
                     <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
                     <!---->
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
                     <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
                     <!---->
-                  </div>
-                </div>
+                  </ul>
+                  <!---->
+                </nav>
               </div>
-              <!---->
-              <!---->
-              <!---->
             </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
-                    <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
-                    <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="p-b-2 p-l-4 p-r-4 p-l-0-desktop p-r-0-desktop">
-      <nav class="pagination"><a role="button" href="#" disabled="disabled" aria-label="Previous page" class="pagination-previous"><span class="icon" aria-hidden="true"><i class="mdi mdi-chevron-left mdi-24px"></i></span></a> <a role="button" href="#" aria-label="Next page" class="pagination-next"><span class="icon" aria-hidden="true"><i class="mdi mdi-chevron-right mdi-24px"></i></span></a>
-        <ul class="pagination-list">
-          <!---->
-          <!---->
-          <li><a role="button" href="#" aria-label="Current page, Page 1." aria-current="true" class="pagination-link is-current">
-              1
-            </a></li>
-          <li><a role="button" href="#" aria-label="Page 2." class="pagination-link">
-              2
-            </a></li>
-          <li><span class="pagination-ellipsis">…</span></li>
-          <li><a role="button" href="#" aria-label="Page 5." class="pagination-link">
-              5
-            </a></li>
-        </ul>
-        <!---->
-      </nav>
-    </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </div>
 `;
 
 exports[`page index should renders properly with no data 1`] = `
 <div>
-  <div class="hero is-light p-b-6 p-t-6 m-t-7">
-    <div class="container p-b-2 p-l-4 p-r-4 p-l-0-desktop p-r-0-desktop" style="width: 100%;">
-      <div class="columns is-multiline is-variable is-1 is-vcentered">
-        <div class="column">
-          <div class="field is-expanded">
-            <!---->
-            <div class="control has-icons-left is-expanded is-clearfix"><input type="text" autocomplete="on" placeholder="Lookup..." class="input"> <span class="icon is-left"><i class="fab fa-searchengin fa-lg"></i></span>
-              <!---->
-              <!---->
-            </div>
-            <!---->
-          </div>
-        </div>
-        <div class="column is-narrow">
-          <div class="field">
-            <!----> <button class="button is-primary fix-white-on-focus is-expanded"><span class="icon is-small"><i class="fas fa-search"></i></span> <span>Search</span></button>
-            <!---->
-          </div>
-        </div>
-        <div class="column is-narrow">
-          <div class="has-text-centered"><button type="button" class="button is-transparent is-small fix-white-on-focus is-expanded"><span class="icon is-small"><i class="fas fa-caret-down fas fa-caret-up"></i></span> <span>Filters</span></button></div>
-        </div>
-        <!---->
-      </div>
+  <div class="hero is-primary p-b-6 p-t-6 p-l-7 p-r-7 on-appear-slide-down on-delay-0">
+    <div class="has-text-weight-bold is-size-5" style="letter-spacing: 1px;">
+      Expenses
     </div>
   </div>
-  <div class="container m-t-6 p-b-6">
-    <div class="columns is-multiline">
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
-                    <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
+  <div class="table-container on-appear-slide-up on-delay-1">
+    <table class="table is-striped is-fullwidth">
+      <thead>
+        <tr class="on-appear-scale-left on-delay-3">
+          <th>Date</th>
+          <th class="interactable">
+            <div class="columns is-vcentered">
+              <div class="column">
+                Merchant
               </div>
-              <!---->
-              <!---->
-              <!---->
+              <div class="column is-narrow font-size-0"><i class="i is-size-6 sort"></i></div>
             </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
+          </th>
+          <th class="interactable">
+            <div class="columns is-vcentered">
+              <div class="column">
+                Category
               </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
+              <div class="column is-narrow font-size-0"><i class="i is-size-6 sort"></i></div>
             </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
+          </th>
+          <th class="interactable">
+            <div class="columns is-vcentered is-variable is-3">
+              <div class="column has-text-right">
+                Amount
+              </div>
+              <div class="column is-narrow font-size-0"><i class="i is-size-6 sort"></i></div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
+          </th>
+          <th class="has-text-right">Valuta</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody name="table-row-on" duration="[object Object]"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6" class="p-t-8 p-b-8 has-text-centered">
+            <div class="columns is-centered on-appear-slide-up on-delay-4">
+              <div class="column is-one-third">
+                <nav class="pagination"><a role="button" href="#" disabled="disabled" aria-label="Previous page" class="pagination-previous"><span class="icon" aria-hidden="true"><i class="fa fa-angle-left fa-lg"></i></span></a> <a role="button" href="#" disabled="disabled" aria-label="Next page" class="pagination-next"><span class="icon" aria-hidden="true"><i class="fa fa-angle-right fa-lg"></i></span></a>
+                  <ul class="pagination-list">
                     <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
                     <!---->
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
                     <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
                     <!---->
-                  </div>
-                </div>
+                  </ul>
+                  <!---->
+                </nav>
               </div>
-              <!---->
-              <!---->
-              <!---->
             </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
-                    <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="column is-12 is-4-desktop">
-        <div class="card is-interactable m-t-3 p-t-5 p-b-6 p-l-6 p-r-6">
-          <div class="has-text-weight-semibold is-size-6 has-text-font-title">
-            Raymond James
-          </div>
-          <div class="vueperslides no-shadow vueperslides--touchable" aria-label="Slideshow">
-            <!---->
-            <div class="vueperslides__inner">
-              <div class="vueperslides__parallax-wrapper" style="padding-bottom: 66.66666666666666%;" aria-live="polite">
-                <div class="vueperslides__track">
-                  <div class="vueperslides__track-inner" style="transition-duration: 0ms; transform: translate3d(0%, 0, 0); will-change: auto;">
-                    <!---->
-                    <div aria-hidden="false" class="vueperslide vueperslide--active vueperslide--visible" style="background-image: url(/uploads/2cr1.jpg);">
-                      <!---->
-                      <div class="vueperslide__content-wrapper" style="display: none;">
-                        <div class="vueperslide__title" style="display: none;">
-                          <div></div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                    </div>
-                    <!---->
-                  </div>
-                </div>
-              </div>
-              <!---->
-              <!---->
-              <!---->
-            </div>
-            <!---->
-            <!---->
-          </div>
-          <div>
-            <div class="columns is-vcentered m-t-3">
-              <div class="column is-size-3 has-text-font-price has-text-grey-dark has-text-weight-semibold has-text-centered">
-                500$
-              </div>
-              <div class="column is-size-7 has-text-weight-semibold has-text-centered"><span class="tag is-light m-t-2 m-b-1">SOFA</span> <span class="tag is-info m-t-2 m-b-1">SALE</span> <span class="tag is-success m-t-2 m-b-1">ECO</span> <span class="tag is-warning m-t-2 m-b-1">LIMITED</span> <span class="tag is-black m-t-2 m-b-1">SOON</span> <span class="tag is-danger m-t-2 m-b-1">OLD</span></div>
-            </div>
-            <div class="columns m-t-5">
-              <div class="column"><button class="button is-transparent fix-white-on-focus is-hero is-expanded"><span class="icon is-small"><i class="fas fa-cart-plus"></i></span> <span>To Cart</span></button></div>
-              <div class="column"><button class="button is-hero is-expanded">
-                  Overview
-                </button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="p-b-2 p-l-4 p-r-4 p-l-0-desktop p-r-0-desktop">
-      <nav class="pagination"><a role="button" href="#" disabled="disabled" aria-label="Previous page" class="pagination-previous"><span class="icon" aria-hidden="true"><i class="mdi mdi-chevron-left mdi-24px"></i></span></a> <a role="button" href="#" aria-label="Next page" class="pagination-next"><span class="icon" aria-hidden="true"><i class="mdi mdi-chevron-right mdi-24px"></i></span></a>
-        <ul class="pagination-list">
-          <!---->
-          <!---->
-          <li><a role="button" href="#" aria-label="Current page, Page 1." aria-current="true" class="pagination-link is-current">
-              1
-            </a></li>
-          <li><a role="button" href="#" aria-label="Page 2." class="pagination-link">
-              2
-            </a></li>
-          <li><span class="pagination-ellipsis">…</span></li>
-          <li><a role="button" href="#" aria-label="Page 5." class="pagination-link">
-              5
-            </a></li>
-        </ul>
-        <!---->
-      </nav>
-    </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </div>
 `;

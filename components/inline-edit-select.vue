@@ -44,7 +44,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Popper from 'popper.js';
 
 export default {

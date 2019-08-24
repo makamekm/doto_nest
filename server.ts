@@ -4,7 +4,7 @@ import {tryStartBootstrap} from './api/main';
 import express from 'express';
 
 const expressApp = express();
-config.dev = true;
+config.dev = !process.env.PRODUCTION;
 
 async function run() {
   const host = process.env.HOST || '127.0.0.1';
@@ -18,7 +18,7 @@ async function run() {
   const nuxt = new Nuxt(config);
   await Promise.all([
     tryStartBootstrap(),
-    (new Builder(nuxt)).build(),
+    config.dev || !!process.env.REBUILD ? (new Builder(nuxt)).build() : void 0,
   ]);
   expressApp.use(nuxt.render);
   await new Promise(r => {
